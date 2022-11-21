@@ -17,7 +17,7 @@ ul {
 }
 
 li {
-    /*float: left;*/
+    float: left;
     border: 1px solid #80ED99;
     border-radius: 44px;
     background-color: #22577A;
