@@ -1,34 +1,31 @@
 /* Color Palette: #22577A, #38A3A5, #57CC99, #80ED99 */
 
 body {
-background-color: #22577A;
+background-color: #38A3A5;
 }
 
-/* The Meny */
-
+/* MENY */
 ul {
     list-style-type: none;
-    margin: 0;
+    margin: 4px auto;
     padding: 0;
     overflow: hidden;
-    background-color: #38A3A5;
+    /*background-color: #22577A;*/
     position: fixed;
     top: 0;
-    width: 95%;
+    width: 100%;
 }
 
 li {
-    float: left;
-    border-right: 1px solid black;
-}
-
-li:last-child {
-    border-right: none;
+    /*float: left;*/
+    border: 1px solid #80ED99;
+    border-radius: 44px;
+    background-color: #22577A;
 }
 
 li a {
     display: block;
-    color: #000;
+    color: white;
     padding: 14px 16px;
     text-decoration: none;
     text-align: center;
@@ -36,11 +33,45 @@ li a {
 }
 
 li a:hover {
+    border-radius: 44px;
     background-color: #57CC99;
     color: white;
 }
 
 .active {
+    border-radius: 44px;
     background-color: #57CC99;
     color: white;
+}
+
+/* HEADER */
+.header {
+    clear: left;
+    background-color: #22577A;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    margin: 24px auto;
+}
+
+.header h1 {
+    font-size: 44px;
+    text-shadow: 2px 2px 2px #38A3A5;
+    text-transform: uppercase;
+}
+
+
+/* CONTENT */
+.content {
+    border: 1px solid white;
+    padding: 10px;
+    margin: 20px auto;
+}
+
+
+/* FOOTER */
+.footer {
+    background-color: #22577A;
+    text-align: center;
+    padding: 10px;
 }
