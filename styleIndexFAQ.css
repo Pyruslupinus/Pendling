@@ -5,44 +5,56 @@ background-color: #38A3A5;
 }
 
 /* MENY */
-ul {
+
+.meny {
+    position: sticky;
+}
+
+.meny ul {
     list-style-type: none;
     margin: 4px auto;
     padding: 0;
     overflow: hidden;
-    position: sticky;
+    /*position: sticky;*/
     top: 0;
     max-width: 800px;
 }
 
-li {
+.meny li {
     float: left;
     /*border: 1px solid #80ED99;*/
-    border-radius: 44px;
+    border-radius: 8px;
     background-color: #22577A;
     margin: 1px;
 }
 
-li a {
+.meny li a {
+    font-family: "Raleway";
+    text-decoration: none;
     display: block;
     color: white;
     padding: 8px 16px;
-    text-decoration: none;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #22577A;
 }
 
-li a:hover {
-    border-radius: 44px;
+.meny li a:hover {
+    border-radius: 8px;
     background-color: #57CC99;
     color: white;
+    border: 1px solid #80ED99;
 }
 
+/*
 .active {
-    border-radius: 44px;
+    border-radius: 8px;
     background-color: #57CC99;
     color: white;
+    border: 1px solid #80ED99;
 }
+*/
 
 /* HEADER */
 .header {
@@ -56,16 +68,18 @@ li a:hover {
 }
 
 .header h1 {
+    font-family: "Cambo";
     font-size: 44px;
     text-shadow: 2px 2px 2px #38A3A5;
     text-transform: uppercase;
     margin: 0px;
+    letter-spacing: 8px;
 }
 
 .header h2 {
+    font-family: "Abel";
     margin: 0px;
 }
-
 
 /* CONTENT */
 .content {
@@ -76,10 +90,47 @@ li a:hover {
     width: 95%;
 }
 
-
 /* FOOTER */
 .footer {
     background-color: #22577A;
+    padding: 0px;
+    width: 100%;
+}
+
+.footer ul {
+    background-color: #22577A;
+    align-content: center;
+    list-style-type: none;
+    margin: 4px auto;
+    padding: 0;
+    overflow: hidden;
+    position: bottom;
+    max-width: 220px;
+}
+
+.footer li {
+    float: left;
+    /*border: 1px solid #80ED99;*/
+    border-radius: 8px;
+    background-color: #22577A;
+    margin: 1px;
+}
+
+.footer li a {
+    font-family: "Raleway";
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 8px 16px;
     text-align: center;
-    padding: 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #22577A;
+}
+
+.footer li a:hover {
+    border-radius: 8px;
+    background-color: #57CC99;
+    color: white;
+    border: 1px solid #80ED99;
 }
