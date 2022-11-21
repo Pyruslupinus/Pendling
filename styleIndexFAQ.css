@@ -1,11 +1,17 @@
 /* Color Palette: #22577A, #38A3A5, #57CC99, #80ED99 */
 
+
+
+
+
+/*
 body {
 background-color: #22577A;
 }
 
 /* The Meny down below */
 
+/*
 .meny {
     margin: auto;
     padding: 4px;
@@ -17,14 +23,4 @@ background-color: #22577A;
     text-transform: uppercase;
     text-shadow: 2px 2px 2px 2px #38A3A5;
 }
-
-th, td {
-    border: 2 px solid;
-    border-color: #57CC99;
-}
-
-a {
-    color: #80ED99;
-}
-
-/* Other stylizing */
+*/
