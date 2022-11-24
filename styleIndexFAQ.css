@@ -57,8 +57,12 @@ body {
     border: 1px solid #80ED99;
 }
 
-/*
-.active {
+#inlogg {
+    float: right;
+}
+
+/* Försöka få bort det blåa vid klick..
+.meny a:active {
     border-radius: 8px;
     background-color: #57CC99;
     color: white;
