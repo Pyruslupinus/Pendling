@@ -13,7 +13,15 @@
 /* 
  You use variables with the var function in css
 
-      background-color: var(--dark);
+body {
+    background-color: var(--dark);
+}
+
+header {
+    background-color: var(--bright);
+}
+
+etc etc
 
 Bonus of doing this is that we can easily swap out parts of the palette since changing the color in a variable above will change all the
 places the variable is used
