@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+main {
+  min-height: 110vh;
+  text-align: center;
+}
+
+.display-title {
+  background-color: var(--bright);
+  font-size: 35pt;
+}
+
+.trip-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.trip-card {
+  padding: 1rem;
+}
+
+.trip-card:hover {
+  transform: scale(110%);
+}

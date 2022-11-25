@@ -1,0 +1,20 @@
+/* Include this first before any other stylesheets using the variables for it to work*/
+
+/* Color Palette: #22577A, #38A3A5, #57CC99, #80ED99 */
+
+/* Colours as variables */
+:root {
+  --dark: #22577a;
+  --medium-dark: #38a3a5;
+  --lighter: #57cc99;
+  --bright: #80ed99;
+}
+
+/* 
+ You use variables with the var function in css
+
+      background-color: var(--dark);
+
+Bonus of doing this is that we can easily swap out parts of the palette since changing the color in a variable above will change all the
+places the variable is used
+*/
