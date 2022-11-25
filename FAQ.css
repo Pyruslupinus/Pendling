@@ -1,0 +1,50 @@
+:root {
+  --darkColor: #22577a;
+  --mediumColor: #38a3a5;
+  --lightColorShadeDark: #57cc99;
+  --lightColorShadeLight: #80ed99;
+}
+
+body {
+  background-color: var(--mediumColor);
+}
+
+.grid-container {
+  display: grid;
+  gap: 1.5rem;
+  margin: 3rem;
+}
+
+@media (min-width: 40rem) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-span-two-col {
+    grid-column: span 2;
+  }
+}
+
+.FAQ {
+  border: 2px solid;
+  padding: 1rem;
+  background-color: white;
+}
+
+#searchbar {
+  width: 50%;
+  margin: auto;
+  height: 2rem;
+  font-size: 1.2rem;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.question {
+  font-size: 1.1rem;
+}
+
+.answer {
+  display: none;
+}
