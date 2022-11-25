@@ -16,6 +16,7 @@ const TripCard = (props) => {
   return (
     <article className="trip-card" style={borderStyle}>
       <i
+        id="type-logo"
         className={`fa-solid ${
           props.info.type === "passagerare"
             ? "fa-person-walking-luggage"
@@ -32,9 +33,10 @@ const TripCard = (props) => {
   );
 };
 
+//Originally I did this with the border-image trick from https://youtu.be/ypstT5UfCsk 9 minutes in
+//Now this is just a
 function getGradientBorder(color) {
   return {
-    border: "2px solid grey",
     background: `linear-gradient(-10deg, transparent 77%, ${color})`,
   };
 }

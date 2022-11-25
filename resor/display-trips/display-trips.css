@@ -36,16 +36,34 @@ main {
   gap: 1rem;
 }
 
+/* TRIP CARDS */
+
 .trip-card {
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 1rem;
   background-color: aliceblue;
   transition-duration: 0.2s;
   transition-property: transform;
   border-radius: 1px;
+  border: 2px solid gray;
 }
 
 .trip-card:hover {
   transform: scale(104%);
+}
+
+#type-logo {
+  position: absolute;
+  display: block;
+  top: 1rem;
+  left: 0.5rem;
+  color: white;
+}
+#type-logo:before {
+  background-color: black;
+  padding: 3px;
+  border-radius: 40%;
+  border: 1px solid black;
 }
