@@ -7,11 +7,16 @@ const DisplayList = () => {
   //2. Get our filters on the page and use the filter method to create a
   // const filteredTrips = trips.filter( etc etc )
 
+  //Id needs to be unique for each so very basic solution here at the moment
+  let id = 0;
   return (
     <section className="trip-display">
-      {/* 3 - Use the map method to create a new TripCard for each entry in trip*/}
+      {/* 3 - Use the map method to create a new TripCard for each entry in trip
+        Map is essentially: "For every thing in this list I want you to do this", so in this case we return a new react component so they're all drawn dynamically
+      */}
       {trips.map((trip) => {
-        return <TripCard key={trip.id} info={trip} />;
+        id++;
+        return <TripCard key={id} info={trip} />;
       })}
     </section>
   );
