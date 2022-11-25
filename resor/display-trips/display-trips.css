@@ -9,6 +9,15 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  /* background-image: repeating-linear-gradient(
+    40deg,
+    #22577a,
+    #38a3a5,
+    #57cc99,
+    #38a3a5,
+    #38a3a5,
+    #80ed99
+  ); */
 }
 
 main {
@@ -28,9 +37,15 @@ main {
 }
 
 .trip-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 1rem;
+  background-color: aliceblue;
+  transition-duration: 0.2s;
+  transition-property: transform;
+  border-radius: 1px;
 }
 
 .trip-card:hover {
-  transform: scale(110%);
+  transform: scale(104%);
 }
