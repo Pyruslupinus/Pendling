@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
+
 *,
 *::before,
 *::after {
@@ -9,7 +11,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* background-image: repeating-linear-gradient(
+  background-image: repeating-linear-gradient(
     40deg,
     #22577a,
     #38a3a5,
@@ -17,23 +19,38 @@ body {
     #38a3a5,
     #38a3a5,
     #80ed99
-  ); */
+  );
 }
 
 main {
   min-height: 110vh;
   text-align: left;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 1rem;
+  font-family: "Poppins", sans-serif;
+  min-width: min(50rem, 90vw);
 }
 
+/* TITLE */
+
 .display-title {
-  background-color: var(--bright);
   font-size: 35pt;
+  margin: 1rem 2.5rem;
 }
+
+/* FILTERS */
+
+#filters {
+  margin: 1rem 2.5rem;
+}
+
+/* TRIP DISPLAY */
 
 .trip-display {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 1rem 2.5rem;
 }
 
 /* TRIP CARDS */
@@ -43,15 +60,14 @@ main {
   position: relative;
   flex-direction: column;
 
-  background-color: aliceblue;
   transition-duration: 0.2s;
   transition-property: transform;
-  padding: 0.6rem 0.3rem;
-  border-radius: 10px;
+  border-radius: 0.6rem;
   border-width: 2px;
-  border-style: dotted solid solid dotted;
+  border-style: solid;
   min-height: 14rem;
   min-width: 25rem;
+  padding: 1rem;
 }
 
 .trip-card:hover {
@@ -93,10 +109,9 @@ main {
 
 #travel-type-text {
   font-size: large;
-  font-weight: 800;
+  font-weight: 600;
   position: absolute;
   top: 0.5rem;
-  right: 0.2rem;
+  right: 0.5rem;
   text-align: right;
-  font-variant: small-caps;
 }
