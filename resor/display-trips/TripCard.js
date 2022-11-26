@@ -37,6 +37,6 @@ const TripCard = (props) => {
 //Now this is just a
 function getGradientBorder(color) {
   return {
-    background: `linear-gradient(-10deg, transparent 77%, ${color})`,
+    background: `linear-gradient(135deg, transparent 77%, ${color})`,
   };
 }

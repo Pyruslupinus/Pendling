@@ -48,6 +48,8 @@ main {
   transition-property: transform;
   border-radius: 1px;
   border: 2px solid gray;
+
+  min-height: 14rem;
 }
 
 .trip-card:hover {
@@ -58,12 +60,12 @@ main {
   position: absolute;
   display: block;
   top: 1rem;
-  left: 0.5rem;
+  left: 0.2rem;
   color: white;
 }
 #type-logo:before {
   background-color: black;
   padding: 3px;
-  border-radius: 40%;
+  border-radius: 25%;
   border: 1px solid black;
 }
