@@ -7,26 +7,32 @@
 const TripCard = (props) => {
   const cardInfo = props.info;
 
-  //Conditional operator - testar bool ? om bool = true : om bool = false
+  //Conditional operator (tertiary operator) - testar (bool ? om bool = true körs den här sidan : om bool = false körs den här sidan)
+  //Går att göra ganska mycket roligt med react och den eftersom vi kan peta in javascript mellan {} i html-stycken
+  //Eftersom vi ska ha ut en hel del varierade saker kör jag allt på samma gång däremot
+  const variableInfo = {
+    typeLogo:
+      props.info.type === "passagerare"
+        ? "fa-person-walking-luggage"
+        : "fa-car",
+    gradientColor: props.info.traveltype === "resa" ? "#22577a" : "#80ed99",
+    traveltypeText:
+      (props.info.type === "passagerare" ? "Söker " : "Erbjuder ") +
+      (props.info.traveltype === "resa" ? "Resa" : "Pendling"),
+  };
 
-  const borderStyle = getGradientBorder(
-    props.info.traveltype === "resa" ? "#22577a" : "#80ed99"
-  );
+  const borderStyle = getGradientBorder(variableInfo.gradientColor);
 
   return (
     <article className="trip-card" style={borderStyle}>
       <i
         id="type-logo"
-        className={`fa-solid ${
-          props.info.type === "passagerare"
-            ? "fa-person-walking-luggage"
-            : "fa-car"
-        } fa-lg`}
+        className={`fa-solid ${variableInfo.typeLogo} fa-lg`}
       ></i>
-      <p>{cardInfo.type}</p>
-      <p>{cardInfo.traveltype}</p>
-      <p>{cardInfo.from}</p>
-      <p>{cardInfo.to}</p>
+      <span id="trip-destination" className="capitalize">
+        {cardInfo.from} - {cardInfo.to}
+      </span>
+      <span id="travel-type-text">{variableInfo.traveltypeText}</span>
       <p>{cardInfo.date}</p>
       <p>{cardInfo.time}</p>
     </article>
@@ -34,9 +40,11 @@ const TripCard = (props) => {
 };
 
 //Originally I did this with the border-image trick from https://youtu.be/ypstT5UfCsk 9 minutes in
-//Now this is just a
+//Now this is a much simpler way of doing it so no more sillyness
 function getGradientBorder(color) {
   return {
     background: `linear-gradient(135deg, transparent 77%, ${color})`,
+    boxShadow: `3px 3px ${color}`,
+    borderColor: `${color}`,
   };
 }
