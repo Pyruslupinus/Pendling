@@ -16,15 +16,20 @@ const TripCard = (props) => {
         ? "fa-person-walking-luggage"
         : "fa-car",
     gradientColor: props.info.traveltype === "resa" ? "#22577a" : "#80ed99",
+    dropColor: props.info.traveltype === "resa" ? "#22577a" : "#80ed99",
     traveltypeText:
       (props.info.type === "passagerare" ? "Söker " : "Erbjuder ") +
       (props.info.traveltype === "resa" ? "Resa" : "Pendling"),
   };
 
-  const borderStyle = getGradientBorder(variableInfo.gradientColor);
+  let cardStyle = {};
+  cardStyle = setGradientBorder(cardStyle, variableInfo.gradientColor);
+  cardStyle = setDropShadow(cardStyle, variableInfo.dropColor);
+
+  const travelDate = getTravelDate(cardInfo.date);
 
   return (
-    <article className="trip-card" style={borderStyle}>
+    <article className="trip-card" style={cardStyle}>
       <i
         id="type-logo"
         className={`fa-solid ${variableInfo.typeLogo} fa-lg`}
@@ -41,10 +46,16 @@ const TripCard = (props) => {
 
 //Originally I did this with the border-image trick from https://youtu.be/ypstT5UfCsk 9 minutes in
 //Now this is a much simpler way of doing it so no more sillyness
-function getGradientBorder(color) {
-  return {
-    background: `linear-gradient(135deg, #f0f8ffd0 77%, ${color})`,
-    boxShadow: `0px 2px ${color}`,
-    borderColor: `${color}`,
-  };
+function setGradientBorder(style, color) {
+  style.background = `linear-gradient(135deg, #f0f8ffd0 77%, ${color})`;
+  style.borderColor = `${color}`;
+
+  return style;
 }
+
+function setDropShadow(style, color) {
+  style.boxShadow = `0px 2px ${color}`;
+  return style;
+}
+
+function getTravelDate(dateString) {}

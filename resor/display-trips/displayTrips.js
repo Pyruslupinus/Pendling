@@ -10,7 +10,7 @@ const DisplayList = () => {
   //Id needs to be unique for each so very basic solution here at the moment
   let id = 0;
   return (
-    <section className="trip-display">
+    <section className="trip-display flex-column">
       {/* 3 - Use the map method to create a new TripCard for each entry in trip
         Map is essentially: "For every thing in this list I want you to do this", so in this case we return a new react component so they're all drawn dynamically
       */}

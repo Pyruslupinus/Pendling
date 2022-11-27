@@ -13,12 +13,12 @@ body {
   align-items: center;
   background-image: repeating-linear-gradient(
     40deg,
-    #22577a,
-    #38a3a5,
-    #57cc99,
-    #38a3a5,
-    #38a3a5,
-    #80ed99
+    #22577aa4,
+    #38a3a594,
+    #57cc9980,
+    #38a3a580,
+    #38a3a577,
+    #80ed9991
   );
 }
 
@@ -29,6 +29,16 @@ main {
   border-radius: 1rem;
   font-family: "Poppins", sans-serif;
   min-width: min(50rem, 90vw);
+  max-width: min(60rem, 90vw);
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+/* Meta-classes */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
 }
 
 /* TITLE */
@@ -36,6 +46,14 @@ main {
 .display-title {
   font-size: 35pt;
   margin: 1rem 2.5rem;
+  grid-column: span 2;
+  line-height: 1;
+}
+
+#display-divider {
+  grid-column: span 2;
+  width: 90%;
+  margin-top: 0;
 }
 
 /* FILTERS */
@@ -44,13 +62,15 @@ main {
   margin: 1rem 2.5rem;
 }
 
+#filter-title {
+}
+
 /* TRIP DISPLAY */
 
 .trip-display {
-  display: flex;
-  flex-direction: column;
   gap: 1rem;
   padding: 1rem 2.5rem;
+  line-height: 1;
 }
 
 /* TRIP CARDS */
@@ -66,7 +86,7 @@ main {
   border-width: 2px;
   border-style: solid;
   min-height: 14rem;
-  min-width: 25rem;
+  min-width: min(25rem, 75%);
   padding: 1rem;
 }
 
@@ -111,7 +131,13 @@ main {
   font-size: large;
   font-weight: 600;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  text-align: right;
+  top: 0.7rem;
+  left: 3rem;
+  text-align: left;
+}
+
+@media only screen and (max-width: 650px) {
+  #filters {
+    grid-column: span 2;
+  }
 }
