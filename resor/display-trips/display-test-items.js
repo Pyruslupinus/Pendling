@@ -6,6 +6,11 @@ const resa1 = {
   to: "sala",
   date: "2022-09-23",
   time: "8:30",
+  passagerarInfo: {
+    antal: 4,
+    vuxna: 3,
+    barn: 1,
+  },
 };
 
 const resa2 = {
@@ -16,6 +21,11 @@ const resa2 = {
   to: "tuc yrkeshögskola",
   date: "2022-10-23",
   time: "8:30",
+  passagerarInfo: {
+    antal: 8,
+    vuxna: 5,
+    barn: 3,
+  },
 };
 
 const resa3 = {
@@ -26,6 +36,11 @@ const resa3 = {
   to: "mjölby",
   date: "2022-11-24",
   time: "8:30",
+  passagerarInfo: {
+    antal: 3,
+    vuxna: 1,
+    barn: 2,
+  },
 };
 
 const resa4 = {
@@ -36,6 +51,11 @@ const resa4 = {
   to: "gotland",
   date: "2022-11-25",
   time: "8:30",
+  passagerarInfo: {
+    antal: 1,
+    vuxna: 1,
+    barn: 0,
+  },
 };
 
 function GetDataBase() {
