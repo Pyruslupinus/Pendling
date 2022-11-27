@@ -21,11 +21,16 @@ const TripCard = (props) => {
       (props.info.type === "passagerare" ? "Söker " : "Erbjuder ") +
       (props.info.traveltype === "resa" ? "Resa" : "Pendling"),
   };
+  //Tldr for above is that we're doing some style and text changes based on the 4 possible
+  //combinations of passagerare, ägare, pendling & resa. A more readable method would have been a switch
+  //and functions returning different objects, although that would have made the code much longer
 
+  //Construct the parts of the styling that varies depending on the variableInfo
   let cardStyle = {};
   cardStyle = setGradientBorder(cardStyle, variableInfo.gradientColor);
   cardStyle = setDropShadow(cardStyle, variableInfo.dropColor);
 
+  //Create a readable version of our passed in date
   const travelDate = getTravelDate(cardInfo.date);
 
   return (
@@ -38,8 +43,9 @@ const TripCard = (props) => {
         {cardInfo.from} - {cardInfo.to}
       </span>
       <span id="travel-type-text">{variableInfo.traveltypeText}</span>
-      <p>{cardInfo.date}</p>
-      <p>{cardInfo.time}</p>
+      <span>{travelDate}</span>
+      <span>Klockan {cardInfo.time}</span>
+      <span>Antal Passagerare 2</span>
     </article>
   );
 };
@@ -58,4 +64,67 @@ function setDropShadow(style, color) {
   return style;
 }
 
-function getTravelDate(dateString) {}
+function getTravelDate(dateString) {
+  const travelDate = new Date(dateString);
+
+  return (
+    getDayText(travelDate.getDay()) +
+    ", den " +
+    travelDate.getDate() +
+    " " +
+    getMonthText(travelDate.getMonth())
+  );
+}
+
+//Gonna move these (together with saving & loading from localstorage) to a helper script later
+function getDayText(weekDayIndex) {
+  switch (weekDayIndex) {
+    case 0:
+      return "Måndag";
+    case 1:
+      return "Tisdag";
+    case 2:
+      return "Onsdag";
+    case 3:
+      return "Torsdag";
+    case 4:
+      return "Fredag";
+    case 5:
+      return "Lördag";
+    case 6:
+      return "Söndag";
+    default:
+      return "";
+  }
+}
+
+function getMonthText(monthIndex) {
+  switch (monthIndex) {
+    case 0:
+      return "Januari";
+    case 1:
+      return "Februari";
+    case 2:
+      return "Mars";
+    case 3:
+      return "April";
+    case 4:
+      return "Maj";
+    case 5:
+      return "Juni";
+    case 6:
+      return "Juli";
+    case 7:
+      return "Augusti";
+    case 8:
+      return "September";
+    case 9:
+      return "Oktober";
+    case 10:
+      return "November";
+    case 11:
+      return "Juli";
+    default:
+      return "";
+  }
+}
