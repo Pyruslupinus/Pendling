@@ -11,17 +11,8 @@ body {
 
 .grid-container {
   display: grid;
-  gap: 1.5rem;
   margin: 3rem;
-}
-
-@media (min-width: 40rem) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-span-two-col {
-    grid-column: span 2;
-  }
+  gap: 1.5rem;
 }
 
 .FAQ {
@@ -42,9 +33,5 @@ body {
 }
 
 .question {
-  font-size: 1.1rem;
-}
-
-.answer {
-  display: none;
+  font-size: 0.7rem;
 }
