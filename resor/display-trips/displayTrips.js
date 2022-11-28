@@ -4,6 +4,24 @@ const DisplayList = () => {
   const trips = GetDataBase();
   console.log(trips);
 
+  SaveDataBase();
+  LoadDataBase();
+  AppendToDB({
+    id: 1000,
+    type: "sdadadas",
+    traveltype: "egwfwefwe",
+    from: "hghsgfh",
+    to: "shsrgh",
+    date: "2022-12-25",
+    time: "8:30",
+    passagerarInfo: {
+      antal: 5,
+      vuxna: 4,
+      barn: 0,
+    },
+  });
+  LoadDataBase();
+
   //2. Get our filters on the page and use the filter method to create a
   // const filteredTrips = trips.filter( etc etc )
 

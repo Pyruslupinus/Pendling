@@ -83,6 +83,44 @@ function GetDataBase() {
   ];
 }
 
+const fakeDataBase = [
+  resa1,
+  resa2,
+  resa3,
+  resa4,
+  resa1,
+  resa2,
+  resa3,
+  resa1,
+  resa2,
+  resa3,
+  resa4,
+  resa1,
+  resa2,
+  resa3,
+  resa4,
+  resa4,
+  resa1,
+  resa2,
+  resa3,
+  resa4,
+];
+
+function SaveDataBase() {
+  window.localStorage.setItem("database", JSON.stringify(fakeDataBase));
+}
+
+function LoadDataBase() {
+  console.log(window.localStorage.getItem("database"));
+  console.log(JSON.parse(window.localStorage.getItem("database")));
+}
+
+function AppendToDB(item) {
+  let db = JSON.parse(window.localStorage.getItem("database"));
+  db.push(item);
+  window.localStorage.setItem("database", JSON.stringify(db));
+}
+
 //We can nest things in objects in js so we could format our info like this
 
 const resaExempel = {
