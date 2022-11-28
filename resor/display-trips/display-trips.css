@@ -31,8 +31,8 @@ main {
   font-family: "Poppins", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Meta-classes */
@@ -40,6 +40,19 @@ main {
 .flex-column {
   display: flex;
   flex-direction: column;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #3b3939;
+}
+
+/* MAIN LAYOUT */
+#main-container {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  padding: 1rem 2.5rem;
 }
 
 /* TITLE */
@@ -60,6 +73,10 @@ main {
 /* FILTERS */
 
 #filters {
+  line-height: 2;
+}
+
+#filters-root {
   margin: 1rem 2.5rem;
 }
 
@@ -69,12 +86,22 @@ main {
   line-height: 1;
 }
 
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 0.4rem;
+}
+
+.filter-section select {
+  padding: 0.4rem;
+  margin: 0.2rem 1rem;
+}
+
 /* TRIP DISPLAY */
 
 .trip-display {
   gap: 1rem;
-  padding: 1rem 2.5rem;
-  line-height: 1;
+  width: 100%;
 }
 
 /* TRIP CARDS */
@@ -90,7 +117,6 @@ main {
   border-width: 2px;
   border-style: solid;
   min-height: 14rem;
-  min-width: min(30rem, 40vw);
   padding: 1rem;
   line-height: 1.5rem;
   gap: 0.45rem;
@@ -115,9 +141,6 @@ main {
 
 .section-title {
   margin-left: -0.4rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  color: #3b3939;
 }
 
 .capitalize {
@@ -178,8 +201,14 @@ main {
   font-size: 2.4rem;
 }
 
+/* MEDIA QUERIES */
+
 @media only screen and (max-width: 650px) {
   #filters {
+    grid-column: span 2;
+  }
+
+  .trip-display {
     grid-column: span 2;
   }
 }
@@ -199,7 +228,7 @@ main {
   max-width: 40%;
   background-color: black;
   /* Ugly way to center it to the right of the icons but it works */
-  right: 0;
+  left: 53%;
   top: 2.3rem;
   color: #fff;
   text-align: center;

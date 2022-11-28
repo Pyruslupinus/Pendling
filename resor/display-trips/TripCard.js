@@ -130,7 +130,7 @@ function getMonthText(monthIndex) {
 const CardTimeInfo = (props) => {
   return (
     <div className={"flex-column card-section"}>
-      <span className="section-title">Tid</span>
+      <span className={"section-title subtitle"}>Tid</span>
       <span>{props.dateInfo}</span>
       <span>Klockan {props.timeInfo}</span>
     </div>
@@ -147,6 +147,7 @@ const CardPassengerInfo = (props) => {
   const [passengerText, setPassengerText] = React.useState("");
 
   //useEffect = Do this after everything has loaded & rendered
+  //(technically, do this after every render)
   //Need to do this since we can't directly set things in this method
   //because that would call for a re-render which would then call this method
   //and cause a loop
@@ -156,7 +157,7 @@ const CardPassengerInfo = (props) => {
     //Depending on how many adults we have we want to display either vuxen / vuxna, and
     //if we have any children we want to display their count, otherwise end the sentence with a dot
     let passengerText = `${adultCount} ${adultCount > 1 ? "vuxna" : "vuxen"}${
-      childCount > 0 ? `, ${childCount} barn.` : "."
+      childCount > 0 ? `, ${childCount} barn` : ""
     }`;
     setPassengerText(passengerText);
   });
@@ -173,7 +174,7 @@ const CardPassengerInfo = (props) => {
   return (
     <div className={"flex-column card-section tooltip"}>
       <span className="tooltiptext">{passengerText}</span>
-      <span className="section-title">Antal Passagerare</span>
+      <span className={"section-title subtitle"}>Antal Passagerare</span>
       <div className="passenger-row">
         <span className="passenger-text">{props.passagerarInfo.antal}</span>
         {/* Map out adult / children to icons */}
