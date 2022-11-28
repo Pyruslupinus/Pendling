@@ -10,7 +10,6 @@ const ContBtn = () => {
         setcontcrt(contcrt + 1)
     }
     
-    
   return (
     <div>
       <button onClick={handelClick}>+1</button>
