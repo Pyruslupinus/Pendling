@@ -1,0 +1,198 @@
+/*
+- - - - - - - -
+CSS to-do list:
+* Complete layout.
+* Complete menus.
+* Chose back-up fonts for font-families.
+- - - - - - - -
+*/
+
+
+
+/*
+- - - - - - - -
+The CSS has been sorted into the following order:
+* Colours as variables
+* Basic styling
+* Header, body, main
+* Nav, menu, footer
+* Hamburger
+* Layout
+- - - - - - - -
+*/
+
+
+
+/* - - - - - - - - COLOURS AS VARIABLES - - - - - - - - */
+:root {
+    --dark: #22577a;
+    --medium-dark: #38a3a5;
+    --lighter: #57cc99;
+    --bright: #80ed99;
+  }
+
+
+
+/* - - - - - - - - BASIC STYLING - - - - - - - - */
+h1 {
+    margin: 5px;
+    
+    font-family: "Cambo";
+    font-size: 44px;
+
+    color: white;
+    letter-spacing: 8px;
+
+    text-shadow: 2px 2px 2px var(--medium-dark);
+    text-transform: uppercase;
+    
+}
+
+h1:hover {
+    text-shadow: 2px 2px 4px var(--medium-dark), 0 0 16px var(--bright), 0 0 8px var(--lighter);
+}
+
+h2 {
+    margin: 5px;
+
+    font-family: "Cambo";
+
+    color: var(--dark);
+    letter-spacing: 2px;
+    line-height: 1em;
+
+    text-shadow: 1px 1px 2px var(--medium-dark);
+    text-transform: uppercase;
+}
+
+
+p {
+    margin: 5px;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+
+
+
+/* - - - - - - - - HEADER, BODY, MAIN - - - - - - - - */
+body {
+    background-attachment: fixed;
+    background-image: repeating-linear-gradient(40deg,var(--dark),var(--medium-dark), var(--lighter), var(--medium-dark), var(--medium-dark), var(--bright));
+}
+
+header, footer {
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: 0.5em;
+    border-radius: 8px;
+
+    background-color: var(--dark);
+}
+
+header p {
+    margin: 5px;
+
+    font-family: "Abel";
+    font-weight: bold;
+    font-size: 22px;
+
+    color: white;
+    letter-spacing: 1px;
+}
+
+main {
+    box-sizing: border-box;
+    padding: 0.5em;
+    margin: 0.5em;
+    
+    border: 4px solid var(--dark);
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+
+
+/* - - - - - - - - NAV, MENU, FOOTER - - - - - - - - */
+.nav-top, .nav-log {
+    border-radius: 8px;
+    background-color: var(--medium-dark);
+}
+
+nav, footer {
+    box-sizing: border-box;
+    margin: 0.5em;
+}
+
+.ul-navmenufoot {
+    box-sizing: border-box;
+
+    list-style-type: none;
+}
+
+.a-navmenufoot {
+    display: block;
+
+    margin: 1px;
+    border: 1px solid var(--dark);
+    border-radius: 8px;
+
+    background-color: var(--dark);
+
+    font-family: "Raleway";
+    font-size: 20px;
+
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+}
+
+.a-navmenufoot:hover, .active {
+    border: 1px solid var(--bright);
+
+    background-color: var(--lighter);
+
+    text-shadow: 1px 1px 1px var(--dark);
+}
+
+
+
+/* - - - - - - - - HAMBURGER - - - - - - - - */
+
+.button-hamburger {
+    /*display: block;*/
+    margin: 1px;
+    border: 1px solid var(--dark);
+    border-radius: 8px;
+
+    background: var(--dark);
+    box-shadow: 1px 1px 1px var(--dark);
+
+    fill: white;
+}
+
+/* Hover fungerar med surfplatta och penna?)*/
+.button-hamburger:hover {
+    border: 1px solid var(--bright);
+    background-color: var(--lighter);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* - - - - - - - - LAYOUT - - - - - - - - */
