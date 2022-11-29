@@ -23,7 +23,8 @@ const ContentShowOrHide = (props) => {
     )
 }
 
-//Sökfunktion
+/*Sökfunktion*/
+//Tabell med frågor och svar
 const QAndAs = [
     {question: "Får jag köra min EPA-traktor?", answer: "Nej, vi tillåter enbart fordon registerade som bil. Alla förare måste vara över 18 år."},
     {question: "Får jag köra min mopedbil?", answer:  "Nej, vi tillåter enbart fordon registerade som bil. Alla förare måste vara över 18 år."},
@@ -40,31 +41,38 @@ const QAndAs = [
     {question: "Varför måste jag ha körkort för att vara bilägare?", answer: "Vi tillåter inte förare utan körkort."},
     {question: "Måste jag ha B-körkort?", answer: "För att skapa resor som bilägare krävs att du har minst B-körkort, då vi enbart tillåter fordon registerade som bil. För att åka som passagerare krävs inget körkort."}
 ]
+
 const SearchBar = () => {
     const [searchValue, setSearchValue] = React.useState('');
-
     const inputChange = (event) =>{
         setSearchValue(event.target.value)
-        const searchQ = QAndAs.filter((QAndA) => {
-            return QAndA.question.includes("")
-                    
-        })
-        const searchA = QAndAs.filter((QAndA) => {
-            return QAndA.answer.includes("")
-                    
-        })
-        let searchQandA = searchQ.concat(searchA)
-        
-        searchQandA = searchQandA.filter((element, index) => {
-            return searchQandA.indexOf(element) === index
-        })
     }
+
+    //Sök igenom om input matchar någon fråga, spara i array
+    const searchQ = QAndAs.filter((QAndA) => {
+        return QAndA.question.toLowerCase().includes(searchValue.toLowerCase())        
+    })
+   
+    //sök igenom om input matchar något svar, spara i array
+    const searchA = QAndAs.filter((QAndA) => {
+        return QAndA.answer.toLowerCase().includes(searchValue.toLowerCase())
+                
+    })
+
+    //Slå ihop arreyerna, sortera ut dubletter
+    let searchQandA = searchQ.concat(searchA)
+    searchQandA = searchQandA.filter((element, index) => {
+        return searchQandA.indexOf(element) === index
+    })
+
+
+    //Skriver ut sökruta, skriver ut frågor vars text matchar sökinput
     return (
         <div>
             <input 
                 type="text" 
                 name="search"  
-                id="searchbar"  
+                className="searchbar"  
                 value={searchValue} 
                 placeholder="Sök här.." 
                 onChange={inputChange}>

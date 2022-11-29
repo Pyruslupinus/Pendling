@@ -12,19 +12,21 @@
   display: grid;
   margin: 1.5em;
   gap: 1.5rem;
+  max-width: 1400px;
 }
 
-#searchbar {
-  width: 50%;
-  margin: auto;
+.searchbar {
+  width: 100%;
+  margin: 1.5rem auto;
   height: 2rem;
   font-size: 1.2rem;
 }
-
-.align-center {
-  text-align: center;
+@media (min-width: 40em) {
+  .searchbar {
+    width: 50%;
+    margin: 1.5rem 25%;
+  }
 }
-
 .FAQ {
   background-color: var(--darkColor);
   color: white;
