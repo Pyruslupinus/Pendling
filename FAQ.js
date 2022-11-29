@@ -41,9 +41,6 @@ const QAndAs = [
     {question: "Måste jag ha B-körkort?", answer: "För att skapa resor som bilägare krävs att du har minst B-körkort, då vi enbart tillåter fordon registerade som bil. För att åka som passagerare krävs inget körkort."}
 ]
 const SearchBar = () => {
-
-    
-
     const [searchValue, setSearchValue] = React.useState('');
 
     const inputChange = (event) =>{
@@ -79,7 +76,6 @@ const SearchBar = () => {
             }
         </div>
     )
-
 }
 
 
