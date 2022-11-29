@@ -21,3 +21,19 @@ function RegisterSave() {
 function TillLogin() {
   window.location.href = "login.html";
 }
+
+function okLogin(){
+  var savedEmail = localStorage.getItem("EmailInput")
+  var savedUsername = localStorage.getItem("UserNameInput")
+  var savedPassword = localStorage.getItem("PasswordInput")
+
+  if(email==savedEmail && PasswordInput == savedPassword)
+  {
+    alert("OK")
+  }
+  else
+  {
+    alert("Fel")
+  }
+
+}
