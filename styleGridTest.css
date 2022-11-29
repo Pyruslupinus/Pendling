@@ -19,6 +19,76 @@ body {
     background-image: repeating-linear-gradient(40deg,#22577A,#38A3A5, #57CC99, #38A3A5, #38A3A5, #80ED99);
 }
 
+
+
+/*Hamburger in the making*/
+
+button {
+  /*
+  grid-column: 5;
+  grid-row: 1;
+  margin: auto;
+*/
+  background: var(--dark);
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+  box-shadow: 1px 1px 1px var(--dark);
+  fill: white;
+}
+
+button:hover {
+  border-radius: 8px;
+  background-color: var(--lighter);
+  color: white;
+  text-shadow: 1px 1px 1px var(--dark);
+  border: 1px solid var(--bright);
+}
+
+.hamburgermeny .line {
+  transition: 
+   y 300ms ease-in 300ms,
+   rotate 300ms ease-in;
+   opacity: 0ms 300ms;
+   ;
+   transform-origin: center;
+}
+
+.hamburgermeny:hover .line {
+  transition: 
+   y 300ms ease-in,
+   rotate 300ms ease-in 300ms;
+   opacity: 0ms 300ms;
+   ;
+}
+
+.hamburgermeny:hover :is(.top, .bottom) {
+  y: 50;
+}
+
+.hamburgermeny:hover .top {
+  rotate: 45deg;
+}
+
+.hamburgermeny:hover .middle {
+  opacity: 0;
+}
+
+.hamburgermeny:hover .bottom {
+  rotate: -45deg;
+}
+
+.hamburgermeny[aria-expanded="true"] .top{
+
+}
+
+/*Hamburger in the making*/
+
+
+
+
+
+
+
 /* v-- Flex + Grid --v */
 .tags {
     display: flex;
