@@ -1,7 +1,7 @@
 //As a side note, the same JSON parse trick can probably be used if we
 //want to connect this to an actual simple database
 
-function SaveToLocalStorage(key, object) {
+function saveToLocalStorage(key, object) {
   //Saving an object is actually really simple, we just convert it into a string
   //Note that some things (most notably the Date() object) can't be converted like this
   //For dates, save it as * GetYear()-(GetMonth() + 1)-GetDate() * to be able to easily
@@ -9,7 +9,7 @@ function SaveToLocalStorage(key, object) {
   window.localStorage.setItem(key, JSON.stringify(object));
 }
 
-function LoadFromLocalStorage(key) {
+function loadFromLocalStorage(key) {
   //First, check if we actually have the item saved in local storage
   const item = window.localStorage.getItem(key);
   if (item === null) {
@@ -33,10 +33,10 @@ const tripsKey = "trips";
 //          passengers: 4
 //       } etc etc
 
-function AddTrip(tripObject) {
+function addTrip(tripObject) {
   //First, load our trip array from the localstorage
   //I chose the trips-key 100% fueled by insomnia so poke me and I'll change it
-  const trips = LoadFromLocalStorage(tripsKey);
+  const trips = loadFromLocalStorage(tripsKey);
 
   //Check if it's actually created, if not set it to be an array
   if (trips === null) {
@@ -53,11 +53,11 @@ function AddTrip(tripObject) {
 
   //Finally, resave our trips-array to the local storage, overwriting the previous state with
   //a new array containing our latest entry
-  SaveToLocalStorage(tripsKey, trips);
+  saveToLocalStorage(tripsKey, trips);
 }
 
-function GetTrips() {
-  return LoadFromLocalStorage(tripsKey);
+function getTrips() {
+  return loadFromLocalStorage(tripsKey);
 }
 
 //If we mess something up and want a clean slate run this

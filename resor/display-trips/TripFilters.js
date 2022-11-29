@@ -1,7 +1,24 @@
 const TripFilters = (props) => {
-  const travelChanged = () => {
-    console.log("travel changed");
-    props.onFilterChanged("this should show in the parent");
+  const [activeFilters, setActiveFilters] = React.useState({
+    traveltype: "alla",
+    type: "alla",
+  });
+
+  const filtersChanged = (event) => {
+    console.log(event);
+    const change = {
+      type: event.target.name,
+      value: event.target.value,
+    };
+
+    let copy = activeFilters;
+    //Fun js thing - we can use a variable access the property matching it
+    //via the []-syntax
+    copy[change.type] = change.value;
+    setActiveFilters(copy);
+    console.log(copy);
+
+    props.onFilterChanged(copy);
   };
 
   return (
@@ -10,7 +27,7 @@ const TripFilters = (props) => {
       <form>
         <label htmlFor="travel-type" className="filter-section subtitle">
           Restyp
-          <select id="travel-type" name="travel-type" onChange={travelChanged}>
+          <select id="travel-type" name="traveltype" onChange={filtersChanged}>
             <option value="alla">Visa Alla</option>
             <option value="resa">Resa</option>
             <option value="pendling">Pendling</option>
@@ -18,10 +35,10 @@ const TripFilters = (props) => {
         </label>
         <label htmlFor="passenger-type" className="filter-section subtitle">
           Erbjuder / Söker
-          <select id="passenger-type" name="passenger-type">
+          <select id="passenger-type" name="type" onChange={filtersChanged}>
             <option value="alla">Visa Alla</option>
-            <option value="erbjuder">Erbjuder</option>
-            <option value="söker">Söker</option>
+            <option value="ägare">Erbjuder</option>
+            <option value="passagerare">Söker</option>
           </select>
         </label>
       </form>
