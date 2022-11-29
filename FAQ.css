@@ -4,21 +4,14 @@
   --lightColorShadeDark: #57cc99;
   --lightColorShadeLight: #80ed99;
 }
-
-body {
-  background-color: var(--mediumColor);
+* {
+  box-sizing: border-box;
 }
 
 .grid-container {
   display: grid;
-  margin: 3rem;
+  margin: 1.5em;
   gap: 1.5rem;
-}
-
-.FAQ {
-  border: 2px solid;
-  padding: 1rem;
-  background-color: white;
 }
 
 #searchbar {
@@ -32,6 +25,19 @@ body {
   text-align: center;
 }
 
-.question {
+.FAQ {
+  background-color: var(--darkColor);
+  color: white;
+}
+button.question {
+  background-color: var(--darkColor);
+  color: white;
+  width: 100%;
+  text-align: left;
+  border: none;
   font-size: 0.7rem;
+}
+p.answer {
+  margin: -0.5rem 1.5rem 1.5rem;
+  padding-bottom: 1rem;
 }

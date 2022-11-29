@@ -6,20 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="FAQ.css" />
+    <link rel="stylesheet" href="styleIndexFAQ.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel"
+    />
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <h1 class="align-center">FAQ</h1>
-    <p class="align-center">Här hittar du svar på de vanligaste frågorna</p>
+    <div class="meny">
+      <ul>
+        <li><a href="index.html">Start</a></li>
+        <li><a href="index.html">Registrera konto</a></li>
+        <li><a href="index.html">Logga in</a></li>
+        <li><a href="index.html">Skapa resa</a></li>
+        <li><a href="index.html">Sök resa</a></li>
+        <li><a href="FAQ.html">Vanliga frågor</a></li>
+      </ul>
+    </div>
+    <div class="header">
+      <header>
+        <h1>FAQ</h1>
+        <p>Här hittar du svar på de vanligaste frågorna</p>
+      </header>
+    </div>
     <div class="grid-container">
-      <input
-        id="searchbar"
-        type="text"
-        name="search"
-        class="grid-span-two-col"
-        onkeyup="searchQA()"
-        placeholder="Sök här.. "
-      />
       <!--Frågor och svar-->
       <div id="root"></div>
     </div>
