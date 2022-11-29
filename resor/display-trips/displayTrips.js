@@ -1,41 +1,22 @@
 const DisplayList = () => {
-  // 1. Load (or maybe get as a prop?) our trips
-  console.log("start");
-  const trips = GetDataBase();
-  console.log(trips);
+  // Load our trips
+  const [trips, setTrips] = React.useState(GetDataBase());
 
-  SaveDataBase();
-  LoadDataBase();
-  AppendToDB({
-    id: 1000,
-    type: "sdadadas",
-    traveltype: "egwfwefwe",
-    from: "hghsgfh",
-    to: "shsrgh",
-    date: "2022-12-25",
-    time: "8:30",
-    passagerarInfo: {
-      antal: 5,
-      vuxna: 4,
-      barn: 0,
-    },
-  });
-  LoadDataBase();
+  React.useEffect(() => {});
 
   //2. Get our filters on the page and use the filter method to create a
   // const filteredTrips = trips.filter( etc etc )
 
-  const reloadTrips = (filterArray) => {
-    console.log(filterArray);
-  };
+  const reloadTrips = (filters) => {};
 
-  //Id needs to be unique for each so very basic solution here at the moment
+  //Id needs to be unique for each entry in the map-method so very basic solution here at the moment
   let id = 0;
+
   return (
     <section id="main-container">
       <TripFilters
         className="flex-Column"
-        onFilterChanged={(filterArray) => reloadTrips(filterArray)}
+        onFilterChanged={(filters) => reloadTrips(filters)}
       />
       <section className={"trip-display flex-column"}>
         {/* 3 - Use the map method to create a new TripCard for each entry in trip
