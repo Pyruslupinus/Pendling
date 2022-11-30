@@ -10,29 +10,27 @@
 
         <link rel="stylesheet" href="indexcss.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel" />
+
+        <script src="https://kit.fontawesome.com/d87e0aa2fd.js" crossorigin="anonymous"></script>
+        <script src="indexjs.js"></script>
     </head>
 
+    
     <body>
+
+
         <div class="grid-container">
-
-
 
             <div class="item1">
                 <header>
                     <h1>Pendling</h1>
-                    <p>Välkommen till denna samåkningssida för pendling eller enkelresor!</p>
+                    <p>Välkommen till samåkningssida för pendling eller enkelresor!</p>
                 </header>
-            </div>
+                </div>
 
-
-
-
-
-
-
-            <!-- Meny, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
+            
             <div class="item2">
-
+                <!-- Meny, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
                 <nav class="nav-top">
                     <ul class="ul-navmenufoot">
                         <li><a class="a-navmenufoot active" href="index.html">Start</a></li>
@@ -42,8 +40,8 @@
                         <li><a class="a-navmenufoot" href="FAQ.html">Vanliga frågor</a></li>
                     </ul>
                 </nav>
-
             </div>
+
 
             <div class="item3">
                 <nav class="nav-log">
@@ -52,56 +50,43 @@
                         <li class="inloggsknapp" id="inlogg"><a class="a-navmenufoot" href="">Logga in</a></li>
                     </ul>
                 </nav>
-
-
-                <!-- Hamburger in the making -->
-                <button class="button-hamburger" aria-controls="inloggmeny" aria-expanded="false">
-                    <svg class="hamburger" viewBox="0 0 100 100" width="50">
-                        <rect class="line top" width="80" height="10" x="10" y="30" rx="5"></rect>
-                        <rect class="line middle" width="80" height="10" x="10" y="50" rx="5"></rect>
-                        <rect class="line bottom" width="80" height="10" x="10" y="70" rx="5"></rect>
-                    </svg>
-                </button>
-                <!-- Hamburger in the making -->
-
-
             </div>
 
 
-
+            <!-- Hamburger in the making -->
+            <!-- aria-controls="inloggmeny" aria-expanded="false" -->
             <div class="item4">
+                <button id="hamburger" title="'Hamburger' menu">
+                    <i class="fa-solid fa-burger fa-flip" id="ani-burger" style="--fa-animation-duration: 3s;" ></i>
+                </button>
+            </div>
+
+
+            <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+            <div class="item5">
                 <main>
                     <h2>Om Pendling</h2>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
-                    <p>Text text text text text text text text ....</p>
+                    <p> Pendlings uppdrag är att erbjuda medlemmar ett effektivare sätt till att påbörja samåkning;
+                        antingen genom återkommande pendling (ex. arbete) eller enskilda resor.
+                        Samåkning innebär att två eller flera personer reser delar av eller hel sträcka i samma fordon.</p>
                 </main>
             </div>
 
 
-
-
             <!-- Footer, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
-            <div class="item5">
+            <div class="item6">
                 <footer>
-                    <ul class="ul-navmenufoot">
-                        <li><a class="a-navmenufoot" href="index.html">Om oss</a></li>
-                        <li><a class="a-navmenufoot" href="index.html">Kontakt</a></li>
+                    <ul class="ul-navmenufoot" id="ul-foot">
+                        <li><a class="a-navmenufoot" href="https://github.com/Pyruslupinus/Pendling" target="_blank"><i class="fa-brands fa-github"></i> Om oss</a></li>
+                        <!--<li><a class="a-navmenufoot" href="index.html"><i class="fa-solid fa-envelope"></i> Kontakt</a></li>-->
                     </ul>
                 </footer>
             </div>
 
 
-
+        <!-- Nedan slutar div för grid-container. -->
         </div>
     </body>
-
 </html>
