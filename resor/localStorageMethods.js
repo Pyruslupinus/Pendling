@@ -6,7 +6,16 @@ function saveToLocalStorage(key, object) {
   //Note that some things (most notably the Date() object) can't be converted like this
   //For dates, save it as * GetYear()-(GetMonth() + 1)-GetDate() * to be able to easily
   //convert it back into a new Date(^above string)
+  
+
   window.localStorage.setItem(key, JSON.stringify(object));
+  
+
+  // console.log(object);
+  // const stringversion = JSON.stringify(object);
+  // console.log(JSON.stringify(object));
+  // console.log(JSON.parse(stringversion));
+  
 }
 
 function loadFromLocalStorage(key) {
