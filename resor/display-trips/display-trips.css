@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: repeating-linear-gradient(
+    40deg,
+    #22577aa4,
+    #38a3a594,
+    #57cc9980,
+    #38a3a580,
+    #38a3a577,
+    #80ed9991
+  );
+  margin-top: 0;
+}
+
+main {
+  min-height: 110vh;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0rem 0rem 1rem 1rem;
+  font-family: "Poppins", sans-serif;
+  min-width: min(50rem, 90vw);
+  max-width: min(60rem, 90vw);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Meta-classes */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #3b3939;
+}
+
+/* MAIN LAYOUT */
+#main-container {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  padding: 1rem 2.5rem;
+}
+
+/* TITLE */
+
+.display-title {
+  font-size: clamp(1.4rem, 2.2rem + 1vw, 3rem);
+  margin: 1rem 2.5rem;
+  grid-column: span 2;
+  line-height: 1;
+}
+
+#display-divider {
+  grid-column: span 2;
+  width: 90%;
+  margin-top: 0;
+}
+
+/* FILTERS */
+
+#filters {
+  line-height: 2;
+}
+
+#filters-root {
+  margin: 1rem 2.5rem;
+}
+
+#filter-title {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: column;
+  margin-inline: 0.4rem;
+}
+
+.filter-section select {
+  padding: 0.4rem;
+  margin: 0.2rem 1rem;
+}
+
+/* TRIP DISPLAY */
+
+.trip-display {
+  gap: 1rem;
+  width: 100%;
+}
+
+/* TRIP CARDS */
+
+.trip-card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+
+  transition-duration: 0.2s;
+  transition-property: transform;
+  border-radius: 0.6rem;
+  border-width: 2px;
+  border-style: solid;
+  min-height: 14rem;
+  padding: 1rem;
+  line-height: 1.5rem;
+  gap: 0.45rem;
+  /* Not sure if best practice when spacing text is to use line-height or gaps */
+}
+
+.trip-card:hover {
+  transform: scale(102%);
+}
+
+/* TRIP CARD COMPONENTS */
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-section {
+  margin-left: 0.4rem;
+}
+
+.section-title {
+  margin-left: -0.4rem;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+/* OWNER / PASSENGER */
+
+#type-logo {
+  position: absolute;
+  top: 1.2rem;
+  left: 0.3rem;
+  font-size: 1.4rem;
+  color: white;
+}
+
+/* Apparently font awesome works by occupying the :before pseudo-element so it was really easy giving it a background*/
+#type-logo:before {
+  background-color: black;
+  padding: 4px;
+  border-radius: 30%;
+  border: 1px solid black;
+}
+
+/* PENDLING / RESA */
+
+#travel-type-text {
+  font-size: 1.2rem;
+  font-weight: 400;
+  position: absolute;
+  top: 0.7rem;
+  left: 3rem;
+  text-align: left;
+}
+
+/* TO-FROM */
+
+#trip-destination {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+/* PASSENGERS */
+
+.passenger-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  margin-block: 1rem;
+  max-width: 50%;
+}
+
+.passenger-text {
+  font-size: 2.4rem;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 650px) {
+  #filters {
+    grid-column: span 2;
+  }
+
+  .trip-display {
+    grid-column: span 2;
+  }
+}
+
+/* Misc */
+
+/* From w3schools, basic tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  position: absolute;
+  visibility: hidden;
+  max-width: 40%;
+  background-color: black;
+  /* Ugly way to center it to the right of the icons but it works */
+  left: 53%;
+  top: 2.3rem;
+  color: #fff;
+  text-align: center;
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
