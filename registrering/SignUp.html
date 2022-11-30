@@ -33,11 +33,13 @@
 
     </header>
 
+
+
     <div class="SignUpPage">
       <br />
       <div class="Container">
 
-      <form id="form" action="/">
+      <form id="form" action="../registrering/login.html">
 
         <h1>Registerara dig</h1>
         <h3>Har du redan ett konto?</h3>
@@ -73,7 +75,7 @@
 
         <br />
         
-        <input type="submit" id="SubmitButton" value="Bekräfta" onclick="RegisterSave()",onclick="TillLogin()", onclick="okLogin()">
+        <input type="submit" id="SubmitButton" value="Bekräfta" onclick="RegisterSave(); okLogin(); comparePasswords();">
       </form>
     </div>
     <script src="SignUp.js"></script>
