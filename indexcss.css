@@ -1,0 +1,293 @@
+/*
+- - - - - - - -
+CSS to-do list:
+* Complete menus (nav menu and log in + burger combo).
+* Chose back-up fonts for font-families.
+- - - - - - - -
+*/
+
+/*
+- - - - - - - -
+The CSS has been sorted into the following order:
+* Colours as variables
+* Basic styling
+* Header, body, main
+* Nav, menu, footer
+* Buttons & hamburger
+* Experiment menus
+* Layout
+- - - - - - - -
+*/
+
+
+
+/* - - - - - - - - COLOURS AS VARIABLES - - - - - - - - */
+:root {
+    --dark: #22577a;
+    --medium-dark: #38a3a5;
+    --lighter: #57cc99;
+    --bright: #80ed99;
+  }
+
+
+
+/* - - - - - - - - BASIC STYLING - - - - - - - - */
+h1 {
+    margin: 0.5rem;
+    
+    font-family: "Cambo";
+    font-size: 44px;
+
+    color: white;
+    letter-spacing: 8px;
+
+    text-shadow: 2px 2px 2px var(--medium-dark);
+    text-transform: uppercase;
+}
+
+h1:hover {
+    text-shadow: 2px 2px 4px var(--medium-dark), 0 0 16px var(--bright), 0 0 8px var(--lighter);
+}
+
+h2 {
+    margin: 0.5rem;
+
+    font-family: "Cambo";
+
+    color: var(--dark);
+    letter-spacing: 2px;
+    line-height: 1em;
+
+    text-shadow: 1px 1px 2px var(--medium-dark);
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0.5rem;
+
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
+img, picture, video {
+  max-width: 100%;
+}
+
+
+
+/* - - - - - - - - HEADER, BODY, MAIN - - - - - - - - */
+body {
+    margin: 0;
+    
+    background-attachment: fixed;
+    background-image: repeating-linear-gradient(40deg,var(--dark),var(--medium-dark), var(--lighter), var(--medium-dark), var(--medium-dark), var(--bright));
+}
+
+header, footer {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border-radius: 8px;
+
+    background-color: var(--dark);
+}
+
+header p {
+    margin: 0.5rem;
+
+    font-family: "Abel";
+    font-weight: bold;
+    font-size: 22px;
+
+    color: white;
+    letter-spacing: 1px;
+}
+
+main {
+    box-sizing: border-box;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    
+    min-height: 20rem;
+    border: 4px solid var(--dark);
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+
+
+/* - - - - - - - - NAV, MENU, FOOTER - - - - - - - - */
+.nav-top{
+    border-radius: 8px;
+    background-color: var(--medium-dark);
+}
+
+.nav-log {
+    border-radius: 8px;
+}
+
+nav, footer {
+    box-sizing: border-box;
+    /*margin: 0.5rem;*/
+}
+
+.ul-navmenufoot {
+    position: relative;
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-content: center;
+    
+    box-sizing: border-box;
+    margin: 0;
+    
+    list-style-type: none;
+}
+
+.a-navmenufoot {
+    display: block;
+
+    margin: 1px;
+    padding: 5px;
+    border: 1px solid var(--dark);
+    border-radius: 8px;
+
+    background-color: var(--dark);
+
+    font-family: "Raleway";
+    font-size: 20px;
+
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+}
+
+.a-navmenufoot:hover, .active {
+    border: 1px solid var(--bright);
+
+    background-color: var(--lighter);
+
+    text-shadow: 1px 1px 1px var(--dark);
+}
+
+#ul-foot {
+    display: flex;
+}
+
+
+
+/* - - - - - - - - BUTTONS & HAMBURGER - - - - - - - - */
+button {
+    display: block;
+
+    max-width: 3rem;
+    max-height: 3rem;
+    margin: 0.5rem;
+    padding: 10px;
+    border: 1px solid white;
+
+    border-radius: 8px;
+
+    background-color: var(--dark);
+    box-shadow: 1px 1px 1px var(--dark);
+
+    font-family: "Raleway";
+    font-size: 20px;
+
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+button:hover {
+    border: 1px solid var(--bright);
+
+    background-color: var(--lighter);
+
+    text-shadow: 1px 1px 1px var(--dark);
+}
+
+/*
+.inloggsknapp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    align-content: right;
+}
+*/
+
+
+
+#toTop {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 99;
+    display: block;
+}
+
+
+
+/* - - - - - - - - ANIMATIONS - - - - - - - - */
+#ani-burger {
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+}
+
+
+
+/* - - - - - - - - EXPERIMENT MENUS - - - - - - - - */
+
+
+
+
+
+
+
+
+/* - - - - - - - - LAYOUT - - - - - - - - */
+
+.item1 { grid-area: header; }
+.item2 { grid-area: navtop; }
+.item3 { grid-area: navlog; }
+.item4 { grid-area: hamburger; }
+.item5 { grid-area: main; }
+.item6 { grid-area: footer; }
+
+/* This grid layout contains six columns and three rows: */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /*
+    grid-template-columns: 15rem auto auto auto auto 15rem;
+    */
+    grid-auto-rows: minmax(100px, auto);
+    grid-template-areas:
+    'hamburger navtop navtop navtop navtop navlog'
+    '. header header header header .'
+    '. main main main main .'
+    'footer footer footer footer footer footer ';
+
+    gap: 0;
+    padding: 0;
+
+    text-align: center;
+  }
+  
+  .grid-container > div {
+    padding: 0;
+  }
+
+  .item2, .item4 {
+    position: -webkit-sticky; /* For compability */
+    position: sticky;
+    top: 0;
+  }
