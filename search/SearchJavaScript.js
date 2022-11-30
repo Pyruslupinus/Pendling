@@ -7,7 +7,7 @@ const MyJSXElement = () => {
                 <center>
                     <div id="SearchBox">
                         <h1 id="SökResa">Sök resa</h1>
-                        <form action="display-trips.html" method="get">
+                        <form action="../display/display-trips.html" method="get">
                         <div id="Destination">
                             <div>
                                 <label className="SearchText">Från:</label><br></br>
@@ -37,7 +37,7 @@ const MyJSXElement = () => {
                             </div>
                             <div id="Passagerare">
                                 <label id="RestypLabel" className="RestypLabel">Passagerare</label><br></br>
-                                <input name="PassCSS" type="number" id="PassCSS"></input><br></br>
+                                <input name="PassCSS" type="number" min={1} id="PassCSS"></input><br></br>
                             </div>
                         </div>
                         
