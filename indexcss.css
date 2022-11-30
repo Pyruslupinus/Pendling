@@ -117,68 +117,6 @@ main {
 
 
 
-/* - - - - - - - - NAV, MENU, FOOTER - - - - - - - - */
-.nav-top{
-    border-radius: 8px;
-    background-color: var(--medium-dark);
-}
-
-.nav-log {
-    border-radius: 8px;
-}
-
-nav, footer {
-    box-sizing: border-box;
-    /*margin: 0.5rem;*/
-}
-
-.ul-navmenufoot {
-    position: relative;
-    
-    display: flex;
-    flex-wrap: wrap;
-
-    justify-content: center;
-    align-content: center;
-    
-    box-sizing: border-box;
-    margin: 0;
-    
-    list-style-type: none;
-}
-
-.a-navmenufoot {
-    display: block;
-
-    margin: 1px;
-    padding: 5px;
-    border: 1px solid var(--dark);
-    border-radius: 8px;
-
-    background-color: var(--dark);
-
-    font-family: "Raleway";
-    font-size: 20px;
-
-    color: white;
-    text-align: center;
-    letter-spacing: 1px;
-
-    text-decoration: none;
-}
-
-.a-navmenufoot:hover, .active {
-    border: 1px solid var(--bright);
-
-    background-color: var(--lighter);
-
-    text-shadow: 1px 1px 1px var(--dark);
-}
-
-#ul-foot {
-    display: flex;
-}
-
 
 
 /* - - - - - - - - BUTTONS & HAMBURGER - - - - - - - - */
@@ -231,14 +169,6 @@ button:hover {
     right: 1rem;
     z-index: 99;
     display: block;
-}
-
-
-
-/* - - - - - - - - ANIMATIONS - - - - - - - - */
-#ani-burger {
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
 }
 
 

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
 
+
+
 *,
 *::before,
 *::after {
@@ -30,7 +32,7 @@ main {
   text-align: left;
   background: rgba(255, 255, 255, 0.8);
   border-radius: 1rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Cambo", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);
   display: flex;
