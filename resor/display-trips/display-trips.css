@@ -7,10 +7,6 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   background-image: repeating-linear-gradient(
     40deg,
     #22577aa4,
@@ -21,13 +17,19 @@ body {
     #80ed9991
   );
   margin-top: 0;
+  
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5vh auto;
   min-height: 110vh;
   text-align: left;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 0rem 0rem 1rem 1rem;
+  border-radius: 1rem;
   font-family: "Poppins", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);
@@ -49,8 +51,13 @@ main {
 }
 
 /* MAIN LAYOUT */
+#display-trips-root{
+  width: 95%;
+}
+
 #main-container {
   display: grid;
+  width: 100%;
   grid-template-columns: 0.7fr 1fr;
   padding: 1rem 2.5rem;
 }
