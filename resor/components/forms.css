@@ -1,0 +1,114 @@
+/* 
+    color-scheme:
+    #22577A     Navy
+    #38A3A5     Blue
+    #57CC99     Teal
+    #80ED99     Green
+    #           Mint
+    #           Cold
+    #           Sea
+ */
+
+:root {
+
+    color-scheme: light dark;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+
+
+}
+
+* {
+    margin: 10px;
+    padding: 3px;
+    background-image: repeating-linear-gradient(140deg,
+            #38a3a594,
+            #22577aa4,
+            #57cc9980,
+            #38a3a577,
+            #80ed9991,
+            #38a3a580);
+}
+
+h1 {
+    color: Navy;
+    font-weight: bolder;
+    padding: 2vw;
+    font-stretch: expanded;
+}
+
+h4 {
+    color: Navy;
+    font-weight: bolder;
+    padding: 2%;
+}
+
+label {
+    font-family: sans-serif;
+    font-size: larger;
+    font-weight: bolder;
+    color: Navy;
+    margin: 1rem;
+}
+
+fieldset {
+    object-fit: scale-down;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    padding: 1%;
+    border-end-start-radius: 1rem;
+    border-start-end-radius: 1rem;
+    font-size: 100%;
+    inline-size: 90%;
+}
+
+select {
+    object-fit: scale-down;
+    align-items: center;
+    color: #ffff;
+    padding: 10px;
+    border-end-start-radius: 1rem;
+    border-start-end-radius: 1rem;
+    font-size: 90%;
+    inline-size: 350px;
+}
+
+input {
+    font-size: 16px;
+    size-adjust: inherit;
+    color: rgb(255, 255, 255);
+    margin: 10px;
+    border-end-end-radius: 1rem;
+    border-start-start-radius: 1rem;
+
+}
+
+.Submit {
+    font-size: larger;
+    font-family: Verdana, sans-serif;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 2rem;
+    border: 2px;
+    box-shadow: 5px 5px #010057;
+}
+
+.Reset,
+.Submit:hover{
+    transition: ease-in;
+}
+
+
+
+span{
+    color: #22577aa4;
+    padding: 1px;
+    margin: 25px;
+
+}
+
+@media screen and (max-width: 450px) {
+    * {
+        inline-size: 300px;
+    }
+}
