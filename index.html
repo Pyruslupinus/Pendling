@@ -1,63 +1,92 @@
 <!DOCTYPE html>
-<html>
 <html lang="sv">
 
-<head>
-    <title>Pendling</title>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Samåkning och pendling" />
-    <meta name="keywords" content="samåka, pendla, dela bil" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <title>Pendling</title>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Samåkning och pendling" />
+        <meta name="keywords" content="samåka, pendla, dela bil" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="styleIndexFAQ.css" />
+        <link rel="stylesheet" href="indexcss.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel">
-</head>
+        <script src="https://kit.fontawesome.com/d87e0aa2fd.js" crossorigin="anonymous"></script>
+        <script src="indexjs.js"></script>
+    </head>
 
-<body>
-<!-- Meny, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
-<div class="meny">
-    <ul>
-        <li><a href="index.html">Start</a></li>
-        <li><a href ="index.html">Registrera konto</a></li>
-        <li><a href="index.html">Logga in</a></li>
-        <li><a href="index.html">Skapa resa</a></li>
-        <li><a href="index.html">Sök resa</a></li>
-        <li><a href="FAQ.html">Vanliga frågor</a></li>
-    </ul>
-</div>
+    
+    <body>
 
-<div class="header">
-    <header>
-        <h1>Pendling</h1>
-        <h2>Välkommen till denna samåkningssida för pendling eller enkelresor!</h2>
-    </header>
-</div>
 
-<div class="content">
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-    <p>Text text text text text text text text ....</p>
-</div>
+        <div class="grid-container">
 
-<!-- Footer, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
-<footer class="main-footer">
-    <ul>
-        <li><a href="index.html">Om oss</a></li>
-        <li><a href="index.html">Kontakt</a></li>
-    </ul>
-</footer>
+            <div class="item1">
+                <header>
+                    <h1>Pendling</h1>
+                    <p>Välkommen till samåkningssida för pendling eller enkelresor!</p>
+                </header>
+                </div>
 
-<!-- End of content -->
-</body>
+            
+            <div class="item2">
+                <!-- Meny, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
+                <nav class="nav-top">
+                    <ul class="ul-navmenufoot">
+                        <li><a class="a-navmenufoot active" href="index.html">Start</a></li>
+                        <li><a class="a-navmenufoot" href ="index.html">Registrera konto</a></li>
+                        <li><a class="a-navmenufoot" href="index.html">Skapa resa</a></li>
+                        <li><a class="a-navmenufoot" href="index.html">Sök resa</a></li>
+                        <li><a class="a-navmenufoot" href="FAQ.html">Vanliga frågor</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <div class="item3">
+                <nav class="nav-log">
+                    <ul class="ul-navmenufoot">
+                        <li class="inloggsknapp"><a class="a-navmenufoot" href ="index.html">Registrera konto</a></li>
+                        <li class="inloggsknapp" id="inlogg"><a class="a-navmenufoot" href="">Logga in</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <!-- Hamburger in the making -->
+            <!-- aria-controls="inloggmeny" aria-expanded="false" -->
+            <div class="item4">
+                <button id="hamburger" title="'Hamburger' menu">
+                    <i class="fa-solid fa-burger fa-flip" id="ani-burger" style="--fa-animation-duration: 3s;" ></i>
+                </button>
+            </div>
+
+
+            <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+            <div class="item5">
+                <main>
+                    <h2>Om Pendling</h2>
+                    <p> Pendlings uppdrag är att erbjuda medlemmar ett effektivare sätt till att påbörja samåkning;
+                        antingen genom återkommande pendling (ex. arbete) eller enskilda resor.
+                        Samåkning innebär att två eller flera personer reser delar av eller hel sträcka i samma fordon.</p>
+                </main>
+            </div>
+
+
+            <!-- Footer, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
+            <div class="item6">
+                <footer>
+                    <ul class="ul-navmenufoot" id="ul-foot">
+                        <li><a class="a-navmenufoot" href="https://github.com/Pyruslupinus/Pendling" target="_blank"><i class="fa-brands fa-github"></i> Om oss</a></li>
+                        <!--<li><a class="a-navmenufoot" href="index.html"><i class="fa-solid fa-envelope"></i> Kontakt</a></li>-->
+                    </ul>
+                </footer>
+            </div>
+
+
+        <!-- Nedan slutar div för grid-container. -->
+        </div>
+    </body>
 </html>
