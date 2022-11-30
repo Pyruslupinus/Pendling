@@ -1,13 +1,5 @@
 /*
 - - - - - - - -
-CSS to-do list:
-* Complete menus (nav menu and log in + burger combo).
-* Chose back-up fonts for font-families.
-- - - - - - - -
-*/
-
-/*
-- - - - - - - -
 The CSS has been sorted into the following order:
 * Colours as variables
 * Basic styling
@@ -15,7 +7,8 @@ The CSS has been sorted into the following order:
 * Nav, menu, footer
 * Buttons & hamburger
 * Experiment menus
-* Layout
+* LAYOUT less than 600px
+* LAYOUT more than 600px
 - - - - - - - -
 */
 
@@ -106,9 +99,8 @@ header p {
 main {
     box-sizing: border-box;
     padding: 0.5rem;
-    margin: 0.5rem;
-    
     min-height: 20rem;
+    margin: 0.5rem;
     border: 4px solid var(--dark);
     border-radius: 8px;
 
@@ -117,16 +109,13 @@ main {
 
 
 
-
-
 /* - - - - - - - - BUTTONS & HAMBURGER - - - - - - - - */
-button {
+button, .icon-burger {
     display: block;
 
     max-width: 3rem;
     max-height: 3rem;
-    margin: 0.5rem;
-    padding: 10px;
+    padding: 5px;
     border: 1px solid white;
 
     border-radius: 8px;
@@ -135,7 +124,7 @@ button {
     box-shadow: 1px 1px 1px var(--dark);
 
     font-family: "Raleway";
-    font-size: 20px;
+    font-size: 2rem;
 
     color: white;
     text-align: center;
@@ -144,7 +133,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+button:hover, .icon-burger:hover {
     border: 1px solid var(--bright);
 
     background-color: var(--lighter);
@@ -152,72 +141,59 @@ button:hover {
     text-shadow: 1px 1px 1px var(--dark);
 }
 
-/*
-.inloggsknapp {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: right;
-    align-content: right;
-}
-*/
-
-
-
 #toTop {
+    
     position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 99;
+    bottom: 0.5rem;
+    right: 0.5rem;
     display: block;
 }
-
-
-
-/* - - - - - - - - EXPERIMENT MENUS - - - - - - - - */
-
-
-
-
-
 
 
 
 /* - - - - - - - - LAYOUT - - - - - - - - */
 
 .item1 { grid-area: header; }
-.item2 { grid-area: navtop; }
-.item3 { grid-area: navlog; }
-.item4 { grid-area: hamburger; }
-.item5 { grid-area: main; }
-.item6 { grid-area: footer; }
+.item2 { grid-area: main; }
+.item3 { grid-area: footer; }
 
-/* This grid layout contains six columns and three rows: */
-
-.grid-container {
+/* - - - - - - - - LAYOUT less than 600px - - - - - - - - */
+  .grid-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    /*
-    grid-template-columns: 15rem auto auto auto auto 15rem;
-    */
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: (1, 1fr);
     grid-template-areas:
-    'hamburger navtop navtop navtop navtop navlog'
-    '. header header header header .'
-    '. main main main main .'
-    'footer footer footer footer footer footer ';
+    'header'
+    'main'
+    'footer';
 
     gap: 0;
     padding: 0;
 
     text-align: center;
   }
-  
+
   .grid-container > div {
     padding: 0;
   }
 
-  .item2, .item4 {
-    position: -webkit-sticky; /* For compability */
-    position: sticky;
-    top: 0;
-  }
+
+/* - - - - - - - - LAYOUT more than 600px - - - - - - - - */
+@media screen and (min-width: 600px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas:
+        '. header header header .'
+        '. main main main .'
+        'footer footer footer footer footer';
+
+        gap: 0;
+        padding: 0;
+    
+        text-align: center;
+    }
+
+    .grid-container > div {
+        padding: 0;
+      }
+}
