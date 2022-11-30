@@ -1,9 +1,10 @@
-document.getElementById("UserName").innerHTML = localStorage.getItem("UserName");
-document.getElementById("UserPassword").innerHTML = loacalStorage.getItem("Userpassword");
 
 const form = document.getElementById('form');
-const UserName = document.getElementById('UserName');
-const UserPassword = document.getElementById('UserPassword');
+const username = document.getElementById('username');
+const userpassword = document.getElementById('userpassword');
+
+/*var Users = JSON.parse(localStorage.getItem('currentUser'));
+console.log(Users.username);*/
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -11,14 +12,14 @@ form.addEventListener('submit', e => {
     validateInputs();
 });
 
-const setError = (element, messsage) => {
+const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
 
     errorDisplay.innerText = message;
     inputControl.classList.add('error');
     inputControl.classList.remove('success')
-};
+}
 const setSuccess = element => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error');
@@ -30,17 +31,40 @@ const setSuccess = element => {
 
 
 const validateInputs = () => {
-    const UserNameValue = UserName.value.trim();
-    const UserPassword = UserPassword.value.trim();
+    const usernameValue = username.value.trim();
+    const userpasswordValue = userpassword.value.trim();
 
-    if(UserNameValue === ''){
-        setError(UserName, 'Skriv ditt användarnamn');
-    } else{
-        setSuccess(UserName);
+    /*if(Users){
+    console.log(Users.username);
+    }*/
+
+    if(usernameValue === ''){
+        setError(username, 'Skriv ditt användarnamn');
+    } /*else if (!Users(usernameValue)){
+        setError(username, 'användarnamn finns inte');
+    }*/ else{
+        setSuccess(username);
     }
-    if(UserPasswordValue === ''){
-        setError(UserPassword, 'Skriv ditt lösenord');
-    } else{
-        setSuccess(UserPassword);
+    if(userpasswordValue === ''){
+        setError(userpassword, 'Skriv ditt lösenord');
+    } /*else if (!Users(userpasswordValue)){
+        setError(userpassword, 'fel lösenord');
+    } */else {
+        setSuccess(userpassword);
     }
 };
+
+
+function okLogin() {
+
+    var savedEmail = localStorage.getItem("EmailInput")
+    var savedUsername = localStorage.getItem("UserNameInput")
+    var savedPassword = localStorage.getItem("PasswordInput")
+  
+    if (email == savedEmail && PasswordInput == savedPassword) {
+      alert("OK")
+    } else {
+      alert("Fel")
+    }
+  }
+

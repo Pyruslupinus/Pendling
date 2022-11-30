@@ -22,7 +22,7 @@ function RegisterSave() {
   }
 
   const userString = localStorage.getItem("Users") //Hämtar 'Users' från localStorage - är just nu i string-format
-  const userArray = JSON.parse(userString) //'parse' på userString från string tillbaka till en array
+  let userArray = JSON.parse(userString) //'parse' på userString från string tillbaka till en array
 
   //Om arrayen nu är null, betyder det att den inte fanns sparad, skapar då en tom array
   if (userArray === null) {
