@@ -16,44 +16,14 @@ The CSS has been sorted into the following order:
 
 /* - - - - - - - - COLOURS AS VARIABLES - - - - - - - - */
 
+/*
 :root {
     --dark: #22577a;
     --medium-dark: #38a3a5;
     --lighter: #57cc99;
     --bright: #80ed99;
   }
-
-
-  html[data-theme='light'] {
-    --dark: #22577a;
-    --medium-dark: #38a3a5;
-    --lighter: #57cc99;
-    --bright: #80ed99;
-  }
-
-  html[data-theme='dark'] {
-    --dark: #ffffff;
-    --medium-dark: #808080;
-    --lighter: #030303;
-    --bright: #050505;
-  }
-
-
-  /*
-
-  :root.dark-mode {
-    --dark: white;
-    --medium-dark: grey;
-    --lighter: grey;
-    --bright: black;
-    background-color: black;
-  }
-
-
 */
-
-
-
 
 /* - - - - - - - - BASIC STYLING - - - - - - - - */
 h1 {
@@ -173,7 +143,6 @@ button:hover, .icon-burger:hover {
 }
 
 #toTop {
-    
     position: fixed;
     bottom: 0.5rem;
     right: 0.5rem;
