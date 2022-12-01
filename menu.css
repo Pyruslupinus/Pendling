@@ -103,7 +103,11 @@ The CSS has been sorted into the following order:
     display: none;
 }
 
-
+@media screen and (min-width: 600px) {
+    #log {
+        display: block;
+        }
+    }
 
 /* - - - - - - - - BUTTONS & HAMBURGER - - - - - - - - */
 button, .icon-burger {
