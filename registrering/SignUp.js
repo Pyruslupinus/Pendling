@@ -4,17 +4,13 @@ function ShowPasswordFunction() {
   if (x.type === "password") {
     x.type = "text"
   }
-  if(i.type === "password")
-  {
+  if (i.type === "password") {
     i.type = "text"
-  }
-    else {
+  } else {
     x.type = "password"
     i.type = "password"
   }
 }
-
-
 
 function RegisterSave() {
   //Sparade inputs variabler
@@ -23,8 +19,7 @@ function RegisterSave() {
   var PasswordInput = document.getElementById("PasswordInput").value
   var Password2 = document.getElementById("PasswordInput2").value
 
-  if(PasswordInput != Password2)
-  {
+  if (PasswordInput != Password2) {
     alert("Lösenorden måste vara likadana")
   }
 
@@ -34,9 +29,6 @@ function RegisterSave() {
     username: UserNameInput,
     password: PasswordInput,
   }
-
-  
-
 
   const userString = localStorage.getItem("Users") //Hämtar 'Users' från localStorage - är just nu i string-format
   let userArray = JSON.parse(userString) //'parse' på userString från string tillbaka till en array
@@ -51,14 +43,9 @@ function RegisterSave() {
 
   //Och konverterar tillbaka till en sträng och skriver över den existerande i localStorage
   localStorage.setItem("Users", JSON.stringify(userArray))
-
-
-
 }
 
-
 function okLogin() {
-
   var savedEmail = localStorage.getItem("EmailInput")
   var savedUsername = localStorage.getItem("UserNameInput")
   var savedPassword = localStorage.getItem("PasswordInput")
@@ -68,6 +55,4 @@ function okLogin() {
   } else {
     alert("Fel")
   }
-
-  
 }
