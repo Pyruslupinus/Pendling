@@ -7,20 +7,6 @@ function saveToLocalStorage(key, object) {
   //For dates, save it as * GetYear()-(GetMonth() + 1)-GetDate() * to be able to easily
   //convert it back into a new Date(^above string)
 
-  const hi = {
-    sak1: "test",
-    sak2: 5
-  }
-
-  const hiArray = [
-    hi,
-    hi,
-    hi
-  ]
-
-  JSON.stringify(hi);
-  JSON.stringify(hiArray);
-
   window.localStorage.setItem(key, JSON.stringify(object));
   
 
@@ -33,7 +19,7 @@ function saveToLocalStorage(key, object) {
 
 function loadFromLocalStorage(key) {
   //First, check if we actually have the item saved in local storage
-  const item = window.localStorage.getItem(key);
+  let item = window.localStorage.getItem(key);
   if (item === null) {
     console.log(`Failed with retrieving localstorage item for ${key}`);
     //Not sure if returning null or just an empty string messes things up more here
@@ -58,7 +44,7 @@ const tripsKey = "trips";
 function addTrip(tripObject) {
   //First, load our trip array from the localstorage
   //I chose the trips-key 100% fueled by insomnia so poke me and I'll change it
-  const trips = loadFromLocalStorage(tripsKey);
+  let trips = loadFromLocalStorage(tripsKey);
 
   //Check if it's actually created, if not set it to be an array
   if (trips === null) {
