@@ -1,12 +1,3 @@
-/*
-- - - - - - - -
-JS to-do list:
-* Transform burger.
-* Dark/contrast mode switch.
-* The car, if time left (good icons found).
-- - - - - - - -
-*/
-
 //Button at the bottom of the page to get back to the top.
 function topFunction() {
   document.body.scrollTop = 0;

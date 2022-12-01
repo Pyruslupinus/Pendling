@@ -1,5 +1,16 @@
 @import "./color-theme.css";
 
+/*
+- - - - - - - -
+The CSS has been sorted into the following order:
+* NAV, MENU, FOOTER
+* ANIMATIONS
+* BUTTONS & HAMBURGER
+- - - - - - - -
+*/
+
+
+
 /* - - - - - - - - NAV, MENU, FOOTER - - - - - - - - */
 .nav-top{
     position: -webkit-sticky; /* For compability */
@@ -73,6 +84,8 @@
     display: flex;
 }
 
+
+
 /* - - - - - - - - ANIMATIONS - - - - - - - - */
 #ani-burger {
     animation-delay: 2s;
@@ -86,13 +99,47 @@
     display: block;
 }
 
-.lightbulb {
-    position: fixed;
-    top:0.5rem;
-    left: 0.5rem;
-    display: block;
-}
-
 #log {
     display: none;
+}
+
+
+
+/* - - - - - - - - BUTTONS & HAMBURGER - - - - - - - - */
+button, .icon-burger {
+    display: block;
+
+    max-width: 3rem;
+    max-height: 3rem;
+    padding: 5px;
+    border: 1px solid white;
+
+    border-radius: 8px;
+
+    background-color: var(--dark);
+    box-shadow: 1px 1px 1px var(--dark);
+
+    font-family: "Raleway";
+    font-size: 2rem;
+
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+button:hover, .icon-burger:hover {
+    border: 1px solid var(--bright);
+
+    background-color: var(--lighter);
+
+    text-shadow: 1px 1px 1px var(--dark);
+}
+
+#toTop {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    display: block;
 }
