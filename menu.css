@@ -1,31 +1,53 @@
 @import "./color-theme.css";
 
+/*
+- - - - - - - -
+The CSS has been sorted into the following order:
+* NAV, MENU, FOOTER
+* ANIMATIONS
+* BUTTONS & HAMBURGER
+- - - - - - - -
+*/
+
+
+
 /* - - - - - - - - NAV, MENU, FOOTER - - - - - - - - */
 .nav-top{
-    border-radius: 8px;
+    position: -webkit-sticky; /* For compability */
+    position: sticky;
+    top: 0;
+
+    min-height: 4rem;
+
     background-color: var(--medium-dark);
 }
 
 .nav-log {
+    position: fixed;
+    top: 1rem;
+    right: 3.5rem;
+    display: block;
+
+    background-color: var(--medium-dark);
+}
+
+.nav-top, .nav-log {
     border-radius: 8px;
 }
 
-nav, footer {
-    box-sizing: border-box;
-    /*margin: 0.5rem;*/
-}
-
 .ul-navmenufoot {
-    position: relative;
-    
     display: flex;
     flex-wrap: wrap;
 
     justify-content: center;
     align-content: center;
+
+    padding: 0;
     
-    box-sizing: border-box;
-    margin: 0;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    margin-bottom: 0;
+    margin-right: 0.5rem;
     
     list-style-type: none;
 }
@@ -62,8 +84,66 @@ nav, footer {
     display: flex;
 }
 
+
+
 /* - - - - - - - - ANIMATIONS - - - - - - - - */
 #ani-burger {
     animation-delay: 2s;
     animation-iteration-count: infinite;
+}
+
+.icon-burger {
+    position: fixed;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: block;
+}
+
+#log {
+    display: none;
+}
+
+@media screen and (min-width: 600px) {
+    #log {
+        display: block;
+        }
+    }
+
+/* - - - - - - - - BUTTONS & HAMBURGER - - - - - - - - */
+button, .icon-burger {
+    display: block;
+
+    max-width: 3rem;
+    max-height: 3rem;
+    padding: 5px;
+    border: 1px solid white;
+
+    border-radius: 8px;
+
+    background-color: var(--dark);
+    box-shadow: 1px 1px 1px var(--dark);
+
+    font-family: "Raleway";
+    font-size: 2rem;
+
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+}
+
+button:hover, .icon-burger:hover {
+    border: 1px solid var(--bright);
+
+    background-color: var(--lighter);
+
+    text-shadow: 1px 1px 1px var(--dark);
+}
+
+#toTop {
+    position: fixed;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    display: block;
 }
