@@ -10,15 +10,13 @@
  */
 
 :root {
-
     color-scheme: light dark;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
-
-
 }
 
 * {
+    box-sizing: border-box;
     margin: 10px;
     padding: 3px;
     background-image: repeating-linear-gradient(140deg,
@@ -30,8 +28,14 @@
             #38a3a580);
 }
 
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
 h1 {
-    color: Navy;
+    color: var(--primary);
     font-weight: bolder;
     padding: 2vw;
     font-stretch: expanded;
@@ -51,11 +55,12 @@ label {
     margin: 1rem;
 }
 
-fieldset {
+table, th, td {
     object-fit: scale-down;
-    align-items: center;
+    align-items: stretch;
     color: rgb(255, 255, 255);
-    padding: 1%;
+    padding: 2%;
+    margin: 2%;
     border-end-start-radius: 1rem;
     border-start-end-radius: 1rem;
     font-size: 100%;
@@ -94,21 +99,73 @@ input {
 }
 
 .Reset,
-.Submit:hover{
+.Submit:hover {
     transition: ease-in;
 }
 
-
-
-span{
-    color: #22577aa4;
-    padding: 1px;
-    margin: 25px;
-
+.col-1 {
+    width: 9%
 }
 
-@media screen and (max-width: 450px) {
-    * {
-        inline-size: 300px;
+.col1-6 {
+    float: right;
+}
+
+
+/* For mobile phones: */
+[class*="col"] {
+    width: 100%;
+}
+
+
+@media only screen and (min-width: 500px) {
+
+    /* For desktop: */
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
     }
 }
