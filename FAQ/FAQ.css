@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel");
 :root {
   --darkColor: #22577a;
   --mediumColor: #38a3a5;
@@ -6,6 +7,42 @@
 }
 * {
   box-sizing: border-box;
+}
+
+body {
+  background-attachment: fixed;
+  background-image: repeating-linear-gradient(
+    40deg,
+    #22577a,
+    #38a3a5,
+    #57cc99,
+    #38a3a5,
+    #38a3a5,
+    #80ed99
+  );
+}
+.header {
+  box-sizing: border-box;
+  background-color: #22577a;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  margin: 8px auto;
+  border-radius: 8px;
+  max-width: 800px;
+}
+
+.header h1 {
+  font-family: "Cambo";
+  font-size: 44px;
+  text-shadow: 2px 2px 2px #38a3a5;
+  text-transform: uppercase;
+  margin: 0px;
+  letter-spacing: 8px;
+}
+.header h2 {
+  font-family: "Abel";
+  margin: 0px;
 }
 
 .grid-container {
@@ -20,16 +57,24 @@
   margin: 1.5rem auto;
   height: 2rem;
   font-size: 1.2rem;
+  border-radius: 0.5rem;
+  border: solid 2px var(--mediumColor);
 }
 @media (min-width: 40em) {
   .searchbar {
     width: 50%;
     margin: 1.5rem 25%;
+    grid-column: span 2;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr 1fr;
   }
 }
 .FAQ {
   background-color: var(--darkColor);
   color: white;
+  border-radius: 0.5rem;
 }
 button.question {
   background-color: var(--darkColor);
@@ -38,6 +83,8 @@ button.question {
   text-align: left;
   border: none;
   font-size: 0.7rem;
+  padding-left: 1rem;
+  border-radius: 0.5rem;
 }
 p.answer {
   margin: -0.5rem 1.5rem 1.5rem;
