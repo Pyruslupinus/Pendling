@@ -3,8 +3,30 @@ const form = document.getElementById('form');
 const username = document.getElementById('username');
 const userpassword = document.getElementById('userpassword');
 
-/*var Users = JSON.parse(localStorage.getItem('currentUser'));
-console.log(Users.username);*/
+
+
+function okLogin() {
+
+    
+    /* var savedUsername = localStorage.getItem("UserNameInput")
+     var savedPassword = localStorage.getItem("PasswordInput")
+     */
+     var Users = JSON.parse(localStorage.getItem('Users'));
+     var UserName = document.getElementById("username").value
+     var UserPassword = document.getElementById("userpassword").value
+    
+ 
+ 
+ for (let index = 0; index < Users.length; index++) {
+     const element = Users[index];
+ 
+     if (UserName == element.username && UserPassword == element.password) {
+         alert("OK")
+       } else {
+         alert("Fel")
+       }   
+ }
+   }
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -53,18 +75,11 @@ const validateInputs = () => {
         setSuccess(userpassword);
     }
 };
-
-
-function okLogin() {
-
-    var savedEmail = localStorage.getItem("EmailInput")
-    var savedUsername = localStorage.getItem("UserNameInput")
-    var savedPassword = localStorage.getItem("PasswordInput")
-  
-    if (email == savedEmail && PasswordInput == savedPassword) {
+   /* if (usernameValue == savedUsername && userpasswordValue == savedPassword) {
       alert("OK")
     } else {
       alert("Fel")
     }
-  }
+    */
+
 
