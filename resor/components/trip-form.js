@@ -24,7 +24,7 @@ const FormTrip = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const datbase = [
+    const datbase = {
       trvlrname,
       typeOfTravler,
       typeOfTravl,
@@ -32,7 +32,11 @@ const FormTrip = () => {
       destination,
       startDate,
       startTime,
-    ];
+      seats,
+      bagages
+    };
+
+
 
     // *************************
     // To send data to JSON Server
@@ -48,6 +52,7 @@ const FormTrip = () => {
 
     // For now use local storage
     console.log(datbase);
+    addTrip(datbase);
   };
 
   return (
