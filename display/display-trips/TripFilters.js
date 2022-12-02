@@ -2,7 +2,15 @@ const TripFilters = (props) => {
   const [activeFilters, setActiveFilters] = React.useState({
     traveltype: "alla",
     type: "alla",
+    passengers: 1,
+    from: "",
+    to: "",
   });
+
+  const [passengerCount, setPassengerCount] = React.useState(1);
+  
+
+  
 
   const filtersChanged = (event) => {
     console.log(event);
@@ -21,13 +29,23 @@ const TripFilters = (props) => {
     props.onFilterChanged(copy);
   };
 
+  const handlePassengerChange = (event) => {
+    setPassengerCount(event.value)
+    filtersChanged(event);
+  }
+
   return (
     <section id="filters">
       <span id="filter-title">Filter</span>
       <form>
-        <label htmlFor="travel-from" className="filter.section subtitle">
+        <label htmlFor="travel-from" className="filter-section subtitle">
           Från
-          <input id="travel-from" type="week"></input>
+          <input id="travel-from" type="text" onChange={filtersChanged}></input>
+        </label>
+
+        <label htmlFor="travel-to" className="filter-section subtitle">
+          Till
+          <input id="travel-to" type="text" onChange={filtersChanged}></input>
         </label>
 
         <label htmlFor="travel-type" className="filter-section subtitle">
@@ -45,6 +63,10 @@ const TripFilters = (props) => {
             <option value="ägare">Erbjuder</option>
             <option value="passagerare">Söker</option>
           </select>
+        </label>
+        <label htmlFor="passenger-count" className="filter-section subtitle">
+          Passagerare
+          <input id="passenger-count" name="passengers"  onChange={handlePassengerChange} type="number" min={1} max={10} value={passengerCount}></input> 
         </label>
       </form>
     </section>

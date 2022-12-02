@@ -185,6 +185,8 @@ const CardPassengerInfo = (props) => {
     }
   }
 
+  
+
   //Add our two sets of icons
   pushIcons("adult", adultCount);
   pushIcons("child", childCount);
