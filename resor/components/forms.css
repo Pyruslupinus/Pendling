@@ -16,29 +16,16 @@
 }
 
 * {
-    box-sizing: border-box;
-    margin: 10px;
+    margin: 3px;
     padding: 3px;
     background-image: repeating-linear-gradient(140deg,
-            #38a3a594,
+            rgb(0, 75, 78),
+            #57cc994c,
             #22577aa4,
-            #57cc9980,
             #38a3a577,
-            #80ed9991,
-            #38a3a580);
-}
-
-.row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-h1 {
-    color: var(--primary);
-    font-weight: bolder;
-    padding: 2vw;
-    font-stretch: expanded;
+            #38a3a580,
+            #80ed9988
+            );
 }
 
 h4 {
@@ -52,47 +39,31 @@ label {
     font-size: larger;
     font-weight: bolder;
     color: Navy;
-    margin: 1rem;
+    margin: 1px;
 }
 
-table, th, td {
-    object-fit: scale-down;
-    align-items: stretch;
-    color: rgb(255, 255, 255);
-    padding: 2%;
-    margin: 2%;
-    border-end-start-radius: 1rem;
-    border-start-end-radius: 1rem;
-    font-size: 100%;
-    inline-size: 90%;
-}
 
 select {
-    object-fit: scale-down;
-    align-items: center;
     color: #ffff;
     padding: 10px;
     border-end-start-radius: 1rem;
     border-start-end-radius: 1rem;
     font-size: 90%;
-    inline-size: 350px;
 }
 
 input {
-    font-size: 16px;
-    size-adjust: inherit;
     color: rgb(255, 255, 255);
-    margin: 10px;
+    margin: 1px;
     border-end-end-radius: 1rem;
     border-start-start-radius: 1rem;
-
+    overflow-wrap: break-word;
 }
 
 .Submit {
     font-size: larger;
     font-family: Verdana, sans-serif;
-    padding: 10px;
-    margin: 10px;
+    padding: 1px;
+    margin: 1px;
     border-radius: 2rem;
     border: 2px;
     box-shadow: 5px 5px #010057;
@@ -103,69 +74,15 @@ input {
     transition: ease-in;
 }
 
-.col-1 {
-    width: 9%
+.footer {
+    color: #010057;
 }
 
-.col1-6 {
-    float: right;
-}
 
 
 /* For mobile phones: */
+@media only screen and (min-inline-size: 500px) {
 [class*="col"] {
-    width: 100%;
+    inline-size: 100%;
 }
-
-
-@media only screen and (min-width: 500px) {
-
-    /* For desktop: */
-    .col-1 {
-        width: 8.33%;
-    }
-
-    .col-2 {
-        width: 16.66%;
-    }
-
-    .col-3 {
-        width: 25%;
-    }
-
-    .col-4 {
-        width: 33.33%;
-    }
-
-    .col-5 {
-        width: 41.66%;
-    }
-
-    .col-6 {
-        width: 50%;
-    }
-
-    .col-7 {
-        width: 58.33%;
-    }
-
-    .col-8 {
-        width: 66.66%;
-    }
-
-    .col-9 {
-        width: 75%;
-    }
-
-    .col-10 {
-        width: 83.33%;
-    }
-
-    .col-11 {
-        width: 91.66%;
-    }
-
-    .col-12 {
-        width: 100%;
-    }
 }
