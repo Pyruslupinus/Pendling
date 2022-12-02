@@ -30,7 +30,7 @@ nav, footer {
     list-style-type: none;
 }
 
-.a-navmenufoot {
+.a-navmenufoot, #inlogg {
     display: block;
 
     margin: 1px;
@@ -50,7 +50,7 @@ nav, footer {
     text-decoration: none;
 }
 
-.a-navmenufoot:hover, .active {
+.a-navmenufoot:hover, #inlogg:hover, .active {
     border: 1px solid var(--bright);
 
     background-color: var(--lighter);
