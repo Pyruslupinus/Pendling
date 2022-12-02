@@ -1,9 +1,19 @@
+/*
+Importera font och färger
+Allmän styling
+Styling av body och header (taget från Annie)
+Layout av frågor och sökbar + styling av sökbar
+Styling av frågor och svar
+*/
+
 @import url("https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel");
 @import "./color-theme.css";
 
 * {
   box-sizing: border-box;
 }
+
+/*Body och header, taget från Annie*/
 body {
   background-attachment: fixed;
   background-image: repeating-linear-gradient(
@@ -18,69 +28,87 @@ body {
 }
 
 .header {
-  box-sizing: border-box;
-  background-color: #22577a;
-  text-align: center;
-  padding: 10px;
-  color: white;
-  margin: 8px auto;
-  border-radius: 8px;
   max-width: 800px;
+
+  text-align: center;
+
+  border-radius: 8px;
+  margin: 8px auto;
+  padding: 10px;
+
+  background-color: #22577a;
+  color: white;
 }
 .header h1 {
+  margin: 0px;
+
   font-family: "Cambo";
   font-size: 44px;
+  letter-spacing: 8px;
+
   text-shadow: 2px 2px 2px #38a3a5;
   text-transform: uppercase;
-  margin: 0px;
-  letter-spacing: 8px;
 }
 .header h2 {
-  font-family: "Abel";
   margin: 0px;
+
+  font-family: "Abel";
 }
 
+/*Layout av frågor och sökbar + styling av sökbar*/
 .grid-container {
   display: grid;
-  margin: auto;
   gap: 1.5rem;
-  max-width: 1400px;
+
+  margin: auto;
+
   width: 97%;
+  max-width: 1400px;
 }
 .searchbar {
-  width: 100%;
   margin: 1.5rem auto;
-  height: 2rem;
-  font-size: 1.2rem;
   border-radius: 0.5rem;
   border: solid 2px var(--medium-dark);
+
+  width: 100%;
+  height: 2rem;
+
+  font-size: 1.2rem;
 }
 @media (min-width: 40em) {
-  .searchbar {
-    width: 50%;
-    margin: 1.5rem 25%;
-    grid-column: span 2;
-  }
-
   .grid-container {
     grid-template-columns: 1fr 1fr;
   }
+  .searchbar {
+    grid-column: span 2;
+
+    margin: 1.5rem 25%;
+
+    width: 50%;
+  }
 }
 
+/*Styling av frågor och svar*/
 .FAQ {
+  border-radius: 0.5rem;
+
   background-color: var(--dark);
   color: white;
-  border-radius: 0.5rem;
 }
 button.question {
+  text-align: left;
+
+  border: none;
+  border-radius: 0.5rem;
+
+  padding-left: 1rem;
+
+  width: 100%;
+
+  font-size: 0.7rem;
+
   background-color: var(--dark);
   color: white;
-  width: 100%;
-  text-align: left;
-  border: none;
-  font-size: 0.7rem;
-  padding-left: 1rem;
-  border-radius: 0.5rem;
 }
 p.answer {
   margin: -0.5rem 1.5rem 0.5rem;
