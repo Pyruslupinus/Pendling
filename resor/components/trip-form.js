@@ -53,13 +53,14 @@ const FormTrip = () => {
     //   headers: { "Content-Type": "application/json" },
     //   body; JSON.stringify(blog)
     // }).then(() => {
-    //   console.log("data added")
-    // })
 
     // For now use local storage
     console.log(database);
-    // and pass as object.
+    // and pass as object to parse.
     addTrip(database);
+    //   console.log("data added")
+    setIsPending(false);
+    // })
   };
 
   return (
@@ -178,7 +179,7 @@ const FormTrip = () => {
                         onChange={(e) => setStartDate(e.target.value)}
                       />
                     </label>
-                      </div>
+                  </div>
                   <div className="col">
                     <label>
                       Tid:
@@ -186,9 +187,9 @@ const FormTrip = () => {
                         type="time"
                         value={startTime}
                         onChange={(e) => setStartTime(e.target.value)}
-                        />
+                      />
                     </label>
-                        </div>
+                  </div>
                 </div>
               </div>
 
