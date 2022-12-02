@@ -25,6 +25,11 @@ const TripFilters = (props) => {
     <section id="filters">
       <span id="filter-title">Filter</span>
       <form>
+        <label htmlFor="travel-from" className="filter.section subtitle">
+          Från
+          <input id="travel-from" type="week"></input>
+        </label>
+
         <label htmlFor="travel-type" className="filter-section subtitle">
           Restyp
           <select id="travel-type" name="traveltype" onChange={filtersChanged}>
