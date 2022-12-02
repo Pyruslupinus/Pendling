@@ -7,7 +7,7 @@ const MyJSXElement = () => {
                 <center>
                     <div id="SearchBox">
                         <h1 id="SökResa">Sök resa</h1>
-                        <form action="../display/display-trips.html" method="get">
+                        <form onSubmit={(e) =>  validateSearchForm(e)} action="../display/display-trips.html" method="get">
                         <div id="Destination">
                             <div>
                                 <label className="SearchText">Från:</label><br></br>
@@ -49,4 +49,39 @@ const MyJSXElement = () => {
     )
 }
 
-ReactDOM.render(<MyJSXElement />, reactContentRoot);
+function validateSearchForm(event)
+{
+    let regularName = /^[a-öA-Ö]+$/;
+    let FromBoxVariable = document.getElementById("FromBox").value.toLowerCase();
+    let ToBoxVariable = document.getElementById("ToBox").value.toLowerCase();
+    if(!regularName.test(FromBoxVariable))
+    {
+        alert("skriv in giltig stad att åka ifrån");
+        event.preventDefault();
+    }
+    else
+    {
+        document.getElementById("FromBox").value.toLowerCase();
+        document.getElementById("ToBox").value.toLowerCase();
+    }
+    
+    if(!regularName.test(ToBoxVariable))
+    {
+        alert("skriv in giltig stad att åka till");
+        event.preventDefault();
+    }
+    else
+    {
+        document.getElementById("FromBox").value.toLowerCase();
+        document.getElementById("ToBox").value.toLowerCase();
+    }
+
+    if(document.getElementById("PassCSS").value == "")
+    {
+        alert("mata in passagerare");
+        event.preventDefault();
+    }
+}
+
+const root = ReactDOM.createRoot(reactContentRoot);
+root.render(<MyJSXElement />);
