@@ -12,18 +12,15 @@ function ShowPasswordFunction() {
   }
 }
 
+const validationOK = false
 
-const validationOK = false;
-
-function validationCheck(){
-
+function validationCheck() {
+  getUsersAndCheck = localStorage.getItem("Users")
   //Hämtar värdet ifrån inputs värderna i HTML filen
   var EmailInput = document.getElementById("EmailInput").value
   var UserNameInput = document.getElementById("UserNameInput").value
   var PasswordInput = document.getElementById("PasswordInput").value
-  var Password2 = document.getElementById("PasswordInput2").value  
-
-  
+  var Password2 = document.getElementById("PasswordInput2").value
 
   //Email Check
   var checkEmail = EmailInput.indexOf("@")
@@ -31,58 +28,45 @@ function validationCheck(){
   //
 
   //Email
-  if(EmailInput == "" || checkEmail<1 || checkEmailDot<checkEmail+2 || checkEmailDot+2>=EmailInput.length)
-  {
-    window.alert("Fyll i en giltig E-Mail adress")
-  }//Till Username
-  else if(UserNameInput == null || UserNameInput =="")
-  {
+  if (EmailInput == "" || checkEmail < 1 || checkEmailDot < checkEmail + 2 || checkEmailDot + 2 >= EmailInput.length) {
+    alert("Fyll i en giltig E-Mail adress")
+  } //Till Username
+  else if (UserNameInput == null || UserNameInput == "") {
     alert("Användarnamn kan inte vara tomt")
-  }
-  else if(UserNameInput.length < 6)
-  {
+  } else if (UserNameInput.length < 6) {
     alert("Användarnamnet måste vara längre än 6 bokstäver")
-  }//Till Password
-  else if(PasswordInput.length < 6)
-  {
+  } //Till Password
+  else if (PasswordInput.length < 6) {
     alert("Lösenordet måste vara längre än 6 bokstäver")
-  }
-  else if(PasswordInput != Password2)
-  {
+  } else if (PasswordInput != Password2) {
     alert("Lösenorden måste vara likadana")
-  }
-  else if(PasswordInput == "" || Password2 == "")
-  {
+  } else if (PasswordInput == "" || Password2 == "") {
     alert("Lösenordet kan inte vara tomt")
-  }
-  else if(EmailInput === localStorage.getItem(email))
-  {
+  } //Kollar om email redan finns
+  else if (emailExists(EmailInput)) {
     alert("Email finns redan")
-  }
-
-
-  else(RegisterSave())
+  } //Kollar om username redan finns
+  else if (usernameExists(UserNameInput)) {
+    alert("Användarnamn finns redan")
+  } else RegisterSave()
   {
-
   }
-
-
 }
 
-
-function emailExists()
-{
-  const userExists = userArray.find(user => JSON.stringify(user) === newUser);
+let getUsersAndCheck = localStorage.getItem("Users")
+function emailExists(email) {
+  if (getUsersAndCheck.includes(email)) {
+    return true
+  }
+  return false
 }
-
-
-
-
-
-
+function usernameExists(username) {
+  if (getUsersAndCheck.includes(username)) {
+    return true
+  }
+  return false
+}
 function RegisterSave() {
-
-
   //Sparade inputs variabler
   var EmailInput = document.getElementById("EmailInput").value
   var UserNameInput = document.getElementById("UserNameInput").value
@@ -96,7 +80,6 @@ function RegisterSave() {
     
   }
 */
-  
 
   const newUser = {
     //Skapar ett objekt som jag vill ska innehålla email,username och password
@@ -104,8 +87,7 @@ function RegisterSave() {
     username: UserNameInput,
     password: PasswordInput,
   }
-  
-  
+
   const userString = localStorage.getItem("Users") //Hämtar 'Users' från localStorage - är just nu i string-format
   let userArray = JSON.parse(userString) //'parse' på userString från string tillbaka till en array
 
@@ -120,8 +102,5 @@ function RegisterSave() {
   //Och konverterar tillbaka till en sträng och skriver över den existerande i localStorage
   localStorage.setItem("Users", JSON.stringify(userArray))
 
-  window.location.href="../registrering/login.html"
-
+  window.location.href = "../registrering/login.html"
 }
-
-
