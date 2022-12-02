@@ -16,6 +16,9 @@ const validationOK = false
 
 function validationCheck() {
   getUsersAndCheck = localStorage.getItem("Users")
+  if (getUsersAndCheck === null) {
+    getUsersAndCheck = ""
+  }
   //Hämtar värdet ifrån inputs värderna i HTML filen
   var EmailInput = document.getElementById("EmailInput").value
   var UserNameInput = document.getElementById("UserNameInput").value
