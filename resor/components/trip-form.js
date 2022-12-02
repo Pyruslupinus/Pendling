@@ -31,7 +31,7 @@ const FormTrip = () => {
   ********************************/
   const handleSubmit = (e) => {
     e.preventDefault();
-    const datbase = {
+    const database = {
       trvlrname,
       typeOfTravler,
       typeOfTravl,
@@ -40,8 +40,8 @@ const FormTrip = () => {
       startDate,
       startTime,
       seats,
-      bagages,
       seatBarn,
+      bagages,
     };
 
     // *************************
@@ -57,9 +57,9 @@ const FormTrip = () => {
     // })
 
     // For now use local storage
-    console.log(datbase);
+    console.log(database);
     // and pass as object.
-    addTrip(datbase);
+    addTrip(database);
   };
 
   return (
@@ -77,10 +77,10 @@ const FormTrip = () => {
         {/* ******************************** */}
 
         <div className="row">
-          <div className="col-7">
+          <div className="col">
             <div className="row">
               <div className="col">
-                <label>Ange namn:</label>
+                <label>Namn:</label>
                 <input
                   type="text"
                   className="Trvlrname"
@@ -269,6 +269,9 @@ const FormTrip = () => {
               </button>
             </div>
           </div>
+
+          {/* To verify data Entered */}
+
           <div className="col">
             <div className="row">
               <h5>Skapat Resa / Pendling:</h5>

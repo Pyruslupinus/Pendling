@@ -10,9 +10,10 @@
  */
 
 :root {
-    color-scheme: light dark;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color-scheme: dark light;
     font-weight: bolder;
+    align-items: center;
+    align-content: center;
 }
 
 * {
@@ -24,18 +25,18 @@
             #22577aa4,
             #38a3a577,
             #38a3a580,
-            #80ed9988
-            );
+            #80ed9988);
+    align-items: center;
+    align-content: center;
 }
 
 h4 {
     color: Navy;
     font-weight: bolder;
-    padding: 2%;
+    padding: 0px;
 }
 
 label {
-    font-family: sans-serif;
     font-size: larger;
     font-weight: bolder;
     color: Navy;
@@ -61,9 +62,8 @@ input {
 
 .Submit {
     font-size: larger;
-    font-family: Verdana, sans-serif;
-    padding: 1px;
-    margin: 1px;
+    padding: 10px;
+    margin: 15px;
     border-radius: 2rem;
     border: 2px;
     box-shadow: 5px 5px #010057;
@@ -78,11 +78,63 @@ input {
     color: #010057;
 }
 
+#contrastcolors {
+    /* nav position-absolute end-0 bottom-0 p-2 */
+    position: fixed;
+    inset-block-end: 0;
+    inset-inline-end: 4vw;
+    inline-size: auto;
+}
 
+.slideUp {
+    animation-name: slideUp;
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(70%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
 
 /* For mobile phones: */
-@media only screen and (min-inline-size: 500px) {
-[class*="col"] {
-    inline-size: 100%;
+@media only screen and (min-inline-size: 400px) {
+    [class*="col"] {
+        inline-size: 100%;
+    }
+
 }
+
+/*
+
+
+
+
+*/
+
+
+#darkmodemenu {
+    position: relative;
+    top: 140px;
+    right: 16px;
+    padding: 5px 20px 10px 18px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 2;
+    transition: top 0.2s;
+    user-select: none;
+}
+
+#darkmodemenu input,
+#darkmodemenu label {
+    cursor: pointer;
 }
