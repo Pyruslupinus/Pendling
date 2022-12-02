@@ -31,6 +31,7 @@ const TripCard = (props) => {
   //Create a readable version of our passed in date
   const travelDate = getTravelDate(cardInfo.date);
 
+  //Return the actual html
   return (
     <article className="trip-card" style={cardStyle}>
       <i
@@ -159,8 +160,9 @@ const CardPassengerInfo = (props) => {
     //Slightly silly use of the ? conditional check and string interpolation
     //Depending on how many adults we have we want to display either vuxen / vuxna, and
     //if we have any children we want to display their count, otherwise end the sentence with a dot
-    let passengerText = `${adultCount} ${adultCount > 1 ? "vuxna" : "vuxen"}${childCount > 0 ? `, ${childCount} barn` : ""
-      }`;
+    let passengerText = `${adultCount} ${adultCount > 1 ? "vuxna" : "vuxen"}${
+      childCount > 0 ? `, ${childCount} barn` : ""
+    }`;
     setPassengerText(passengerText);
   });
 
@@ -175,17 +177,13 @@ const CardPassengerInfo = (props) => {
     for (let index = 0; index < count; index++) {
       if (passengerIcons.length < maxIcons - 1) {
         passengerIcons.push(identifier);
-      }
-      else if (passengerIcons.length == maxIcons - 1) {
-        passengerIcons.push("...")
-      }
-      else {
+      } else if (passengerIcons.length == maxIcons - 1) {
+        passengerIcons.push("...");
+      } else {
         return;
       }
     }
   }
-
-  
 
   //Add our two sets of icons
   pushIcons("adult", adultCount);
@@ -197,7 +195,7 @@ const CardPassengerInfo = (props) => {
       <span className="tooltiptext">{passengerText}</span>
       <div className={"section-title subtitle"}>Antal Passagerare</div>
       <div className="passenger-icon-display">
-          <span className="passenger-text">{totalPassengers}</span>
+        <span className="passenger-text">{totalPassengers}</span>
         <div className="passenger-row">
           {/* Map out adult / children to icons */}
           {passengerIcons.map((passenger) => {
@@ -208,7 +206,7 @@ const CardPassengerInfo = (props) => {
               icons = "fa-solid fa-child";
             }
             if (passenger === "...") {
-              icons = "fa-solid fa-ellipsis fa-lg"
+              icons = "fa-solid fa-ellipsis fa-lg";
             }
             id++;
             return <i key={id} className={icons} />;
