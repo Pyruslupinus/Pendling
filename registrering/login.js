@@ -51,7 +51,7 @@ function okLogin() {
            InLoggad()
          
         }
-        else if (UserName == '' && UserPassword == '')
+        else
         {
             //Det finns inget konto med det angivna användarnamnet eller lösenordet.
             alert("Det finns inget konto med det angivna användarnamnet eller lösenordet.")
@@ -60,64 +60,10 @@ function okLogin() {
 }
 
 
-/*
-form.addEventListener('submit', e => {
-    e.preventDefault();
-    
-    okLogin()
-    //validateInputs();
-});
-
-const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success')
-}
-const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innerText = '';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
-};
-
-
-
-const validateInputs = () => {
-    const usernameValue = username.value.trim();
-    const userpasswordValue = userpassword.value.trim();
-
-    /*if(Users){
-    console.log(Users.username);
-    }
-
-    if(usernameValue === ''){
-       setError(username, 'Skriv ditt användarnamn');
-   } /*else if (!Users(usernameValue)){
-        setError(username, 'användarnamn finns inte');
-    } else{
-        setSuccess(username);
-    }
-    if(userpasswordValue === ''){
-        setError(userpassword, 'Skriv ditt lösenord');
-    } /*else if (!Users(userpasswordValue)){
-        setError(userpassword, 'fel lösenord');
-    } else {
-        setSuccess(userpassword);
-    }
-};
-  
-*/
-
-
     function GoToHomepage()
     {
        window.location.href="../index.html";
-       //alert("gotohomepage")
+       
     }
 
 
