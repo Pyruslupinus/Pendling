@@ -141,9 +141,12 @@ const CardTimeInfo = (props) => {
 const CardPassengerInfo = (props) => {
   const passengerIcons = [];
 
+  //TODO Add some validation here
   const adultCount = parseInt(props.passagerarInfo.vuxna);
   const childCount = parseInt(props.passagerarInfo.barn);
+  const total = adultCount + childCount;
 
+  const [totalPassengers, setTotalPassengers] = React.useState(total);
   const [passengerText, setPassengerText] = React.useState("");
 
   //useEffect = Do this after everything has loaded & rendered
@@ -156,40 +159,62 @@ const CardPassengerInfo = (props) => {
     //Slightly silly use of the ? conditional check and string interpolation
     //Depending on how many adults we have we want to display either vuxen / vuxna, and
     //if we have any children we want to display their count, otherwise end the sentence with a dot
-    let passengerText = `${adultCount} ${adultCount > 1 ? "vuxna" : "vuxen"}${
-      childCount > 0 ? `, ${childCount} barn` : ""
-    }`;
+    let passengerText = `${adultCount} ${adultCount > 1 ? "vuxna" : "vuxen"}${childCount > 0 ? `, ${childCount} barn` : ""
+      }`;
     setPassengerText(passengerText);
   });
 
   //To be able to map the adult / children to icons we need to put them in an array
-  for (let index = 0; index < adultCount; index++) {
-    passengerIcons.push("adult");
+  //We set a max number of allowed icons
+  const maxIcons = 10;
+
+  //Define a function so we don't need to do this twice
+  //Essentially - add the number of adult / child to the array,
+  //if we're approaching max, add "...", if we're at or past, don't add more
+  function pushIcons(identifier, count) {
+    for (let index = 0; index < count; index++) {
+      if (passengerIcons.length < maxIcons - 1) {
+        passengerIcons.push(identifier);
+      }
+      else if (passengerIcons.length == maxIcons - 1) {
+        passengerIcons.push("...")
+      }
+      else {
+        return;
+      }
+    }
   }
-  for (let index = 0; index < childCount; index++) {
-    passengerIcons.push("child");
-  }
+
+  //Add our two sets of icons
+  pushIcons("adult", adultCount);
+  pushIcons("child", childCount);
 
   let id = 0;
   return (
-    <div className={"flex-column card-section tooltip"}>
+    <article className={"flex-column card-section tooltip"}>
       <span className="tooltiptext">{passengerText}</span>
-      <span className={"section-title subtitle"}>Antal Passagerare</span>
-      <div className="passenger-row">
-        <span className="passenger-text">{props.passagerarInfo.antal}</span>
-        {/* Map out adult / children to icons */}
-        {passengerIcons.map((passenger) => {
-          //Depending on if it's an adult or a child change set the icons
-          //to the correct combination
-          let icons = "fa-solid fa-person fa-lg";
-          if (passenger === "child") {
-            icons = "fa-solid fa-child";
-          }
-          id++;
-          return <i key={id} className={icons} />;
-        })}
+      <div className={"section-title subtitle"}>Antal Passagerare</div>
+      <div className="passenger-icon-display">
+          <span className="passenger-text">{totalPassengers}</span>
+        <div className="passenger-row">
+          {/* Map out adult / children to icons */}
+          {passengerIcons.map((passenger) => {
+            //Depending on if it's an adult or a child change set the icons
+            //to the correct combination
+            let icons = "fa-solid fa-person fa-lg";
+            if (passenger === "child") {
+              icons = "fa-solid fa-child";
+            }
+            if (passenger === "...") {
+              icons = "fa-solid fa-ellipsis fa-lg"
+            }
+            id++;
+            return <i key={id} className={icons} />;
+          })}
+        </div>
       </div>
+
       {/* Tooltip stolen from w3schools */}
-    </div>
+    </article>
   );
 };

@@ -1,30 +1,11 @@
 const DisplayList = () => {
   //Testing - save our test data to the local storage
+  // clearTrips(); //Uncomment this line to remove all trips from local storage
+  //Remove this if and uncomment ^ to get a clean page
   if(getTrips() === null)
   {
-    saveToLocalStorage("trips", GetDataBase());
+    saveToLocalStorage("trips", createDummyData());
   }
-
-  const newUser = {
-    email: "minEmail",
-    name: "emil",
-    password: "12345"
-  }
-  const annanUser = {
-    email: "dinEmail"
-  }
-
-  const allUsers = [
-    newUser,
-    annanUser
-  ]
-
-  saveToLocalStorage("allUsers", allUsers); 
-  console.log(loadFromLocalStorage("allUsers"));
-
-  saveToLocalStorage("UserEmail", "minEmail");
-  console.log(window.localStorage.getItem("UserEmail")); // minEmail;
-  window.localStorage.setItem("UserEmail", "enAnnanEmail");
 
   // Load our trips
   const [trips, setTrips] = React.useState(getTrips());
