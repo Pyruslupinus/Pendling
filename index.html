@@ -14,6 +14,7 @@
 
         <script src="https://kit.fontawesome.com/d87e0aa2fd.js" crossorigin="anonymous"></script>
         <script src="indexjs.js"></script>
+        
     </head>
 
     
@@ -56,9 +57,48 @@
                     <h1>Pendling</h1>
                     <p>Välkommen till samåkningssida för pendling eller enkelresor!</p>
                 </header>
+
+                </div>
+
+            
+            <div class="item2">
+                <!-- Meny, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
+                <nav class="nav-top">
+                    <ul class="ul-navmenufoot">
+                        <li><a class="a-navmenufoot" href="index.html">Start</a></li>
+                        <li><a class="a-navmenufoot" href="./resor/create-trip.html">Skapa resa</a></li>
+                        <li><a class="a-navmenufoot" href="./search/search-trip.html">Sök resa</a></li>
+                        <li><a class="a-navmenufoot" href ="./display/display-trips.html">Visa Resor</a></li>
+                        <li><a class="a-navmenufoot" href="./FAQ/FAQ.html">Vanliga frågor</a></li>
+                    </ul>
+                </nav>
             </div>
 
-            <div class="item2">
+
+            <div class="item3">
+                <nav class="nav-log">
+                    <ul class="ul-navmenufoot">
+                        <li class="inloggsknapp"><a class="a-navmenufoot" href ="./registrering/SignUp.html">Registrera konto</a></li>
+                        <li class="inloggsknapp"><a class="a-navmenufoot" id="inlogg" href="./registrering/login.html" onclick="UtLoggad()">logga in</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+            <!-- Hamburger in the making -->
+            <!-- aria-controls="inloggmeny" aria-expanded="false" -->
+            <div class="item4">
+                <button id="hamburger" title="'Hamburger' menu">
+                    <i class="fa-solid fa-burger fa-flip" id="ani-burger" style="--fa-animation-duration: 3s;" ></i>
+                </button>
+            </div>
+
+
+            <button onclick="topFunction()" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+
+            <div class="item5">
+
                 <main>
                     <h2>Om Pendling</h2>
                     <p> Pendlings uppdrag är att erbjuda medlemmar ett effektivare sätt till att påbörja samåkning;
@@ -71,12 +111,17 @@
                 <footer>
                     <ul class="ul-navmenufoot" id="ul-foot">
                         <li><a class="a-navmenufoot" href="https://github.com/Pyruslupinus/Pendling" target="_blank"><i class="fa-brands fa-github"></i> Om oss</a></li>
+
+                        <li><a class="a-navmenufoot" href="index.html"><i class="fa-solid fa-envelope"></i> Kontakt</a></li>
                     </ul>
                 </footer>
             </div>
-        </div>
-        <!-- Grid-container end. -->
 
-        
+
+        <!-- Nedan slutar div för grid-container. -->
+
+        </div>
+        <script src="./registrering/login.js"></script>
+
     </body>
 </html>

@@ -52,7 +52,7 @@ The CSS has been sorted into the following order:
     list-style-type: none;
 }
 
-.a-navmenufoot {
+.a-navmenufoot, #inlogg {
     display: block;
 
     margin: 1px;
@@ -72,7 +72,7 @@ The CSS has been sorted into the following order:
     text-decoration: none;
 }
 
-.a-navmenufoot:hover, .active {
+.a-navmenufoot:hover, #inlogg:hover, .active {
     border: 1px solid var(--bright);
 
     background-color: var(--lighter);
