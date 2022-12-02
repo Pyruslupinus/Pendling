@@ -1,6 +1,7 @@
 const TripFilters = (props) => {
+  
   const [activeFilters, setActiveFilters] = React.useState({
-    traveltype: "alla",
+    traveltype: ["alla"],
     type: "alla",
     passengers: 1,
     from: "",
@@ -8,9 +9,18 @@ const TripFilters = (props) => {
   });
 
   const [passengerCount, setPassengerCount] = React.useState(1);
+  const [fromField, setFromField] = React.useState("");
+  const [toField, setToField] = React.useState("");
+  const [typeField, setTypeField] = React.useState("");
+  const [travelTypeField, setTravelTypeField] = React.useState("");
   
-
-  
+  const stateSetters = {
+      traveltype: setTravelTypeField,
+      type: setTypeField,
+      passengers: setPassengerCount,
+      from: setFromField,
+      to: setToField
+  }
 
   const filtersChanged = (event) => {
     console.log(event);
@@ -34,18 +44,23 @@ const TripFilters = (props) => {
     filtersChanged(event);
   }
 
+  const handleFromFieldChange = (event) => {
+    setFromField(event)
+  }
+
+
   return (
     <section id="filters">
       <span id="filter-title">Filter</span>
       <form>
         <label htmlFor="travel-from" className="filter-section subtitle">
           Från
-          <input id="travel-from" type="text" onChange={filtersChanged}></input>
+          <input id="travel-from" name="from" type="text" onChange={filtersChanged}></input>
         </label>
 
         <label htmlFor="travel-to" className="filter-section subtitle">
           Till
-          <input id="travel-to" type="text" onChange={filtersChanged}></input>
+          <input id="travel-to" name="to" type="text" onChange={filtersChanged}></input>
         </label>
 
         <label htmlFor="travel-type" className="filter-section subtitle">
