@@ -4,11 +4,9 @@ function ShowPasswordFunction() {
   if (x.type === "password") {
     x.type = "text"
   }
-  if(i.type === "password")
-  {
+  if (i.type === "password") {
     i.type = "text"
-  }
-    else {
+  } else {
     x.type = "password"
     i.type = "password"
   }
