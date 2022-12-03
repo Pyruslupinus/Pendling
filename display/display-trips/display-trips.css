@@ -265,12 +265,13 @@ main {
     overflow-x: hidden;
     margin: 0;
     padding: 1vh 1vw;
+    border-radius: 0;
     min-width: unset;
     max-width: unset;
   }
   
 #display-trips-root{
-  width: 100vw;
+  width: 100%;
 }
 
 
@@ -279,7 +280,7 @@ main {
 }
 
 .display-title{
-  margin: 1rem 0.5rem;
+  padding: 1rem 0.5rem;
   text-align: center;
 }
 
