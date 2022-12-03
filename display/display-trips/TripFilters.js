@@ -1,16 +1,20 @@
 const TripFilters = (props) => {
   
   //So this component got a bit silly
-  //These 3 makes sense 
+  //These 3 makes a bit more sense when you look at the filtersChanged method (maybe)
+  //The first one is a bit unnecessary (since this means saving the data in two places) but it shortens the 
+  //onChange-handling for the filters by a ton
   const [activeFilters, setActiveFilters] = React.useState({
     traveltype: "alla",
     type: "alla",
-    passengers: 1,
+    passengersMin: 1,
+    passengersMax: props.passengersMax,
     from: "",
     to: "",
   });
 
-  const [passengerCount, setPassengerCount] = React.useState(1);
+  const [passengerCountMin, setPassengerCountMin] = React.useState(1);
+  const [passengerCountMax, setPassengerCountMax] = React.useState(props.passengersMax);
   const [fromField, setFromField] = React.useState("");
   const [toField, setToField] = React.useState("");
   const [typeField, setTypeField] = React.useState("alla");
@@ -19,7 +23,8 @@ const TripFilters = (props) => {
   const stateSetters = {
       traveltype: setTravelTypeField,
       type: setTypeField,
-      passengers: setPassengerCount,
+      passengersMin: setPassengerCountMin,
+      passengersMax: setPassengerCountMax,
       from: setFromField,
       to: setToField
   }
@@ -40,6 +45,8 @@ const TripFilters = (props) => {
     //Then we can do hard mode and also remember that an object (or array) can contain methods allowing us to link every single filter in here for their
     //react update methods
     stateSetters[change.type](change.value); //could translate to stateSetters["passengers"](3) which in turn would be setPassengerCount(3)
+    //This ends up saving us having to create a handleChange method for each filter, which is actually really nice
+
 
     //I also pass in a method through props, allowing us to send the new filter values to the parent component
     props.onFilterChanged(copy);
@@ -75,9 +82,19 @@ const TripFilters = (props) => {
             <option value="passagerare">Söker</option>
           </select>
         </label>
-        <label htmlFor="passenger-count" className="filter-section subtitle">
-          Passagerare
-          <input id="passenger-count" name="passengers"  onChange={filtersChanged} type="number" min={1} max={10} value={passengerCount}></input> 
+        <label htmlFor="passenger-count-min" className="filter-section subtitle">
+          Passagerare - Minimum
+          <div className="passenger-slider">
+            <span>{passengerCountMin}</span>
+            <input id="passenger-count-min" name="passengersMin"  onChange={filtersChanged} type="range" min={1} max={passengerCountMax} value={passengerCountMin}></input> 
+          </div>
+          </label>
+        <label htmlFor="passenger-count-max" className="filter-section subtitle">
+          Passagerare - Maximum
+          <div className="passenger-slider">
+            <span>{passengerCountMax}</span>
+            <input id="passenger-count-max" name="passengersMax"  onChange={filtersChanged} type="range" min={passengerCountMin} max={props.passengersMax} value={passengerCountMax}></input> 
+          </div>
         </label>
       </form>
     </section>

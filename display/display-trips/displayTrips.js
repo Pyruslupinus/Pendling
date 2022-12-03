@@ -1,6 +1,6 @@
 const DisplayList = () => {
   //Testing - save our test data to the local storage
-  // clearTrips(); //Uncomment this line to remove all trips from local storage
+  //clearTrips(); //Uncomment this line to remove all trips from local storage
   //Remove this if and uncomment ^ to get a clean page
   if(getTrips() === null)
   {
@@ -11,17 +11,23 @@ const DisplayList = () => {
   const [trips, setTrips] = React.useState(getTrips());
   const [filteredTrips, setFilteredTrips] = React.useState(getTrips());
 
-  //2. Get our filters on the page and use the filter method to create a
-  // const filteredTrips = trips.filter( etc etc )
+  //Check for our max # of passengers for the filter slider
+      //TODO Update this to reflect Vuxna + Barn
+  const maxPassengers = getTrips().reduce(function(prev, current) {
+    return (prev.passagerarInfo.antal > current.passagerarInfo.antal) ? prev: current;
+  }).passagerarInfo.antal;
 
+
+  //If our filters change, we need a reload method, this is passed and called by the tripFilters during their onChange
   const reloadTrips = (filters) => {
-    console.log(filters);
     //Next step - actually filter based on what we get here
     let newTrips = trips.filter(filterType);
     newTrips = newTrips.filter(filterTravelType);
-    console.log(newTrips);
+    newTrips = newTrips.filter(filterDestination);
+    newTrips = newTrips.filter(filterPassengers);
     setFilteredTrips(newTrips);
 
+    //Check our tripType
     function filterType(trip) {
       return filters.type === "alla" || trip.type === filters.type;
     }
@@ -30,6 +36,16 @@ const DisplayList = () => {
         filters.traveltype === "alla" || trip.traveltype === filters.traveltype
       );
     }
+    function filterDestination(trip){
+        return trip.from.includes(filters.from.toLowerCase()) && trip.to.includes(filters.to.toLowerCase());
+    }
+
+    function filterPassengers(trip){
+      //TODO Update this to reflect Vuxna + Barn
+      const passengerCount = parseInt(trip.passagerarInfo.antal);
+      return (passengerCount >= parseInt(filters.passengersMin) && passengerCount <= parseInt(filters.passengersMax));
+    }
+
   };
 
   //Id needs to be unique for each entry in the map-method so very basic solution here at the moment
@@ -39,6 +55,7 @@ const DisplayList = () => {
     <section id="main-container">
       <TripFilters
         className="flex-Column"
+        passengersMax = {maxPassengers}
         onFilterChanged={(filters) => reloadTrips(filters)}
       />
       <section className={"trip-display flex-column"}>

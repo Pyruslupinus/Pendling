@@ -107,6 +107,12 @@ main {
   margin: 0.2rem 1rem;
 }
 
+.passenger-slider{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+}
+
 /* TRIP DISPLAY */
 
 .trip-display {

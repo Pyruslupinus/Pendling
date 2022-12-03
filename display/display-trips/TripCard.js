@@ -4,6 +4,7 @@
 
 const TripCard = (props) => {
   const cardInfo = props.info;
+  console.log(cardInfo);
 
   //Conditional operator (tertiary operator) - testar (bool ? om bool = true körs den här sidan : om bool = false körs den här sidan)
   //Går att göra ganska mycket roligt med react och den eftersom vi kan peta in javascript mellan {} i html-stycken
@@ -30,6 +31,7 @@ const TripCard = (props) => {
 
   //Create a readable version of our passed in date
   const travelDate = getTravelDate(cardInfo.date);
+
 
   //Return the actual html
   return (
@@ -141,11 +143,13 @@ const CardTimeInfo = (props) => {
 //Decided to be a bit silly with the passengers so they now show the # + icons for each
 const CardPassengerInfo = (props) => {
   const passengerIcons = [];
+  console.log(props)
 
   //TODO Add some validation here
   const adultCount = parseInt(props.passagerarInfo.vuxna);
   const childCount = parseInt(props.passagerarInfo.barn);
   const total = adultCount + childCount;
+  console.log(adultCount)
 
   const [totalPassengers, setTotalPassengers] = React.useState(total);
   const [passengerText, setPassengerText] = React.useState("");
@@ -164,6 +168,12 @@ const CardPassengerInfo = (props) => {
       childCount > 0 ? `, ${childCount} barn` : ""
     }`;
     setPassengerText(passengerText);
+
+    //This solves a really silly bug that is kind of hard to explain
+    //If I didn't do this in here (which doesn't cause a re-render btw since it's already set to this value?)
+    //then I'd have run an issue where when I'm filtering by passenger, the 
+    //total would remain the total from the card that was in the slot before
+    setTotalPassengers(total);
   });
 
   //To be able to map the adult / children to icons we need to put them in an array
