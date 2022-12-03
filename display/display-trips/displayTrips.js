@@ -7,6 +7,7 @@ const DisplayList = () => {
     saveToLocalStorage("trips", createDummyData());
   }
 
+
   // Load our trips
   const [trips, setTrips] = React.useState(getTrips());
   const [filteredTrips, setFilteredTrips] = React.useState(getTrips());
@@ -20,14 +21,17 @@ const DisplayList = () => {
 
   //If our filters change, we need a reload method, this is passed and called by the tripFilters during their onChange
   const reloadTrips = (filters) => {
+    console.log(filters);
     //Next step - actually filter based on what we get here
     let newTrips = trips.filter(filterType);
     newTrips = newTrips.filter(filterTravelType);
     newTrips = newTrips.filter(filterDestination);
     newTrips = newTrips.filter(filterPassengers);
+    console.log(newTrips);
     setFilteredTrips(newTrips);
 
-    //Check our tripType
+    //To make things a bit clearer we declare a series of local functions
+    //These are then run trhough the filter in order above
     function filterType(trip) {
       return filters.type === "alla" || trip.type === filters.type;
     }
@@ -37,7 +41,7 @@ const DisplayList = () => {
       );
     }
     function filterDestination(trip){
-        return trip.from.includes(filters.from.toLowerCase()) && trip.to.includes(filters.to.toLowerCase());
+        return trip.from.toLowerCase().includes(filters.from.toLowerCase()) && trip.to.toLowerCase().includes(filters.to.toLowerCase());
     }
 
     function filterPassengers(trip){
@@ -45,8 +49,8 @@ const DisplayList = () => {
       const passengerCount = parseInt(trip.passagerarInfo.antal);
       return (passengerCount >= parseInt(filters.passengersMin) && passengerCount <= parseInt(filters.passengersMax));
     }
-
   };
+
 
   //Id needs to be unique for each entry in the map-method so very basic solution here at the moment
   let id = 0;

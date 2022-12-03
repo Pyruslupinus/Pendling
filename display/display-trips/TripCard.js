@@ -4,7 +4,6 @@
 
 const TripCard = (props) => {
   const cardInfo = props.info;
-  console.log(cardInfo);
 
   //Conditional operator (tertiary operator) - testar (bool ? om bool = true körs den här sidan : om bool = false körs den här sidan)
   //Går att göra ganska mycket roligt med react och den eftersom vi kan peta in javascript mellan {} i html-stycken
@@ -143,13 +142,11 @@ const CardTimeInfo = (props) => {
 //Decided to be a bit silly with the passengers so they now show the # + icons for each
 const CardPassengerInfo = (props) => {
   const passengerIcons = [];
-  console.log(props)
 
   //TODO Add some validation here
   const adultCount = parseInt(props.passagerarInfo.vuxna);
   const childCount = parseInt(props.passagerarInfo.barn);
   const total = adultCount + childCount;
-  console.log(adultCount)
 
   const [totalPassengers, setTotalPassengers] = React.useState(total);
   const [passengerText, setPassengerText] = React.useState("");
