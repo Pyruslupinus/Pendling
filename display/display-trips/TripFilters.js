@@ -55,48 +55,64 @@ const TripFilters = (props) => {
   return (
     <section id="filters">
       <span id="filter-title">Filter</span>
-      <form>
-        <label htmlFor="travel-from" className="filter-section subtitle">
-          Från
-          <input id="travel-from" name="from" type="text" value={fromField} onChange={filtersChanged}></input>
-        </label>
-
-        <label htmlFor="travel-to" className="filter-section subtitle">
-          Till
-          <input id="travel-to" name="to" type="text" value={toField} onChange={filtersChanged}></input>
-        </label>
-
-        <label htmlFor="travel-type" className="filter-section subtitle">
-          Restyp
-          <select id="travel-type" name="traveltype" value={travelTypeField} onChange={filtersChanged}>
-            <option value="alla">Visa Alla</option>
-            <option value="resa">Resa</option>
-            <option value="pendling">Pendling</option>
-          </select>
-        </label>
-        <label htmlFor="passenger-type" className="filter-section subtitle">
-          Erbjuder / Söker
-          <select id="passenger-type" name="type" value={typeField} onChange={filtersChanged}>
-            <option value="alla">Visa Alla</option>
-            <option value="ägare">Erbjuder</option>
-            <option value="passagerare">Söker</option>
-          </select>
-        </label>
-        <label htmlFor="passenger-count-min" className="filter-section subtitle">
-          Passagerare - Minimum
-          <div className="passenger-slider">
-            <span>{passengerCountMin}</span>
-            <input id="passenger-count-min" name="passengersMin"  onChange={filtersChanged} type="range" min={1} max={passengerCountMax} value={passengerCountMin}></input> 
-          </div>
+      <article>
+        <span className="filter-section-title title">Destination</span>
+        <div className="filter-section">
+          <label htmlFor="travel-from" className="filter-section subtitle">
+            Från
+            <input id="travel-from" name="from" type="text" value={fromField} onChange={filtersChanged}></input>
           </label>
-        <label htmlFor="passenger-count-max" className="filter-section subtitle">
-          Passagerare - Maximum
-          <div className="passenger-slider">
-            <span>{passengerCountMax}</span>
-            <input id="passenger-count-max" name="passengersMax"  onChange={filtersChanged} type="range" min={passengerCountMin} max={props.passengersMax} value={passengerCountMax}></input> 
+
+          <label htmlFor="travel-to" className="filter-section subtitle">
+            Till
+            <input id="travel-to" name="to" type="text" value={toField} onChange={filtersChanged}></input>
+          </label>
+        </div>
+      </article>
+
+        <article>
+          <span className="filter-section-title title">Resinfo</span>
+          <div className="filter-section">
+            <label htmlFor="travel-type" className="filter-section subtitle">
+              Restyp
+              <select id="travel-type" name="traveltype" value={travelTypeField} onChange={filtersChanged}>
+                <option value="alla">Visa Alla</option>
+                <option value="resa">Resa</option>
+                <option value="pendling">Pendling</option>
+              </select>
+            </label>
+            <label htmlFor="passenger-type" className="filter-section subtitle">
+              Erbjuder / Söker
+              <select id="passenger-type" name="type" value={typeField} onChange={filtersChanged}>
+                <option value="alla">Visa Alla</option>
+                <option value="ägare">Erbjuder</option>
+                <option value="passagerare">Söker</option>
+              </select>
+            </label>
           </div>
-        </label>
-      </form>
+        </article>
+
+
+        <article>
+        <span className="filter-section-title title">Passagerare</span>
+        <div className="filter-section">
+          <label htmlFor="passenger-count-min" className="subtitle filter-section">
+            Minimum
+            <div className="passenger-slider">
+              <span>{passengerCountMin}</span>
+              <input id="passenger-count-min" name="passengersMin"  onChange={filtersChanged} type="range" min={1} max={passengerCountMax} value={passengerCountMin}></input> 
+            </div>
+            </label>
+          <label htmlFor="passenger-count-max" className="subtitle filter-section">
+            Maximum
+            <div className="passenger-slider">
+              <span>{passengerCountMax}</span>
+              <input id="passenger-count-max" name="passengersMax"  onChange={filtersChanged} type="range" min={passengerCountMin} max={props.passengersMax} value={passengerCountMax}></input> 
+            </div>
+          </label>
+        </div>
+        </article>
+        
     </section>
   );
 };
