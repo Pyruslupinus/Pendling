@@ -202,7 +202,6 @@ const CardPassengerInfo = (props) => {
   let id = 0;
   return (
     <article className={"flex-column card-section tooltip"}>
-      <span className="tooltiptext">{passengerText}</span>
       <div className={"section-title subtitle"}>Antal Passagerare</div>
       <div className="passenger-icon-display">
         <span className="passenger-text">{totalPassengers}</span>
@@ -222,6 +221,8 @@ const CardPassengerInfo = (props) => {
             return <i key={id} className={icons} />;
           })}
         </div>
+        
+      <div className="tooltiptext">{passengerText}</div>
       </div>
 
       {/* Tooltip stolen from w3schools */}

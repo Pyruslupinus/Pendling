@@ -27,7 +27,7 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 5vh auto;
+  margin: 2vh auto;
   min-height: 110vh;
   text-align: left;
   background: rgba(255, 255, 255, 0.8);
@@ -35,8 +35,6 @@ main {
   font-family: "Cambo", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);
-  display: flex;
-  flex-direction: column;
 }
 
 /* Meta-classes */
@@ -60,8 +58,8 @@ main {
 #main-container {
   display: grid;
   width: 100%;
-  grid-template-columns: 0.7fr 1fr;
-  padding: 1rem 2.5rem;
+  grid-template-columns: 0.7fr auto;
+  padding: 1rem 1.5rem;
   gap: 2.5rem;
 }
 
@@ -69,7 +67,7 @@ main {
 
 .display-title {
   font-size: clamp(1.4rem, 2.2rem + 1vw, 3rem);
-  margin: 1rem 2.5rem;
+  padding: 0.5rem 2rem;
   grid-column: span 2;
   line-height: 1;
 }
@@ -84,10 +82,6 @@ main {
 
 #filters {
   line-height: 2;
-}
-
-#filters-root {
-  margin: 1rem 2.5rem;
 }
 
 #filter-title {
@@ -207,23 +201,20 @@ main {
 
 .passenger-icon-display{
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr 1fr;
   gap: 1rem;
   align-items: center;
-  margin-top: 0.5rem;
+  padding: 2rem 0 1rem 0;
 }
 
 
 .passenger-row {
-  display: flex;
-  flex-direction: row;
-  justify-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   align-items: baseline;
+  justify-content: left;
   gap: 2rem 1rem;
   font-size: 2rem;
-  margin-block: 1rem;
-  max-width: 50%;
 }
 
 .passenger-text {
@@ -240,40 +231,74 @@ main {
 }
 /* MEDIA QUERIES */
 
+@media only screen and (max-width: 800px){
+ .passenger-icon-display{
+  grid-template-columns: 1fr;
+  justify-items: left;
+  padding: 1rem 0;
+ }
+}
+
 @media only screen and (max-width: 650px) {
   #filters {
     grid-column: span 2;
   }
 
+  main{
+    overflow-x: hidden;
+    margin: 0;
+    padding: 1vh 1vw;
+    min-width: unset;
+    max-width: unset;
+  }
+  
+#display-trips-root{
+  width: 100vw;
+}
+
+
+.trip-card:hover {
+  transform: unset;
+}
+
+.display-title{
+  margin: 1rem 0.5rem;
+  text-align: center;
+}
+
+
+#display-divider {
+  width: 100%;
+}
+
+
+#filter-title{
+  justify-content: center;
+}
+
+#main-container{
+  padding: 1rem 0.5rem;
+}
+
   .trip-display {
     grid-column: span 2;
   }
+
 }
 
 /* Misc */
 
-/* From w3schools, basic tooltip */
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  position: absolute;
   visibility: hidden;
-  max-width: 40%;
   background-color: black;
-  /* Ugly way to center it to the right of the icons but it works */
-  left: 53%;
-  top: 2.3rem;
+
   color: #fff;
   text-align: center;
-  padding: 0.4rem 1rem;
+  padding: 0.6rem 1rem;
   border-radius: 6px;
 
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
   z-index: 1;
 }
 
