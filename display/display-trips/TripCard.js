@@ -34,7 +34,22 @@ const TripCard = (props) => {
 
   //Handle that the card has been clicked
   const handleClick = () => {
-    alert("A card was clicked!")
+    //So - what we need to do here is open the modal for the card
+    //We could (and maybe should) send this upward and let the page itself 
+    //handle this
+    //However, I wanna begin with testing a quick and dirty way - show the 
+    //component by directly letting the card display it
+
+    const loginStatus = sessionStorage.getItem("LoggedIn");
+    if(loginStatus != "true")
+    {
+      alert("Can't click card when you're not logged in!")
+    }
+    else{
+      alert("A card was clicked!")
+    }
+    //console.log(sessionStorage.getItem("LoggedIn"));
+    
   }
   //Return the actual html
   return (
