@@ -32,9 +32,13 @@ const TripCard = (props) => {
   const travelDate = getTravelDate(cardInfo.date);
 
 
+  //Handle that the card has been clicked
+  const handleClick = () => {
+    alert("A card was clicked!")
+  }
   //Return the actual html
   return (
-    <article className="trip-card" style={cardStyle}>
+    <article className="trip-card" style={cardStyle} onClick={handleClick}>
       <i
         id="type-logo"
         className={`fa-solid ${variableInfo.typeLogo} fa-lg`}
