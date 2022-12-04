@@ -8,10 +8,36 @@ const FormTrip = () => {
   const [destination, setDestination] = React.useState("");
   const [startDate, setStartDate] = React.useState("");
   const [startTime, setStartTime] = React.useState("");
-  const [isPending, setIsPending] = React.useState(false);
   const [bagages, setBagages] = React.useState("");
   const [seats, setSeats] = React.useState("");
   const [seatBarn, setSeatBarn] = React.useState("");
+  const [isPending, setIsPending] = React.useState(false);
+
+  //  Date Validation current to max 1 Year 1 month
+
+  React.useEffect(() => {
+    const dateInput = document.getElementById("date-input");
+    const date = new Date();
+    const formatDate =
+      date.getFullYear() +
+      "-" +
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate().toString().padStart(2, "0");
+    dateInput.min = formatDate;
+
+    const maxYear = date.getFullYear() + 1;
+    const formatDateMax =
+      maxYear +
+      "-" +
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate().toString().padStart(2, "0");
+
+    dateInput.max = formatDateMax;
+  });
+
+  //Two things we can set to limit / preset it
 
   // cancelCourse = () => {
   //   document.getElementById("create-course-form").reset();
@@ -29,6 +55,7 @@ const FormTrip = () => {
   data catagori names for search page. 
 
   ********************************/
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const database = {
@@ -55,10 +82,10 @@ const FormTrip = () => {
     // }).then(() => {
 
     // For now use local storage
-    console.log(database);
-    // and pass as object to parse.
+    // and pass as object "database" to parse.
     addTrip(database);
-    //   console.log("data added")
+    console.log(database);
+
     setIsPending(false);
     // })
   };
@@ -68,11 +95,12 @@ const FormTrip = () => {
       {/* ******************************** */}
       {/* Creating a form to enter data */}
       {/* ******************************** */}
-      <form onSubmit={handleSubmit}>
-        <div className="header">
-          <h4>Planera resa / pendling</h4>
-        </div>
-
+      <div className="banner">
+        <h4 className="font-effect-fire headerfooter">
+          Planera resa / pendling
+        </h4>
+      </div>
+      <form id="Database" onSubmit={handleSubmit}>
         {/* ******************************** */}
         {/* Row and Column used for Responsive design */}
         {/* ******************************** */}
@@ -91,13 +119,14 @@ const FormTrip = () => {
                   onChange={(e) => setTrvlrname(e.target.value)}
                 />
                 {/* ******************************** */}
-                {/* Using both dropdown list and radio selectors Different approach */}
+                {/* Using both dropdown list and radio 
+                    selectors Different approach */}
                 {/* ******************************** */}
               </div>
               <div className="row">
                 <div className="row">
                   <div className="row">
-                    <lable for="typeOfTravl">
+                    <lable htmlFor="typeOfTravl">
                       <strong>Vilja om du reser som :</strong>
                     </lable>
                   </div>
@@ -149,7 +178,7 @@ const FormTrip = () => {
 
               <div className="row">
                 <div className="col">
-                  <label for="From">
+                  <label>
                     Från:
                     <input
                       name="From"
@@ -175,6 +204,7 @@ const FormTrip = () => {
                       Datum:
                       <input
                         type="date"
+                        id="date-input"
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
                       />
@@ -255,25 +285,24 @@ const FormTrip = () => {
               {/* ******************************** */}
               {/* Check and display loading / submiting  */}
               {/* ******************************** */}
-              {!isPending && (
-                <button className="Submit" type="submit" onClick="">
-                  Submit
-                </button>
-              )}
-              {isPending && (
-                <button className="Submit" type="submit" onClick="" disabled>
-                  Submit...
-                </button>
-              )}
-              <button className="Submit" type="reset" onClick="">
-                Reset
-              </button>
+              <div className="Sub_button">
+                {!isPending && (
+                  <button className="Submit" type="submit" onClick="">
+                    Submit
+                  </button>
+                )}
+                {isPending && (
+                  <button className="Submit" type="submit" onClick="" disabled>
+                    Submit...
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
           {/* To verify data Entered */}
 
-          <div className="col">
+          <div className="col Skapat">
             <div className="row">
               <h5>Skapat Resa / Pendling:</h5>
               <div className="row">
