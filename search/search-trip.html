@@ -1,38 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sök Resa</title>
-    <link rel="stylesheet" href="../menu.css">
-    <link rel="stylesheet" href="SearchCSS.css">
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-<body id="IsakBody">
-    <header>
-        <!-- Meny, OBS; länkarna behöver uppdateras när fler html-filer skapats! -->
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sök Resa</title>
+
+        <link rel="stylesheet" href="../menu.css">
+        <link rel="stylesheet" href="SearchCSS.css">
+
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+
+        <script src="https://kit.fontawesome.com/d87e0aa2fd.js" crossorigin="anonymous"></script>
+        <script src="../indexjs.js"></script>
+    </head>
+
+    <body id="IsakBody">
+
+        <!-- Top navigation menu -->
         <nav class="nav-top">
-            <ul class="ul-navmenufoot">
+            <ul class="ul-navtop">
                 <li><a class="a-navmenufoot" href="../index.html">Start</a></li>
                 <li><a class="a-navmenufoot" href="../resor/create-trip.html">Skapa resa</a></li>
-                <li><a class="a-navmenufoot active" href="../search/search-trip.html">Sök resa</a></li>
+                <li><a class="a-navmenufoot navactive" href="../search/search-trip.html">Sök resa</a></li>
                 <li><a class="a-navmenufoot" href ="../display/display-trips.html">Visa Resor</a></li>
                 <li><a class="a-navmenufoot" href="../FAQ/FAQ.html">Vanliga frågor</a></li>
             </ul>
         </nav>
 
-
+        <!-- Hamburger with register account and log in/out. -->
         <nav class="nav-log">
-            <ul class="ul-navmenufoot">
-                <li class="inloggsknapp"><a class="a-navmenufoot" href ="../registrering/SignUp.html">Registrera konto</a></li>
-                <li class="inloggsknapp" id="inlogg"><a class="a-navmenufoot" href="../registrering/login.html">Logga in</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="root"></div>  
+            <a href="javascript:void(0);" class="icon-burger" onclick="flipBurger()">
+                <i class="fa-solid fa-burger fa-flip" id="ani-burger" style="--fa-animation-duration: 3s;" ></i>
+            </a>
 
-    <script type="text/babel" src="SearchJavaScript.js"></script>
-</body>    
-</head>    
+            <div id="log">
+                <ul class="ul-navmenufoot">
+                    <li class="inloggsknapp"><a class="a-navmenufoot" href ="../registrering/SignUp.html">Registrera konto</a></li>
+                    <li class="inloggsknapp"><a class="a-navmenufoot" id="inlogg" href="../registrering/login.html" onclick="UtLoggad()">logga in</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <header></header>
+
+        <div id="root"></div>
+
+        <script type="text/babel" src="SearchJavaScript.js"></script>
+
+        <footer>
+            <ul class="ul-navmenufoot" id="ul-foot">
+                <li><a class="a-navmenufoot" href="https://github.com/Pyruslupinus/Pendling" target="_blank"><i class="fa-brands fa-github"></i> Om oss</a></li>
+            </ul>
+
+            <!-- Button at the bottom of the page to get back to the top. -->
+            <button onclick="topFunction()" class="indexbuttons" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+        </footer>
+
+    </body>
 </html>
