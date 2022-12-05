@@ -56,9 +56,12 @@ const tripsKey = "trips";
 //       } etc etc
 
 function addTrip(tripObject) {
+
+  tripToSave = translateTrip(tripObject);
+
   //First, load our trip array from the localstorage
   //I chose the trips-key 100% fueled by insomnia so poke me and I'll change it
-  const trips = loadFromLocalStorage(tripsKey);
+  let trips = loadFromLocalStorage(tripsKey);
 
   //Check if it's actually created, if not set it to be an array
   if (trips === null) {
@@ -67,15 +70,36 @@ function addTrip(tripObject) {
 
   //Unique ID implementation from https://stackoverflow.com/questions/3231459/how-can-i-create-unique-ids-with-javascript
   //A unique ID is not really needed but I felt like being a bit proper
-  tripObject.id = "id" + Math.random().toString(16).slice(2);
-  console.log(tripObject.id);
+  //tripObject.id = "id" + Math.random().toString(16).slice(2);
+  //console.log(tripObject.id);
 
   //Then, push our new trip to the end of the array
-  trips.push(tripObject);
+  trips.push(tripToSave);
 
   //Finally, resave our trips-array to the local storage, overwriting the previous state with
   //a new array containing our latest entry
   saveToLocalStorage(tripsKey, trips);
+}
+
+function translateTrip(tripObject){
+  const newTrip ={
+    name: tripObject.trvlrname,
+    type: tripObject.typeOfTraveler,
+    traveltype : tripObject.typeOfTravl,
+    from : tripObject.startingpoint,
+    to: tripObject.destination,
+    date: tripObject.startDate,
+    time: tripObject.startTime,
+    passagerarInfo: {
+      antal: tripObject.seats,
+      vuxna: 1,
+      barn: 0
+    },
+    baggage: tripObject.bagages,
+    extrainfo: ""
+  }
+
+  return newTrip;
 }
 
 function getTrips() {
