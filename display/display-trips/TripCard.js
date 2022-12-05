@@ -5,23 +5,7 @@
 const TripCard = (props) => {
   const cardInfo = props.info;
 
-  //Conditional operator (tertiary operator) - testar (bool ? om bool = true körs den här sidan : om bool = false körs den här sidan)
-  //Går att göra ganska mycket roligt med react och den eftersom vi kan peta in javascript mellan {} i html-stycken
-  //Eftersom vi ska ha ut en hel del varierade saker kör jag allt på samma gång däremot
-  const variableInfo = {
-    typeLogo:
-      props.info.type === "passagerare"
-        ? "fa-person-walking-luggage"
-        : "fa-car",
-    gradientColor: props.info.traveltype === "resa" ? "#22577a" : "#80ed99",
-    dropColor: props.info.traveltype === "resa" ? "#22577a" : "#80ed99",
-    traveltypeText:
-      (props.info.type === "passagerare" ? "Söker " : "Erbjuder ") +
-      (props.info.traveltype === "resa" ? "Resa" : "Pendling"),
-  };
-  //Tldr for above is that we're doing some style and text changes based on the 4 possible
-  //combinations of passagerare, ägare, pendling & resa. A more readable method would have been a switch
-  //and functions returning different objects, although that would have made the code much longer
+  const variableInfo = getVariableInfo(cardInfo);
 
   //Construct the parts of the styling that varies depending on the variableInfo
   let cardStyle = {};
@@ -31,26 +15,23 @@ const TripCard = (props) => {
   //Create a readable version of our passed in date
   const travelDate = getTravelDate(cardInfo.date);
 
-
   //Handle that the card has been clicked
   const handleClick = () => {
-    //So - what we need to do here is open the modal for the card
-    //We could (and maybe should) send this upward and let the page itself 
-    //handle this
-    //However, I wanna begin with testing a quick and dirty way - show the 
-    //component by directly letting the card display it
+    //Validate that we have a callback function set in our props
+    if ("cardClick" in props) {
+      props.cardClick(cardInfo);
+    }
 
-    const loginStatus = sessionStorage.getItem("LoggedIn");
-    if(loginStatus != "true")
-    {
-      alert("Can't click card when you're not logged in!")
-    }
-    else{
-      alert("A card was clicked!")
-    }
+    // const loginStatus = sessionStorage.getItem("LoggedIn");
+    // if(loginStatus != "true")
+    // {
+    //   alert("Can't click card when you're not logged in!")
+    // }
+    // else{
+    //   alert("A card was clicked!")
+    // }
     //console.log(sessionStorage.getItem("LoggedIn"));
-    
-  }
+  };
   //Return the actual html
   return (
     <article className="trip-card" style={cardStyle} onClick={handleClick}>
@@ -67,6 +48,65 @@ const TripCard = (props) => {
     </article>
   );
 };
+
+//Full screen modal version of the cards
+const TripModal = (props) => {
+  const cardInfo = props.info;
+  const variableInfo = getVariableInfo(cardInfo);
+  const travelDate = getTravelDate(cardInfo.date);
+
+  const borderStyle = {
+    outlineColor: variableInfo.dropColor,
+    borderColor: variableInfo.dropColor,
+  };
+
+  const handleContactClicked = () => {
+    props.handleContactClicked(props.info);
+  };
+
+  //Essentially just a card, but with some extra info added
+  return (
+    <section id="cardModal" className="trip-modal">
+      <article className="trip-modal-content" style={borderStyle}>
+        <span className="capitalize modal-title">
+          {cardInfo.from} - {cardInfo.to}
+          <br />
+          <span className="section-title subtitle">
+            {variableInfo.traveltypeText}
+          </span>
+        </span>
+        <CardTimeInfo dateInfo={travelDate} timeInfo={cardInfo.time} />
+        <CardPassengerInfo
+          passagerarInfo={cardInfo.passagerarInfo}
+          toolTipStyle={"show"}
+        />
+        <CardLuggageInfo luggageInfo={cardInfo.baggage} />
+        <CardPersonalInfo personInfo={cardInfo.name} />
+        <CardExtraInfo extraInfo={cardInfo.extrainfo} />
+        <CardContactButton contactCallback={handleContactClicked} />
+      </article>
+    </section>
+  );
+};
+
+//Conditional operator (tertiary operator) - testar (bool ? om bool = true körs den här sidan : om bool = false körs den här sidan)
+//Går att göra ganska mycket roligt med react och den eftersom vi kan peta in javascript mellan {} i html-stycken
+//Eftersom vi ska ha ut en hel del varierade saker kör jag allt på samma gång däremot
+function getVariableInfo(cardInfo) {
+  return {
+    typeLogo:
+      cardInfo.type === "passagerare" ? "fa-person-walking-luggage" : "fa-car",
+    gradientColor: cardInfo.traveltype === "resa" ? "#22577a" : "#80ed99",
+    dropColor: cardInfo.traveltype === "resa" ? "#22577a" : "#80ed99",
+    traveltypeText:
+      (cardInfo.type === "passagerare" ? "Söker " : "Erbjuder ") +
+      (cardInfo.traveltype === "resa" ? "Resa" : "Pendling"),
+  };
+
+  //Tldr for above is that we're doing some style and text changes based on the 4 possible
+  //combinations of passagerare, ägare, pendling & resa. A more readable method would have been a switch
+  //and functions returning different objects, although that would have made the code much longer
+}
 
 //Originally I did this with the border-image trick from https://youtu.be/ypstT5UfCsk 9 minutes in
 //Now this is a much simpler way of doing it so no more sillyness
@@ -152,8 +192,11 @@ const CardTimeInfo = (props) => {
   return (
     <div className={"flex-column card-section"}>
       <span className={"section-title subtitle"}>Tid</span>
-      <span>{props.dateInfo}</span>
-      <span>Klockan {props.timeInfo}</span>
+      <div className="section-text">
+        <span>{props.dateInfo}</span>
+        <br />
+        <span>Klockan {props.timeInfo}</span>
+      </div>
     </div>
   );
 };
@@ -187,7 +230,7 @@ const CardPassengerInfo = (props) => {
 
     //This solves a really silly bug that is kind of hard to explain
     //If I didn't do this in here (which doesn't cause a re-render btw since it's already set to this value?)
-    //then I'd have run an issue where when I'm filtering by passenger, the 
+    //then I'd have run an issue where when I'm filtering by passenger, the
     //total would remain the total from the card that was in the slot before
     setTotalPassengers(total);
   });
@@ -215,6 +258,13 @@ const CardPassengerInfo = (props) => {
   pushIcons("adult", adultCount);
   pushIcons("child", childCount);
 
+  let toolTipClasslist = "tooltiptext capitalize";
+  //Check if we've told this to always show our tooltip
+  if ("toolTipStyle" in props) {
+    console.log("got here");
+    toolTipClasslist = "tooltiptext capitalize always-show";
+  }
+
   let id = 0;
   return (
     <article className={"flex-column card-section tooltip"}>
@@ -237,11 +287,74 @@ const CardPassengerInfo = (props) => {
             return <i key={id} className={icons} />;
           })}
         </div>
-        
-      <div className="tooltiptext">{passengerText}</div>
+
+        <div className={toolTipClasslist}>{passengerText}</div>
       </div>
 
       {/* Tooltip stolen from w3schools */}
     </article>
+  );
+};
+
+const CardLuggageInfo = (props) => {
+  const luggageIcons = [];
+  for (let index = 0; index < parseInt(props.luggageInfo); index++) {
+    luggageIcons.push("luggage");
+  }
+  let id = 0;
+  return (
+    <div className={"flex-column card-section"}>
+      <span className={"section-title subtitle"}>Baggage</span>
+      <div className="luggage-icon-display">
+        <span className="luggage-text">{props.luggageInfo}</span>
+        <div className="luggage-row">
+          {luggageIcons.map((luggage) => {
+            id++;
+            return <i key={id} className="fa-solid fa-suitcase-rolling fa-lg"/>
+          })}
+        </div>
+      </div>
+      <div className="section-text">
+      </div>
+    </div>
+  );
+};
+
+const CardPersonalInfo = (props) => {
+  return (
+    <div className={"flex-column card-section"}>
+      <span className={"section-title subtitle"}>Upplagd av</span>
+      <div className="section-text">
+        <span>{props.personInfo}</span>
+      </div>
+    </div>
+  );
+};
+
+const CardExtraInfo = (props) => {
+  let extraInfo = props.extraInfo;
+  if (extraInfo == "") {
+    extraInfo = "Ingen ytterligare information från användaren.";
+  }
+
+  return (
+    <div className={"flex-column card-section"}>
+      <span className={"section-title subtitle"}>Extra Info</span>
+      <div className="section-text">
+        <span>{extraInfo}</span>
+      </div>
+    </div>
+  );
+};
+
+const CardContactButton = (props) => {
+  const handleContact = () => {
+    props.contactCallback();
+  };
+
+  return (
+    <button onClick={handleContact} className="modal-contact">
+      Kontakta
+    </button>
   );
 };
