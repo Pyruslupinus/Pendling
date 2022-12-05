@@ -4,47 +4,130 @@
 * Nav & menus & footer (grid for content is in index.css)
 * BUTTONS & HAMBURGER */
 
-
 /* NAV & MENUs & FOOTER*/
-.nav-top{
-    position: -webkit-sticky; /* For compability */
-    position: sticky;
-    top: 0;
+.nav-top {
+  position: -webkit-sticky; /* For compability */
+  position: sticky;
+  top: 0;
 
-    min-height: 4rem;
-
-    background-color: var(--medium-dark);
-
-    z-index: 1;
+  min-height: 4rem;
+  
+  z-index: 1;
+  background-color: var(--medium-dark);
 }
 
 .nav-log {
-    position: fixed;
-    top: 1rem;
-    right: 3rem;
-    display: block;
+  position: fixed;
+  top: 1rem;
+  right: 3rem;
+  display: block;
 
-    border-radius: 8px 0px 0px 8px;
+  border-radius: 8px 0px 0px 8px;
 
-    background-color: white;
+  background-color: white;
 }
 
-.ul-navtop, .ul-navmenufoot {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0;
-    
-    list-style-type: none;
+.ul-navtop,
+.ul-navmenufoot {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+
+  list-style-type: none;
 }
 
 .ul-navtop {
-    margin-top: 0;
-    margin-right: 4rem;
-    margin-bottom: 0;
-    margin-left: 0.5rem;
+  margin-top: 0;
+  margin-right: 4rem;
+  margin-bottom: 0;
+  margin-left: 0.5rem;
 }
 
 .ul-navmenufoot {
+  justify-content: center;
+  align-content: center;
+
+  margin-top: 0;
+  margin-right: 0.5rem;
+  margin-bottom: 0;
+  margin-left: 0.5rem;
+}
+
+.a-navmenufoot {
+  display: block;
+
+  margin: 1px;
+  padding: 5px;
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+
+  background-color: var(--dark);
+
+  font-family: "Raleway";
+  font-size: 20px;
+
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+#inlogg {
+  display: block;
+
+  margin: 1px;
+  padding: 5px;
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+
+  background-color: var(--dark);
+
+  font-family: "Raleway";
+  font-size: 20px;
+
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
+
+  text-decoration: none;
+}
+
+.a-navmenufoot:hover,
+#inlogg:hover,
+.navactive {
+  border: 1px solid var(--bright);
+
+  background-color: var(--lighter);
+
+  text-shadow: 1px 1px 1px var(--dark);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  display: block;
+
+  width: 100vw;
+  /*box-sizing: border-box;*/
+  background-color: var(--dark);
+}
+
+#ul-foot {
+  display: flex;
+}
+
+/* "Hides #log in hamburger" if screen less than 600px. */
+#log {
+  display: none;
+}
+
+@media screen and (min-width: 1260px) {
+  #log {
+    display: block;
+  }
+
+  .ul-navtop {
     justify-content: center;
     align-content: center;
 
@@ -52,160 +135,73 @@
     margin-right: 0.5rem;
     margin-bottom: 0;
     margin-left: 0.5rem;
-
-}
-
-.a-navmenufoot {
-    display: block;
-
-    margin: 1px;
-    padding: 5px;
-    border: 1px solid var(--dark);
-    border-radius: 8px;
-
-    background-color: var(--dark);
-
-    font-family: "Raleway";
-    font-size: 20px;
-
-    color: white;
-    text-align: center;
-    letter-spacing: 1px;
-
-    text-decoration: none;
-}
-
-#inlogg {
-    display: block;
-
-    margin: 1px;
-    padding: 5px;
-    border: 1px solid var(--dark);
-    border-radius: 8px;
-
-    background-color: var(--dark);
-
-    font-family: "Raleway";
-    font-size: 20px;
-
-    color: white;
-    text-align: center;
-    letter-spacing: 1px;
-
-    text-decoration: none;  
-}
-
-.a-navmenufoot:hover, #inlogg:hover, .navactive {
-    border: 1px solid var(--bright);
-
-    background-color: var(--lighter);
-
-    text-shadow: 1px 1px 1px var(--dark);
-}
-
-footer {
-    position: fixed;
-    bottom: 0;
-    display: block;
-
-    width: 100vw;
-    /*box-sizing: border-box;*/
-    background-color: var(--dark);
-}
-
-#ul-foot {
-    display: flex;
-
-}
-
-
-/* "Hides #log in hamburger" if screen less than 600px. */
-#log {
-    display: none;
-}
-
-@media screen and (min-width: 1260px) {
-    #log {
-        display: block;
-        }
-
-
-    .ul-navtop {
-        justify-content: center;
-        align-content: center;
-
-        margin-top: 0;
-        margin-right: 0.5rem;
-        margin-bottom: 0;
-        margin-left: 0.5rem;
-    }
+  }
 }
 
 @media screen and (min-width: 700px) {
+  .ul-navtop {
+    justify-content: center;
+    align-content: center;
 
-    .ul-navtop {
-        justify-content: center;
-        align-content: center;
-
-        margin-top: 0;
-        margin-right: 0.5rem;
-        margin-bottom: 0;
-        margin-left: 0.5rem;
-    }
+    margin-top: 0;
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+  }
 }
-
-
 
 /* BUTTONS & HAMBURGER */
 
-.indexbuttons, .icon-burger {
-    display: block;
+.indexbuttons,
+.icon-burger {
+  display: block;
 
-    max-width: 3rem;
-    max-height: 3rem;
-    padding: 5px;
-    border: 1px solid white;
+  max-width: 3rem;
+  max-height: 3rem;
+  padding: 5px;
+  border: 1px solid white;
 
-    border-radius: 8px;
+  border-radius: 8px;
 
-    background-color: var(--dark);
-    box-shadow: 1px 1px 1px var(--dark);
+  background-color: var(--dark);
+  box-shadow: 1px 1px 1px var(--dark);
 
-    font-family: "Raleway";
-    font-size: 2rem;
+  font-family: "Raleway";
+  font-size: 2rem;
 
-    color: white;
-    text-align: center;
-    letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  letter-spacing: 1px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.indexbuttons:hover, .icon-burger:hover {
-    border: 1px solid var(--bright);
+.indexbuttons:hover,
+.icon-burger:hover {
+  border: 1px solid var(--bright);
 
-    background-color: var(--lighter);
+  background-color: var(--lighter);
 
-    text-shadow: 1px 1px 1px var(--dark);
+  text-shadow: 1px 1px 1px var(--dark);
 }
 
 #ani-burger {
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
 }
 
 .icon-burger {
-    position: fixed;
-    top: 0.5rem;
-    right: 0.5rem;
-    display: block;
+  position: fixed;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: block;
 }
 
 #toTop {
-    position: fixed;
-    bottom: 0.5rem;
-    right: 0.5rem;
-    display: block;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  display: block;
 
-    border: 0px;
+  border: 0px;
 }

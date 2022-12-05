@@ -8,9 +8,36 @@ const FormTrip = () => {
   const [destination, setDestination] = React.useState("");
   const [startDate, setStartDate] = React.useState("");
   const [startTime, setStartTime] = React.useState("");
-  const [isPending, setIsPending] = React.useState(false);
   const [bagages, setBagages] = React.useState("");
   const [seats, setSeats] = React.useState("");
+  const [seatBarn, setSeatBarn] = React.useState("");
+  const [isPending, setIsPending] = React.useState(false);
+
+  //  Date Validation current to max 1 Year 1 month
+
+  React.useEffect(() => {
+    const dateInput = document.getElementById("date-input");
+    const date = new Date();
+    const formatDate =
+      date.getFullYear() +
+      "-" +
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate().toString().padStart(2, "0");
+    dateInput.min = formatDate;
+
+    const maxYear = date.getFullYear() + 1;
+    const formatDateMax =
+      maxYear +
+      "-" +
+      (date.getMonth() + 1) +
+      "-" +
+      date.getDate().toString().padStart(2, "0");
+
+    dateInput.max = formatDateMax;
+  });
+
+  //Two things we can set to limit / preset it
 
   // cancelCourse = () => {
   //   document.getElementById("create-course-form").reset();
@@ -22,9 +49,16 @@ const FormTrip = () => {
   // We can also add validation or default value if not entered or expected
   // such as current date - time
 
+  /*******************************
+  
+  Creating Database Object so it can be used to parse 
+  data catagori names for search page. 
+
+  ********************************/
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const datbase = {
+    const database = {
       trvlrname,
       typeOfTravler,
       typeOfTravl,
@@ -33,10 +67,9 @@ const FormTrip = () => {
       startDate,
       startTime,
       seats,
-      bagages
+      seatBarn,
+      bagages,
     };
-
-
 
     // *************************
     // To send data to JSON Server
@@ -47,212 +80,272 @@ const FormTrip = () => {
     //   headers: { "Content-Type": "application/json" },
     //   body; JSON.stringify(blog)
     // }).then(() => {
-    //   console.log("data added")
-    // })
 
     // For now use local storage
-    console.log(datbase);
-    addTrip(datbase);
+    // and pass as object "database" to parse.
+    addTrip(database);
+    console.log(database);
+
+    setIsPending(false);
+    // })
   };
 
   return (
     <div>
-      <h1>Car Sharing</h1>
       {/* ******************************** */}
       {/* Creating a form to enter data */}
       {/* ******************************** */}
-      <form onSubmit={handleSubmit}>
-        <div className="header">
-          <h4>Planera resa / pendling</h4>
-        </div>
-        <div className="row">
-          <div className="col-6">
-            <label>Ange namn:</label>
-            <input
-              type="text"
-              className="Trvlrname"
-              id="TrvlrID"
-              value={trvlrname}
-              required
-              onChange={(e) => setTrvlrname(e.target.value)}
-            />
-            {/* ******************************** */}
-            {/* Using both dropdown list and radio selectors */}
-            {/* ******************************** */}
+      <div className="banner">
+        <h4 className="font-effect-fire headerfooter">
+          Planera resa / pendling
+        </h4>
+      </div>
+      <form id="Database" onSubmit={handleSubmit}>
+        {/* ******************************** */}
+        {/* Row and Column used for Responsive design */}
+        {/* ******************************** */}
 
-            <div className="TypeOfTravler">
-              <table>
-                <th>
-                  <lable for="typeOfTravl">Vilja om du reser som :</lable>
-                </th>
-                <tr>
-                  <td>Passagerare:</td>
-                  <td>
+        <div className="row">
+          <div className="col">
+            <div className="row">
+              <div className="col">
+                <label>Namn:</label>
+                <input
+                  type="text"
+                  className="Trvlrname"
+                  id="TrvlrID"
+                  value={trvlrname}
+                  required
+                  onChange={(e) => setTrvlrname(e.target.value)}
+                />
+                {/* ******************************** */}
+                {/* Using both dropdown list and radio 
+                    selectors Different approach */}
+                {/* ******************************** */}
+              </div>
+              <div className="row">
+                <div className="row">
+                  <div className="row">
+                    <lable htmlFor="typeOfTravl">
+                      <strong>Vilja om du reser som :</strong>
+                    </lable>
+                  </div>
+                  <div className="col">Passagerare:</div>
+                  <div className="col">
                     <input
                       name="typeOfTravler"
                       type="radio"
                       value={"Passagerare"}
                       onChange={(e) => settypeOfTravler(e.target.value)}
                     />
-                  </td>
-                </tr>
-                <tr>
-                  <td>Ägare:</td>
-                  <td>
+                  </div>
+                  <div className="row">
+                    <div className="col">Ägare:</div>
+                    <div className="col">
+                      <input
+                        name="typeOfTravler"
+                        type="radio"
+                        value={"Ägare"}
+                        onChange={(e) => settypeOfTravler(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <select
+                      className="typeOfTravl"
+                      value={typeOfTravl}
+                      onChange={(e) => setTypeOfTravl(e.target.value)}
+                    >
+                      <option
+                        className="typeOfTravl"
+                        value={"Resa"}
+                        onChange={(e) => setTypeOfTravl(e.target.value)}
+                      >
+                        Resa:
+                      </option>
+                      <option
+                        className="typeOfTravl"
+                        value={"Pendling"}
+                        onChange={(e) => setTypeOfTravler(e.target.value)}
+                      >
+                        Pendling:
+                      </option>
+                    </select>{" "}
+                  </div>
+                </div>
+              </div>
+              <div className="TypeOfTravler"></div>
+
+              <div className="row">
+                <div className="col">
+                  <label>
+                    Från:
                     <input
-                      name="typeOfTravler"
-                      type="radio"
-                      value={"Ägare"}
-                      onChange={(e) => settypeOfTravler(e.target.value)}
+                      name="From"
+                      type="text"
+                      value={startingpoint}
+                      onChange={(e) => setStartingpoint(e.target.value)}
                     />
-                  </td>
-                </tr>
-              </table>
-              <select
-                name="typeOfTravl"
-                value={typeOfTravl}
-                onChange={(e) => setTypeOfTravl(e.target.value)}
-              >
-                <option
-                  className="typeOfTravl"
-                  value={"Resa"}
-                  onChange={(e) => setTypeOfTravl(e.target.value)}
-                >
-                  Resa:
-                </option>
-                <option
-                  className="typeOfTravl"
-                  value={"Pendling"}
-                  onChange={(e) => setTypeOfTravler(e.target.value)}
-                >
-                  Pendling:
-                </option>
-              </select>
-            </div>
+                  </label>
+                </div>
+                <div className="col">
+                  <label>
+                    Till:
+                    <input
+                      type="text"
+                      value={destination}
+                      onChange={(e) => setDestination(e.target.value)}
+                    />
+                  </label>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <label>
+                      Datum:
+                      <input
+                        type="date"
+                        id="date-input"
+                        value={startDate}
+                        onChange={(e) => setStartDate(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="col">
+                    <label>
+                      Tid:
+                      <input
+                        type="time"
+                        value={startTime}
+                        onChange={(e) => setStartTime(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                </div>
+              </div>
 
-            <div className="DateTimeofTrip">
-              <label for="From">
-                Från:
-                <input
-                  name="From"
-                  type="text"
-                  value={startingpoint}
-                  onChange={(e) => setStartingpoint(e.target.value)}
-                />
-              </label>
-              <label>
-                Till:
-                <input
-                  type="text"
-                  value={destination}
-                  onChange={(e) => setDestination(e.target.value)}
-                />
-              </label>
-              <label>
-                Datum:
-                <input
-                  type="date"
-                  value={startDate}
-                  onChange={(e) => setStartDate(e.target.value)}
-                />
-              </label>
-              <label>
-                Tid:
-                <input
-                  type="time"
-                  value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                />
-              </label>
-            </div>
-
-            <div className="Extras">
+              <div className="row">
+                {/* ******************************** */}
+                {/* Here practicing HtML Validation min max  */}
+                {/* ******************************** */}
+                <div className="row">
+                  <div className="col">
+                    <label>Bagages</label>
+                  </div>
+                  <div className="col">
+                    <input
+                      type="number"
+                      id="bagages"
+                      name="bagages"
+                      min="0"
+                      max="5"
+                      className="Bagages"
+                      value={bagages}
+                      required
+                      onChange={(e) => setBagages(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <label>Vuxen</label>
+                  </div>
+                  <div className="col">
+                    <input
+                      type="number"
+                      id="seats"
+                      name="seats"
+                      min="1"
+                      max="5"
+                      className="Seats"
+                      value={seats}
+                      required
+                      onChange={(e) => setSeats(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col">
+                    <label>Barn</label>
+                  </div>
+                  <div className="col">
+                    <input
+                      type="number"
+                      id="seatBarn"
+                      name="SeatBarn"
+                      min="1"
+                      max="5"
+                      className="SeatBarn"
+                      value={seatBarn}
+                      required
+                      onChange={(e) => setSeatBarn(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
               {/* ******************************** */}
-              {/* Here practicing HtML Validation  */}
+              {/* Check and display loading / submiting  */}
               {/* ******************************** */}
-
-              <label>Bagages</label>
-              <input
-                type="number"
-                id="bagages"
-                name="bagages"
-                min="0"
-                max="5"
-                className="Bagages"
-                value={bagages}
-                required
-                onChange={(e) => setBagages(e.target.value)}
-              />
-              <label>Seats</label>
-              <input
-                type="number"
-                id="seats"
-                name="seats"
-                min="1"
-                max="5"
-                className="Seats"
-                value={seats}
-                required
-                onChange={(e) => setSeats(e.target.value)}
-              />
+              <div className="Sub_button">
+                {!isPending && (
+                  <button className="Submit" type="submit" onClick="">
+                    Submit
+                  </button>
+                )}
+                {isPending && (
+                  <button className="Submit" type="submit" onClick="" disabled>
+                    Submit...
+                  </button>
+                )}
+              </div>
             </div>
-            {/* ******************************** */}
-            {/* Check and display loading / submiting  */}
-            {/* ******************************** */}
-            {!isPending && (
-              <button className="Submit" type="submit" onClick="">
-                Submit
-              </button>
-            )}
-            {isPending && (
-              <button className="Submit" type="submit" onClick="" disabled>
-                Submit...
-              </button>
-            )}
-            <button className="Submit" type="reset" onClick="">
-              Reset
-            </button>
           </div>
-          <div className="col-6">
-            <table>
-              <th>Skapat Resa / Pendling:</th>
-              <tr>
-                <td>Namn :</td>
-                <td>{trvlrname}</td>
-              </tr>
-              <tr>
-                <td>Resar som :</td>
-                <td>{typeOfTravler}</td>
-              </tr>
-              <tr>
-                <td>Resortyp : </td>
-                <td>{typeOfTravl}</td>
-              </tr>
-              <tr>
-                <td>Från :</td>
-                <td>{startingpoint}</td>
-              </tr>
-              <tr>
-                <td>Till :</td>
-                <td>{destination}</td>
-              </tr>
-              <tr>
-                <td>Datum :</td>
-                <td>{startDate}</td>
-              </tr>
-              <tr>
-                <td>Tid :</td>
-                <td>{startTime}</td>
-              </tr>
-              <tr>
-                <td>Bagages</td>
-                <td>{bagages}</td>
-              </tr>
-              <tr>
-                <td>Seats</td>
-                <td>{seats}</td>
-              </tr>
-            </table>
+
+          {/* To verify data Entered */}
+
+          <div className="col Skapat">
+            <div className="row">
+              <h5>Skapat Resa / Pendling:</h5>
+              <div className="row">
+                <div className="col">Namn :</div>
+                <div className="col">{trvlrname}</div>
+              </div>
+              <div className="row">
+                <div className="col">Resar som :</div>
+                <div className="col">{typeOfTravler}</div>
+              </div>
+              <div className="row">
+                <div className="col">Resortyp :</div>
+                <div className="col">{typeOfTravl}</div>
+              </div>
+              <div className="row">
+                <div className="col">Från :</div>
+                <div className="col">{startingpoint}</div>
+              </div>
+              <div className="row">
+                <div className="col">Till :</div>
+                <div className="col">{destination}</div>
+              </div>
+              <div className="row">
+                <div className="col">Datum :</div>
+                <div className="col">{startDate}</div>
+              </div>
+              <div className="row">
+                <div className="col">Tid :</div>
+                <div className="col">{startTime}</div>
+              </div>
+              <div className="row">
+                <div className="col">Bagages</div>
+                <div className="col">{bagages}</div>
+              </div>
+              <div className="row">
+                <div className="col">Vuxen</div>
+                <div className="col">{seats}</div>
+              </div>
+              <div className="row">
+                <div className="col">Barn</div>
+                <div className="col">{seatBarn}</div>
+              </div>
+            </div>
           </div>
         </div>
       </form>

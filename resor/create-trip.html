@@ -1,164 +1,246 @@
 <!DOCTYPE html>
 <html lang="sv">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- http-equiv="Content-Type" content="text/html; -->
+
+<head>
+    <meta charset="UTF-8"> <!-- http-equiv="Content-Type" content="text/html; -->
     <link rel="icon" href="./components/Car_ico.ico" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Load React & Babel Scripts -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script
-      src="https://unpkg.com/react@18/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-      crossorigin
-    ></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 
     <!-- Saving script for trips -->
     <script src="../localStorageMethods.js"></script>
 
     <!-- CSS Style linking  -->
-    <link rel="stylesheet" href="./components/forms.css" />
-    <link rel="stylesheet" href="../menu.css" />
+    <!-- Using both External as well as created my own  -->
 
-    <!-- Scripts for menus and footer -->
-    <script
-      src="https://kit.fontawesome.com/d87e0aa2fd.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="../indexjs.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&family=Sofia&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+
+    <link rel="stylesheet" id="highContrast" href="./components/forms.css">
+    <!-- <link rel="stylesheet" href="../menu.css"> -->
 
     <title>Create trip</title>
-  </head>
+</head>
 
-  <header>
-    <nav class="nav-top">
-      <ul class="ul-navmenufoot">
-        <li><a class="a-navmenufoot active" href="../index.html">Start</a></li>
-        <li>
-          <a class="a-navmenufoot" href="../resor/create-trip.html"
-            >Skapa resa</a
-          >
-        </li>
-        <li>
-          <a class="a-navmenufoot" href="../search/search-trip.html"
-            >Sök resa</a
-          >
-        </li>
-        <li>
-          <a class="a-navmenufoot" href="../display/display-trips.html"
-            >Visa Resor</a
-          >
-        </li>
-        <li>
-          <a class="a-navmenufoot" href="../FAQ/FAQ.html">Vanliga frågor</a>
-        </li>
-      </ul>
-    </nav>
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-success py-1  fixed-top mb-3">
+            <div class="container">
+                <a href="../index.html" class="navbar-brand fs-1 fw-bolder">
+                    <h2 aria-placeholder="Car Sharing Portal" class="font-effect-fire">Car Shairing Portal</h2>
+                </a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <nav class="nav-log">
-      <ul class="ul-navmenufoot">
-        <li class="inloggsknapp">
-          <a class="a-navmenufoot" href="../registrering/SignUp.html"
-            >Registrera konto</a
-          >
-        </li>
-        <li class="inloggsknapp" id="inlogg">
-          <a class="a-navmenufoot" href="../registrering/login.html"
-            >Logga in</a
-          >
-        </li>
-      </ul>
-    </nav>
-  </header>
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="navb-item" id="navb-item">
+                            <a href="../index.html" class="nav-link">
+                                <h5>Start</h5>
+                            </a>
+                        </li>
+                        <li class="navb-item">
+                            <a href="../resor/create-trip.html" class="nav-link">
+                                <h5>Skapa resa</h5>
+                            </a>
+                        </li>
+                        <li class="navb-item">
+                            <a href="../search/search-trip.html" class="nav-link">
+                                <h5>Sök resa</h5>
+                            </a>
+                        </li>
+                        <li class="navb-item">
+                            <a href="../display/display-trips.html" class="nav-link">
+                                <h5>Visa Resor</h5>
+                            </a>
+                        </li>
+                        <li class="navb-item">
+                            <a href="../FAQ/FAQ.html" class="nav-link">
+                                <h5>Vanliga frågor</h5>
+                            </a>
+                        </li>
+                        <li class="navb-item">
+                            <a href="../registrering/SignUp.html" class="nav-link">
+                                <h5>Registrera
+                                    konto</h5>
+                            </a>
+                        </li>
+                        <li class="navb-item">
+                            <a href="../registrering/login.html" class="nav-link">
+                                <h5>Logga in</h5>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-  <body>
-    <!-- Top navigation menu -->
-    <nav class="nav-top">
-      <ul class="ul-navtop">
-        <li><a class="a-navmenufoot" href="../index.html">Start</a></li>
-        <li>
-          <a class="a-navmenufoot navactive" href="../resor/create-trip.html"
-            >Skapa resa</a
-          >
-        </li>
-        <li>
-          <a class="a-navmenufoot" href="../search/search-trip.html"
-            >Sök resa</a
-          >
-        </li>
-        <li>
-          <a class="a-navmenufoot" href="../display/display-trips.html"
-            >Visa Resor</a
-          >
-        </li>
-        <li>
-          <a class="a-navmenufoot" href="../FAQ/FAQ.html">Vanliga frågor</a>
-        </li>
-      </ul>
-    </nav>
 
-    <!-- Hamburger with register account and log in/out. -->
-    <nav class="nav-log">
-      <a href="javascript:void(0);" class="icon-burger" onclick="flipBurger()">
-        <i
-          class="fa-solid fa-burger fa-flip"
-          id="ani-burger"
-          style="--fa-animation-duration: 3s"
-        ></i>
-      </a>
+    </header>
 
-      <div id="log">
-        <ul class="ul-navmenufoot">
-          <li class="inloggsknapp">
-            <a class="a-navmenufoot" href="../registrering/SignUp.html"
-              >Registrera konto</a
-            >
-          </li>
-          <li class="inloggsknapp">
-            <a
-              class="a-navmenufoot"
-              id="inlogg"
-              href="../registrering/login.html"
-              onclick="UtLoggad()"
-              >logga in</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <!-- ReactDOM -->
+    <div id="root" style="margin-block-start: 5em; margin-block-end: 90px; padding-block-end: 20px;"></div>
 
-    <div id="root"></div>
 
-    <script type="text/babel" src="./components/database.js"></script>
-    <script type="text/babel" src="./components/trip-form.js"></script>
+
+    <!-- Experimenting using only HTML & CSS  Just Front End Below Mondal 
+And Some Java Scripting
+-->
+
+    <!-- Mondal -->
+    <div class="modal fade" id="enroll" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Contact</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="lead">
+                        You may leave your message and we will get to you soon.
+                    </p>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input id="name" type="text" class="form-control" required
+                                placeholder="Enter full Name    'Jhon Smith'" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="col-form-label">Email address:</label>
+                            <input type="email" class="form-control" id="email" required
+                                placeholder="email@email.com" />
+                        </div>
+                        <div class="valid-feedback">Looks good!</div>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address.
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="col-form-label">Phone:</label>
+                            <input type="tel" class="form-control" id="phone" required
+                                placeholder="+46 (0) 12 34 567 89" />
+                        </div>
+                        <div class="mb-3">
+                            <label for="message">Massage</label>
+                            <input id="message" type="text" class="form-control" required placeholder="Massage" />
+                        </div>
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="checkExample" required />
+                                <label for="checkExample" class="form-check-label">Agree to terms and
+                                    conditions</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="reset" class="btn btn-danger ms-1">
+                                Reset form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
 
     <footer>
-      <ul class="ul-navmenufoot" id="ul-foot">
-        <li>
-          <a
-            class="a-navmenufoot"
-            href="https://github.com/Pyruslupinus/Pendling"
-            target="_blank"
-            ><i class="fa-brands fa-github"></i> Om oss</a
-          >
-        </li>
-      </ul>
+        <div class="footer fixed-bottom bottom-0" id="footer" style="z-index: 1;">
+            <div class="row flex-column">
+                <div class="col-1 position-absolute bottom-0 p-4" style="background: none;">
+                    <button class="btn btn-danger btn-lg text-warning" data-bs-toggle="modal" data-bs-target="#enroll">
+                        <i class="bi bi-envelope-at-fill contact" style="background: none;" alt="Contact"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="14" fill="currentColor"
+                                class="bi bi-envelope-at-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z" />
+                                <path
+                                    d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034v.21Zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791Z" />
+                            </svg></i>
+                    </button>
+                </div>
+                <div class="nav flex-column text-center">
+                    <span class="footertext">Copyright &copy;2022 S.M. H. Zaidi
+                        <a href="#"><i class="bi bi-twitter text-warning mx-1"></i></a>
+                        <a href="#"><i class="bi bi-facebook text-warning mx-1"></i></a>
+                        <a href="#"><i class="bi bi-linkedin text-warning mx-1"></i></a>
+                        <a href="#"><i class="bi bi-instagram text-warning mx-1"></i></a>
+                    </span>
+                </div>
+                <div class="containerupparrow" id="upparrow" style="display: none;">
 
-      <!-- Button at the bottom of the page to get back to the top. -->
-      <button
-        onclick="topFunction()"
-        class="indexbuttons"
-        id="toTop"
-        title="Go to top"
-      >
-        <i class="fa-solid fa-arrow-up"></i>
-      </button>
+                    <a href="#Top" class="nav position-absolute end-0 me-2 bottom-0 p-2" id="upparrow">
+                        <i class="bi bi-arrow-up-circle"></i>
+                    </a>
+
+                </div>
+                <div class="btn mb-1" id="contrastcolors">
+                    <button type="button" id="theme" aria-placeholder="High Contrast Theme">
+                        <i id="BtnContrst" class="bi bi-palette-fill" onclick="changeTheme()"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
     </footer>
-  </body>
+
+    <!--  To Work on DOM Using of Theme as High contrast option for color disabled
+        -->
+    <script>
+        function changeTheme() {
+            const themeStylesheetLink = document.getElementById("highContrast");
+            const themeDefault = "bi bi-palette-fill"
+            const themeDark = "bi bi-palette"
+
+            if (document.getElementById("BtnContrst").className == themeDefault) {
+                document.getElementById("BtnContrst").className = themeDark
+                themeStylesheetLink.setAttribute("href", `./components/form_Dark.css`)
+            }
+            else if (document.getElementById("BtnContrst").className == themeDark) {
+                document.getElementById("BtnContrst").className = themeDefault
+                themeStylesheetLink.setAttribute("href", `./components/forms.css`)
+            }
+        }
+    </script>
+
+    <!-- To Work on DOM upparrow And produc uparrow Animation on
+        bottom rightcorner on smallscreens on down scrolling -->
+    <script>
+
+        window.onscroll = function () { uppArrowGo() };
+        function uppArrowGo() {
+            if (document.documentElement.scrollTop > 50) {
+                document.getElementById("upparrow").style = "display:inherit";
+                document.getElementById("upparrow").className = "slideUp nav position-absolute end-0 bottom-0 p-2";
+            }
+        }
+    </script>
+
+    <script type="text/babel" src="./components/trip-form.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+
 </html>
