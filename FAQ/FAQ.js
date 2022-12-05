@@ -68,7 +68,7 @@ const SearchBar = () => {
 
     //Skriver ut sökruta, skriver ut frågor vars text matchar sökinput
     return (
-        <div>
+        <div className="grid-container">
             <input 
                 type="text" 
                 name="search"  
