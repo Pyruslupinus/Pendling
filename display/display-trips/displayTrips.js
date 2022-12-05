@@ -88,11 +88,14 @@ const DisplayList = () => {
       const loginStatus = sessionStorage.getItem("LoggedIn") == "true";
       if(loginStatus){
         //Contact
-        alert("Din kontaktförfrågan har skickats.")
+        alert("Din kontaktförfrågan har skickats.");
         handleModalClosed();
       }
       else{
-        alert("You are not logged in")
+
+        alert("Du måste logga in för att skicka en kontaktförfrågan.");
+        handleModalClosed();
+        window.location.href = '../registrering/login.html';
         //Go To login page
       }
   }
@@ -122,6 +125,7 @@ const DisplayList = () => {
     </section>
   );
 };
+
 
 const container = document.querySelector("#display-trips-root");
 const root = ReactDOM.createRoot(container);
