@@ -11,8 +11,7 @@
 body {
   background-image: repeating-linear-gradient(40deg,var(--dark),var(--medium-dark), var(--lighter), var(--medium-dark), var(--medium-dark), var(--bright));
   background-attachment: fixed;
-  margin: 0
-  
+  margin: 0;
 }
 
 main {
@@ -20,11 +19,11 @@ main {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 2vh auto;
+  padding: 10px 0 50px 0;
+  margin: 0 auto;
   min-height: 110vh;
   text-align: left;
   background: rgba(255, 255, 255, 0.8);
-  border-radius: 1rem;
   font-family: "Cambo", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);

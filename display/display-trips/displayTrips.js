@@ -62,10 +62,14 @@ const DisplayList = () => {
   //When a card has been clicked, it returns the info here so we can show the contact modal
   const handleCardClicked = (cardInfo) => {
     setModalInfo(cardInfo);
+    //Remove the ability to scroll temporarily
+    document.querySelector("body").style.overflow = "hidden";
   };
 
   const handleModalClosed = () => {
     setModalInfo("");
+    //Remove the ability to scroll temporarily
+    document.querySelector("body").style.overflow = "unset";
   };
 
   //W3 schools content / modal trick
@@ -78,8 +82,19 @@ const DisplayList = () => {
     }
   };
 
+  //If someone clicks the contact button in the modal we end up here
   const handleContactClicked = (cardInfo) => {
-      alert(cardInfo.name)
+    //Check if we're logged in
+      const loginStatus = sessionStorage.getItem("LoggedIn") == "true";
+      if(loginStatus){
+        //Contact
+        alert("Din kontaktförfrågan har skickats.")
+        handleModalClosed();
+      }
+      else{
+        alert("You are not logged in")
+        //Go To login page
+      }
   }
 
   //Id needs to be unique for each entry in the map-method so very basic solution here at the moment
