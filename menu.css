@@ -11,7 +11,8 @@
   top: 0;
 
   min-height: 4rem;
-  
+
+  /* Small fix to avoid some issues on the create / display trip pages */
   z-index: 1;
   background-color: var(--medium-dark);
 }
