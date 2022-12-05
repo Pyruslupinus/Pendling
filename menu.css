@@ -14,6 +14,8 @@
     min-height: 4rem;
 
     background-color: var(--medium-dark);
+
+    z-index: 1;
 }
 
 .nav-log {
