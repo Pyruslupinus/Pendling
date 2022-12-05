@@ -9,15 +9,7 @@
 }
 
 body {
-  background-image: repeating-linear-gradient(
-    40deg,
-    #22577aa4,
-    #38a3a594,
-    #57cc9980,
-    #38a3a580,
-    #38a3a577,
-    #80ed9991
-  );
+  background-image: repeating-linear-gradient(40deg,var(--dark),var(--medium-dark), var(--lighter), var(--medium-dark), var(--medium-dark), var(--bright));
   background-attachment: fixed;
   margin: 0
   
