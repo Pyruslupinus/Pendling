@@ -25,6 +25,10 @@
 
   border-radius: 8px 0px 0px 8px;
 
+  
+  /* Small fix to avoid some issues on the create / display trip pages */
+  z-index: 1;
+
   background-color: white;
 }
 
