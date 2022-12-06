@@ -248,6 +248,8 @@ const CardContactButton = (props) => {
     props.contactCallback();
   };
 
+  //Depending on if we're logged in or not, disable the button
+  //and display a helper message
   let disable = false;
   let title = "";
   let modalClasses = "modal-contact";
@@ -301,6 +303,7 @@ function setDropShadow(style, color) {
   return style;
 }
 
+//format and return the full date string
 function getTravelDate(dateString) {
   const travelDate = new Date(dateString);
 
