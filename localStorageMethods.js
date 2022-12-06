@@ -8,12 +8,7 @@ function saveToLocalStorage(key, object) {
   //convert it back into a new Date(^above string)
 
   window.localStorage.setItem(key, JSON.stringify(object));
-  
 
-  // console.log(object);
-  // const stringversion = JSON.stringify(object);
-  // console.log(JSON.stringify(object));
-  // console.log(JSON.parse(stringversion));
   
 }
 
@@ -53,12 +48,6 @@ function addTrip(tripObject) {
   if (trips === null) {
     trips = [];
   }
-
-  //Unique ID implementation from https://stackoverflow.com/questions/3231459/how-can-i-create-unique-ids-with-javascript
-  //A unique ID is not really needed but I felt like being a bit proper
-  //tripObject.id = "id" + Math.random().toString(16).slice(2);
-  //console.log(tripObject.id);
-
   //Then, push our new trip to the end of the array
   trips.push(tripToSave);
 
@@ -67,7 +56,7 @@ function addTrip(tripObject) {
   saveToLocalStorage(tripsKey, trips);
 }
 
-function translateTrip(tripObject){
+function translateTrip(tripObject){ 
   const newTrip ={
     name: tripObject.trvlrname,
     type: tripObject.typeOfTraveler,
@@ -77,9 +66,8 @@ function translateTrip(tripObject){
     date: tripObject.startDate,
     time: tripObject.startTime,
     passagerarInfo: {
-      antal: tripObject.seats,
-      vuxna: 1,
-      barn: 0
+      vuxna: tripObject.seats,
+      barn: tripObject.seatBarn
     },
     baggage: tripObject.bagages,
     extrainfo: ""

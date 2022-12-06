@@ -153,7 +153,6 @@ function createDummyData() {
     date: "2022-11-02",
     time: "8:30",
     passagerarInfo: {
-      antal: 5,
       vuxna: 2,
       barn: 3,
     },
@@ -170,7 +169,6 @@ function createDummyData() {
     date: "2022-12-04",
     time: "9:30",
     passagerarInfo: {
-      antal: 2,
       vuxna: 1,
       barn: 1,
     },
@@ -187,7 +185,6 @@ function createDummyData() {
     date: "2023-12-04",
     time: "10:33",
     passagerarInfo: {
-      antal: 11,
       vuxna: 6,
       barn: 5,
     },
@@ -204,7 +201,6 @@ function createDummyData() {
     date: "2025-01-22",
     time: "16:45",
     passagerarInfo: {
-      antal: 4,
       vuxna: 2,
       barn: 2,
     },

@@ -11,12 +11,17 @@ const DisplayList = () => {
   const [filteredTrips, setFilteredTrips] = React.useState(getTrips());
 
   //Check for our max # of passengers for the filter slider
-  //TODO Update this to reflect Vuxna + Barn
-  const maxPassengers = getTrips().reduce(function (prev, current) {
-    return prev.passagerarInfo.antal > current.passagerarInfo.antal
+  //Essentially, compare vuxna + barn for each trip, return the one with the largest #
+  const maxPassengersTrip = getTrips().reduce(function (prev, current) {
+    const prevPassengers = parseInt(prev.passagerarInfo.vuxna) + parseInt(prev.passagerarInfo.barn);
+    const currentPassengers = parseInt(current.passagerarInfo.vuxna) + parseInt(current.passagerarInfo.barn);
+    return prevPassengers > currentPassengers
       ? prev
       : current;
-  }).passagerarInfo.antal;
+  });
+
+  //Then plus vuxna + barn together to get our max for the filters
+  const maxPassengers = parseInt(maxPassengersTrip.passagerarInfo.vuxna) + parseInt(maxPassengersTrip.passagerarInfo.barn);
 
   //If our filters change, we need a reload method, this is passed and called by the tripFilters during their onChange
   const reloadTrips = (filters) => {
@@ -47,8 +52,8 @@ const DisplayList = () => {
     }
 
     function filterPassengers(trip) {
-      //TODO Update this to reflect Vuxna + Barn
-      const passengerCount = parseInt(trip.passagerarInfo.antal);
+
+      const passengerCount = parseInt(trip.passagerarInfo.vuxna) + parseInt(trip.passagerarInfo.barn);
       return (
         passengerCount >= parseInt(filters.passengersMin) &&
         passengerCount <= parseInt(filters.passengersMax)
@@ -87,8 +92,8 @@ const DisplayList = () => {
     //Check if we're logged in
       const loginStatus = sessionStorage.getItem("LoggedIn") == "true";
       if(loginStatus){
-        //Contact
-        alert("Din kontaktförfrågan har skickats.");
+        //Contact - currently only an alert
+      alert(`Din kontaktförfrågan har skickats till ${cardInfo.name}.`);
         handleModalClosed();
       }
       else{
@@ -101,6 +106,9 @@ const DisplayList = () => {
   }
 
   //Id needs to be unique for each entry in the map-method so very basic solution here at the moment
+  //It should be noted that doing this via indexing causes som odd behaviours 
+  //when redrawing the list due to filtering. At the moment I'm forcing a re-render for all cards which solves
+  //this but a better implementation would use unique id's
   let id = 0;
 
   return (
