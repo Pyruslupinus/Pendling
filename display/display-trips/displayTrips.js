@@ -92,7 +92,7 @@ const DisplayList = () => {
         handleModalClosed();
       }
       else{
-
+        //Note, currently we can't reach this since I'm disabling the button, but this is what it looked like originally
         alert("Du måste logga in för att skicka en kontaktförfrågan.");
         handleModalClosed();
         window.location.href = '../registrering/login.html';

@@ -54,6 +54,10 @@ const TripModal = (props) => {
     props.handleContactClicked(props.info);
   };
 
+  //This should maybe be done by the parent but - check if we're logged in and tell our contact button to disable if we're not
+  const loginStatus = sessionStorage.getItem("LoggedIn") == "true";
+  console.log(loginStatus);
+
   //Essentially just a card, but with some extra info added
   return (
     <section id="cardModal" className="trip-modal">
@@ -73,7 +77,7 @@ const TripModal = (props) => {
         <CardLuggageInfo luggageInfo={cardInfo.baggage} />
         <CardPersonalInfo personInfo={cardInfo.name} />
         <CardExtraInfo extraInfo={cardInfo.extrainfo} />
-        <CardContactButton contactCallback={handleContactClicked} />
+        <CardContactButton contactCallback={handleContactClicked} disabled={!loginStatus}/>
       </article>
     </section>
   );
@@ -244,10 +248,19 @@ const CardContactButton = (props) => {
     props.contactCallback();
   };
 
+  let disable = false;
+  let title = "";
+  let modalClasses = "modal-contact";
+  if(props.disabled === true){
+    disable = true;
+    modalClasses = "modal-contact modal-disabled";
+    title = "Du måste vara inloggad för att skicka en kontaktförfrågan."
+  }
+
   return (
-    <button onClick={handleContact} className="modal-contact">
+      <button onClick={handleContact} disabled={disable} title={title} className={modalClasses}>
       Kontakta
-    </button>
+      </button>
   );
 };
 
