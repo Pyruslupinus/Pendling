@@ -12,6 +12,8 @@
 
   min-height: 4rem;
 
+  /* Small fix to avoid some issues on the create / display trip pages */
+  z-index: 1;
   background-color: var(--medium-dark);
 }
 
@@ -22,6 +24,10 @@
   display: block;
 
   border-radius: 8px 0px 0px 8px;
+
+  
+  /* Small fix to avoid some issues on the create / display trip pages */
+  z-index: 1;
 
   background-color: white;
 }
