@@ -51,12 +51,12 @@ const MyJSXElement = () => {
 
 function validateSearchForm(event)
 {
-    let regularName = /^[a-öA-Ö]+$/;
+    let regularName = /^[a-öA-Ö ]+$/;
     let FromBoxVariable = document.getElementById("FromBox").value.toLowerCase();
     let ToBoxVariable = document.getElementById("ToBox").value.toLowerCase();
     if(!regularName.test(FromBoxVariable))
     {
-        alert("skriv in giltig stad att åka ifrån");
+        alert("Skriv in giltig stad att åka ifrån");
         event.preventDefault();
     }
     else
@@ -67,7 +67,7 @@ function validateSearchForm(event)
     
     if(!regularName.test(ToBoxVariable))
     {
-        alert("skriv in giltig stad att åka till");
+        alert("Skriv in giltig stad att åka till");
         event.preventDefault();
     }
     else
@@ -78,7 +78,7 @@ function validateSearchForm(event)
 
     if(document.getElementById("PassCSS").value == "")
     {
-        alert("mata in passagerare");
+        alert("Mata in passagerare");
         event.preventDefault();
     }
 }
