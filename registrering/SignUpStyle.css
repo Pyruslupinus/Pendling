@@ -5,7 +5,7 @@ body {
 }
 #form {
   width: 300px;
-  margin: 20vh auto 0 auto; /*Centerar*/
+  margin: 10vh auto 5rem auto; /*Centerar*/
   padding: 20px;
   background-color: whitesmoke;
   border-radius: 4px;
@@ -47,4 +47,10 @@ body {
   border-color: red;
   font-size: 9px;
   height: 13px;
+}
+
+@media screen and (max-width: 400px) {
+  #form{
+    width: 80%;
+  }
 }

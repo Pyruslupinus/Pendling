@@ -17,8 +17,7 @@ window.onload = () =>
         document.getElementById("inlogg").innerText="Logga Ut"
     }
     else{
-       // document.getElementById("inlogg").innerText="Logga In"
-        
+        document.getElementById("inlogg").innerText="Logga In"
     }
 }
 
