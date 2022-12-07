@@ -74,14 +74,30 @@ const FormTrip = () => {
     // *************************
     // To send data to JSON Server
     // *************************
-    setIsPending(true);
+    // setIsPending(true);
     // fetch('http:localhost:5500/', {
     //   method: 'POST',
     //   headers: { "Content-Type": "application/json" },
     //   body; JSON.stringify(blog)
     // }).then(() => {
-      
 
+    
+    let regularName = /^[a-öA-Ö ]+$/;
+
+    if(!regularName.test(trvlrname)){
+      alert("Fyll i ett giltigt namn.");
+      return;
+    }
+
+    if(!regularName.test(startingpoint)){
+      alert("Fyll i en giltig startpunkt.");
+      return;
+    }
+
+    if(!regularName.test(destination)){
+      alert("Fyll i en giltig destination.");
+      return;
+    }
     
 
     // For now use local storage
@@ -94,7 +110,7 @@ const FormTrip = () => {
     finishedForm.reset();
 
     window.location.reload();
-    setIsPending(false);
+    // setIsPending(false);
     // })
   };
 
