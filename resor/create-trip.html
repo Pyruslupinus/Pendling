@@ -29,17 +29,79 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
 
     <link rel="stylesheet" id="highContrast" href="./components/forms.css">
-    <!-- <link rel="stylesheet" href="../menu.css"> -->
+
+    <!-- !!!! Uncomment this when using Syed's menu !!!! -->
+    <link rel="stylesheet" href="../menu.css"> 
+    <!-- ----------------------------------------------- -->
+    <script src="https://kit.fontawesome.com/d87e0aa2fd.js" crossorigin="anonymous"></script>
 
     
     <script type="text/javascript" src="../registrering/login.js"></script>
+    <script src="../indexjs.js"></script>
 
     <title>Create trip</title>
 </head>
 
 <body>
+
+ <!-- Top navigation menu -->
+ <nav class="nav-top">
+     <ul class="ul-navtop">
+      <li><a class="a-navmenufoot" href="../index.html">Start</a></li>
+      <li>
+        <a class="a-navmenufoot" href="../resor/create-trip.html"
+          >Skapa resa</a
+        >
+      </li>
+      <li>
+        <a class="a-navmenufoot" href="../search/search-trip.html"
+          >Sök resa</a
+        >
+      </li>
+      <li>
+        <a class="a-navmenufoot" href="../display/display-trips.html"
+          >Visa Resor</a
+        >
+      </li>
+      <li>
+        <a class="a-navmenufoot navactive" href="../FAQ/FAQ.html"
+          >Vanliga frågor</a
+        >
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="nav-log">
+    <a href="javascript:void(0);" class="icon-burger" onclick="flipBurger()">
+      <i
+        class="fa-solid fa-burger fa-flip"
+        id="ani-burger"
+        style="--fa-animation-duration: 3s"
+      ></i>
+    </a>
+
+    <div id="log">
+      <ul class="ul-navmenufoot">
+        <li class="inloggsknapp">
+          <a class="a-navmenufoot" href="../registrering/SignUp.html"
+            >Registrera konto</a
+          >
+        </li>
+        <li class="inloggsknapp">
+          <a
+            class="a-navmenufoot"
+            id="inlogg"
+            href="../registrering/login.html"
+            onclick="UtLoggad()"
+            >logga in</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav> 
+
+<!--      
     <header>
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-success py-1  fixed-top mb-3">
             <div class="container">
                 <a href="../index.html" class="navbar-brand fs-1 fw-bolder">
@@ -91,12 +153,12 @@
                 </div>
             </div>
         </nav>
-
-
-    </header>
+    </header>  
+-->
 
     <!-- ReactDOM -->
-    <div id="root" style="margin-block-start: 5em; margin-block-end: 90px; padding-block-end: 20px;"></div>
+    <div id="root" style=" margin-block-end: 90px; padding-block-end: 20px;"></div>
+    <!-- Add margin-block-start: 5em; for Syed's menu  -->
 
 
 

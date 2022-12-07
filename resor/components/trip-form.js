@@ -80,12 +80,20 @@ const FormTrip = () => {
     //   headers: { "Content-Type": "application/json" },
     //   body; JSON.stringify(blog)
     // }).then(() => {
+      
+
+    
 
     // For now use local storage
     // and pass as object "database" to parse.
     addTrip(database);
-    console.log(database);
+    alert("Din resa har registrerats.");
 
+    
+    const  finishedForm = document.querySelector("#Database");
+    finishedForm.reset();
+
+    window.location.reload();
     setIsPending(false);
     // })
   };
@@ -126,9 +134,9 @@ const FormTrip = () => {
               <div className="row">
                 <div className="row">
                   <div className="row">
-                    <lable htmlFor="typeOfTravl">
+                    <label htmlFor="typeOfTravl">
                       <strong>Vilja om du reser som :</strong>
-                    </lable>
+                    </label>
                   </div>
                   <div className="col">Passagerare:</div>
                   <div className="col">
@@ -136,6 +144,7 @@ const FormTrip = () => {
                       name="typeOfTravler"
                       type="radio"
                       value={"Passagerare"}
+                  required
                       onChange={(e) => settypeOfTravler(e.target.value)}
                     />
                   </div>
@@ -146,6 +155,7 @@ const FormTrip = () => {
                         name="typeOfTravler"
                         type="radio"
                         value={"Ägare"}
+                        required
                         onChange={(e) => settypeOfTravler(e.target.value)}
                       />
                     </div>
@@ -154,6 +164,7 @@ const FormTrip = () => {
                     <select
                       className="typeOfTravl"
                       value={typeOfTravl}
+                      required
                       onChange={(e) => setTypeOfTravl(e.target.value)}
                     >
                       <option
@@ -183,6 +194,7 @@ const FormTrip = () => {
                     <input
                       name="From"
                       type="text"
+                      required
                       value={startingpoint}
                       onChange={(e) => setStartingpoint(e.target.value)}
                     />
@@ -193,6 +205,7 @@ const FormTrip = () => {
                     Till:
                     <input
                       type="text"
+                      required
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
                     />
@@ -205,6 +218,7 @@ const FormTrip = () => {
                       <input
                         type="date"
                         id="date-input"
+                        required
                         value={startDate}
                         onChange={(e) => setStartDate(e.target.value)}
                       />
@@ -216,6 +230,7 @@ const FormTrip = () => {
                       <input
                         type="time"
                         value={startTime}
+                        required
                         onChange={(e) => setStartTime(e.target.value)}
                       />
                     </label>
@@ -229,7 +244,7 @@ const FormTrip = () => {
                 {/* ******************************** */}
                 <div className="row">
                   <div className="col">
-                    <label>Bagages</label>
+                    <label>Baggage</label>
                   </div>
                   <div className="col">
                     <input
@@ -272,7 +287,7 @@ const FormTrip = () => {
                       type="number"
                       id="seatBarn"
                       name="SeatBarn"
-                      min="1"
+                      min="0"
                       max="5"
                       className="SeatBarn"
                       value={seatBarn}
