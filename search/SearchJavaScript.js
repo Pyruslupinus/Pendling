@@ -10,34 +10,42 @@ const MyJSXElement = () => {
                         <form onSubmit={(e) =>  validateSearchForm(e)} action="../display/display-trips.html" method="get">
                         <div id="Destination">
                             <div>
-                                <label className="SearchText">Från:</label><br></br>
-                                <input name="FromBox" id="FromBox" type="text"></input>
+                                <label className="SearchText">Från:</label><input name="FromBox" id="FromBox" type="text"></input>
                             </div>
                             <div>
-                                <label id="ToBoXLabel" className="SearchText">Till:</label><br></br>
-                                <input name="ToBox" id="ToBox" type="text"></input>
+                                <label id="ToBoXLabel" className="SearchText">Till:
+                                    <br></br>
+                                    <input name="ToBox" id="ToBox" type="text"></input>
+                                </label>
+                                
                             </div>
                         </div>
                         <div id="options">
                             <div>
-                                <label className="RestypLabel">Restyp</label><br></br>
-                                <select name="restyp" className="restyp" id="res">
-                                    <option value="Alla">Alla</option>
-                                    <option value="Resa">Resa</option>
-                                    <option value="Pendling">Pendling</option>
-                                </select>
+                                <label className="RestypLabel">Restyp
+                                    <br></br>
+                                    <select name="restyp" className="restyp" id="res">
+                                        <option value="Alla">Alla</option>
+                                        <option value="Resa">Resa</option>
+                                        <option value="Pendling">Pendling</option>
+                                    </select>
+                                </label>
                             </div>
                             <div>
-                                <label className="RestypLabel">Erbjuder/Söker</label><br></br>
-                                <select name="erbjudersöker" className="restyp" id="sök">
-                                    <option value="Alla">Alla</option>
-                                    <option value="Erbjuder">Erbjuder</option>
-                                    <option value="Söker">Söker</option>
-                                </select>
+                                <label className="RestypLabel">Erbjuder/Söker
+                                    <br></br>
+                                    <select name="erbjudersöker" className="restyp" id="sök">
+                                        <option value="Alla">Alla</option>
+                                        <option value="Erbjuder">Erbjuder</option>
+                                        <option value="Söker">Söker</option>
+                                    </select>
+                                </label>
                             </div>
                             <div id="Passagerare">
-                                <label id="RestypLabel" className="RestypLabel">Passagerare</label><br></br>
-                                <input name="PassCSS" type="number" min={1} id="PassCSS"></input><br></br>
+                                <label id="RestypLabel" className="RestypLabel">Passagerare
+                                    <br></br>
+                                    <input name="PassCSS" type="number" min={1} id="PassCSS"></input>
+                                </label><br></br>
                             </div>
                         </div>
                         

@@ -15,7 +15,6 @@
     ></script>
     <script src="../indexjs.js"></script>
 
-
     <!-- Load React Scripts -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -30,37 +29,67 @@
     <script type="text/javascript" src="../registrering/login.js"></script>
   </head>
   <body>
-    
-        <!-- Top navigation menu -->
-        <nav class="nav-top">
-          <ul class="ul-navtop">
-              <li><a class="a-navmenufoot" href="../index.html">Start</a></li>
-              <li><a class="a-navmenufoot" href="../resor/create-trip.html">Skapa resa</a></li>
-              <li><a class="a-navmenufoot" href="../search/search-trip.html">Sök resa</a></li>
-              <li><a class="a-navmenufoot navactive" href ="../display/display-trips.html">Visa Resor</a></li>
-              <li><a class="a-navmenufoot" href="../FAQ/FAQ.html">Vanliga frågor</a></li>
-          </ul>
-      </nav>
+    <!-- Top navigation menu -->
+    <nav class="nav-top">
+      <ul class="ul-navtop">
+        <li><a class="a-navmenufoot" href="../index.html">Start</a></li>
+        <li>
+          <a class="a-navmenufoot" href="../resor/create-trip.html"
+            >Skapa resa</a
+          >
+        </li>
+        <li>
+          <a class="a-navmenufoot" href="../search/search-trip.html"
+            >Sök resa</a
+          >
+        </li>
+        <li>
+          <a
+            class="a-navmenufoot navactive"
+            href="../display/display-trips.html"
+            >Visa Resor</a
+          >
+        </li>
+        <li>
+          <a class="a-navmenufoot" href="../FAQ/FAQ.html">Vanliga frågor</a>
+        </li>
+      </ul>
+    </nav>
 
-      <!-- Hamburger with register account and log in/out. -->
-      <nav class="nav-log">
-          <a href="javascript:void(0);" class="icon-burger" onclick="flipBurger()">
-              <i class="fa-solid fa-burger fa-flip" id="ani-burger" style="--fa-animation-duration: 3s;" ></i>
-          </a>
+    <!-- Hamburger with register account and log in/out. -->
+    <nav class="nav-log">
+      <a href="javascript:void(0);" class="icon-burger" onclick="flipBurger()">
+        <i
+          class="fa-solid fa-burger fa-flip"
+          id="ani-burger"
+          style="--fa-animation-duration: 3s"
+        ></i>
+      </a>
 
-          <div id="log">
-              <ul class="ul-navmenufoot">
-                  <li class="inloggsknapp"><a class="a-navmenufoot" href ="../registrering/SignUp.html">Registrera konto</a></li>
-                  <li class="inloggsknapp"><a class="a-navmenufoot" id="inlogg" href="../registrering/login.html" onclick="UtLoggad()">logga in</a></li>
-              </ul>
-          </div>
-      </nav>
+      <div id="log">
+        <ul class="ul-navmenufoot">
+          <li class="inloggsknapp">
+            <a class="a-navmenufoot" href="../registrering/SignUp.html"
+              >Registrera konto</a
+            >
+          </li>
+          <li class="inloggsknapp">
+            <a
+              class="a-navmenufoot"
+              id="inlogg"
+              href="../registrering/login.html"
+              onclick="UtLoggad()"
+              >logga in</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-    <header>
-    </header>
+    <header></header>
 
     <main>
-      <span class="display-title">Tillgängliga Resor</span>
+      <h1 class="display-title">Tillgängliga Resor</h1>
       <hr id="display-divider" />
 
       <!-- The main filter / display list, created by react -->
@@ -90,12 +119,25 @@
 
     <footer>
       <ul class="ul-navmenufoot" id="ul-foot">
-          <li><a class="a-navmenufoot" href="https://github.com/Pyruslupinus/Pendling" target="_blank"><i class="fa-brands fa-github"></i> Om oss</a></li>
+        <li>
+          <a
+            class="a-navmenufoot"
+            href="https://github.com/Pyruslupinus/Pendling"
+            target="_blank"
+            ><i class="fa-brands fa-github"></i> Om oss</a
+          >
+        </li>
       </ul>
 
       <!-- Button at the bottom of the page to get back to the top. -->
-      <button onclick="topFunction()" class="indexbuttons" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+      <button
+        onclick="topFunction()"
+        class="indexbuttons"
+        id="toTop"
+        title="Go to top"
+      >
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
     </footer>
-
   </body>
 </html>
