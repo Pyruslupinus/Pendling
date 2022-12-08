@@ -27,11 +27,14 @@ function validationCheck() {
 
   //Email Check
   var checkEmail = EmailInput.indexOf("@")
-  var checkEmailDot = EmailInput.indexOf(".")
+  var checkEmailDot = EmailInput.lastIndexOf(".")
   //
 
+  console.log(EmailInput.length);
+  console.log(checkEmailDot);
+
   //Email
-  if (EmailInput == "" || checkEmail < 1 || checkEmailDot < checkEmail + 2 || checkEmailDot + 2 >= EmailInput.length) {
+  if (EmailInput == "" || checkEmail < 1 || checkEmailDot <= checkEmail + 1 || checkEmailDot + 1 >= EmailInput.length) {
     alert("Fyll i en giltig E-Mail adress")
   } //Till Username
   else if (UserNameInput == null || UserNameInput == "") {
