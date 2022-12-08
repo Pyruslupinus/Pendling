@@ -167,7 +167,7 @@ const CardPassengerInfo = (props) => {
     <article className={"flex-column card-section tooltip"}>
       <h3 className={"section-title subtitle"}>Antal Passagerare</h3>
       <div className="passenger-icon-display">
-        <span className="passenger-text">{totalPassengers}</span>
+        <span className="passenger-text">{totalPassengers}<span className="screen-reader"> {passengerText}</span></span>
         <div className="passenger-row">
           {/* Map out adult / children to icons */}
           {passengerIcons.map((passenger) => {
@@ -181,7 +181,7 @@ const CardPassengerInfo = (props) => {
               icons = "fa-solid fa-ellipsis fa-lg";
             }
             id++;
-            return <i key={id} className={icons} />;
+            return <i key={id} className={icons} aria-hidden="true"/>;
           })}
         </div>
 
