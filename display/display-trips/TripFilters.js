@@ -122,9 +122,9 @@ const TripFilters = (props) => {
 
   return (
     <section id="filters">
-      <span id="filter-title">Filter</span>
+      <h2 id="filter-title">Filter</h2>
       <article>
-        <span className="filter-section-title title">Destination</span>
+        <h3 className="filter-section-title title">Destination</h3>
         <div className="filter-section">
           <label htmlFor="travel-from" className="filter-section subtitle">
             Från
@@ -139,7 +139,7 @@ const TripFilters = (props) => {
       </article>
 
         <article>
-          <span className="filter-section-title title">Resinfo</span>
+          <h3 className="filter-section-title title">Resinfo</h3>
           <div className="filter-section">
             <label htmlFor="travel-type" className="filter-section subtitle">
               Restyp
@@ -162,7 +162,7 @@ const TripFilters = (props) => {
 
 
         <article>
-        <span className="filter-section-title title">Passagerare</span>
+        <h3 className="filter-section-title title">Passagerare</h3>
         <div className="filter-section">
           <label htmlFor="passenger-count-min" className="subtitle filter-section">
             Minimum
