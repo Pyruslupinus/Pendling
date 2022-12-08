@@ -52,29 +52,33 @@
         <h3>Har du redan ett konto?</h3>
         <a id="LinkTillInloggning" href="login.html">Logga in</a>
         <div class="input-control">
-          <label for="Email">Email:</label>
-          <input type="email" id="EmailInput" placeholder="Skriv in Email här" required id="Namn"/>
+          <label for="EmailInput">Email:
+            <input type="email" id="EmailInput" placeholder="Skriv in Email här" required id="Namn" name="Email"/>
+          </label>
           <div class="error"></div>
           <!--Denna 'div' som kommer innehålla error messages -->
         </div>
         <br />
 
         <div class="input-control">
-          <label for="Username">Avändarnamn</label>
-          <input type="text" id="UserNameInput" placeholder="Skriv in ditt användarnamn här" required />
+          <label for="UserNameInput">Avändarnamn
+            <input type="text" id="UserNameInput" placeholder="Skriv in ditt användarnamn här" required />
+          </label>
           <div class="error"></div>
         </div>
         <br />
 
         <div class="input-control">
-          <label>Lösenord</label>
-          <input type="password" id="PasswordInput" placeholder="Skriv in ditt lösenord här" required/>
+          <label>Lösenord
+            <input type="password" id="PasswordInput" placeholder="Skriv in ditt lösenord här" required/>
+          </label>
           <div class="error"></div>
         </div>
 
         <div class="input-control">
-          <label>Lösenord</label>
-          <input type="password" id="PasswordInput2" placeholder="Skriv in ditt lösenord igen" required/>
+          <label>Lösenord
+            <input type="password" id="PasswordInput2" placeholder="Skriv in ditt lösenord igen" required/>
+          </label>
           <div class="error"></div>
         </div>
 
@@ -93,7 +97,7 @@
       </ul>
 
       <!-- Button at the bottom of the page to get back to the top. -->
-      <button onclick="topFunction()" class="indexbuttons" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+      <button onclick="topFunction()" class="indexbuttons" id="toTop" title="Go to top"><i class="fa-solid fa-arrow-up"></i><span class="screen-reader">Pil upp: Till toppen av sidan</span></button>
   </footer>
 
   </body>

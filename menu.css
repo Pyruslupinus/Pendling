@@ -212,3 +212,9 @@ footer {
 
   border: 0px;
 }
+
+/*For alt text to icons, only visable for screen reader*/
+.screen-reader{
+  opacity: 0;
+  font-size: 0;
+}
