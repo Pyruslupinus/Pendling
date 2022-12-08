@@ -153,11 +153,6 @@ main {
   transform: scale(102%);
 }
 
-.screen-reader {
-  opacity: 0;
-  font-size: 0;
-}
-
 /* TRIP CARD COMPONENTS */
 
 .card-row {

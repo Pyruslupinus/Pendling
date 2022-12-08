@@ -212,3 +212,9 @@ footer {
 
   border: 0px;
 }
+
+/*För beskrivande text till iconer, enbart synlig för skärmläsare*/
+.screen-reader{
+  opacity: 0;
+  font-size: 0;
+}
