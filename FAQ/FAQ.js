@@ -2,16 +2,16 @@
 const ContentShowOrHide = (props) => {
     let question = props.question
 
-    const [arrow, setCurrentArrow] = React.useState(<i className="fa-solid fa-chevron-down"></i>)
+    const [arrow, setCurrentArrow] = React.useState(<i className="fa-solid fa-chevron-down"><span className="screen-reader">Pil ner</span></i>)
 
     const [answer, setCurrentAnswer] = React.useState("")
     const ShowOrHideAnswer = () => {
         if (answer ===""){
             setCurrentAnswer(props.answer);
-            setCurrentArrow(<i class="fa-solid fa-chevron-up"></i>);
+            setCurrentArrow(<i class="fa-solid fa-chevron-up"><span className="screen-reader">Pil upp</span></i>);
         } else {
             setCurrentAnswer("");
-            setCurrentArrow(<i className="fa-solid fa-chevron-down"></i>)
+            setCurrentArrow(<i className="fa-solid fa-chevron-down"><span className="screen-reader">Pil ner</span></i>)
         }
         
     }

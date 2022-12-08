@@ -4,6 +4,7 @@ Allmän styling
 Styling av body och header (taget från Annie)
 Layout av frågor och sökbar + styling av sökbar
 Styling av frågor och svar
+Tillgänglighet
 */
 
 @import url("https://fonts.googleapis.com/css?family=Raleway|Cambo|Abel");
@@ -114,4 +115,10 @@ button.question {
 }
 p.answer {
   margin: -0.5rem 1.5rem 0.5rem;
+}
+
+/*Tillgänglighet*/
+.screen-reader {
+  opacity: 0;
+  font-size: 0;
 }
