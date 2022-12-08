@@ -122,15 +122,17 @@ footer {
   display: flex;
 }
 
-/* "Hides #log in hamburger" if screen less than 600px. */
-#log {
+/* For hiding / showing the #log when the hamburger menu is clicked. */
+.hidden{
   display: none;
 }
 
+.show{
+  display: block;
+}
+
 @media screen and (min-width: 1260px) {
-  #log {
-    display: block;
-  }
+  
 
   .ul-navtop {
     justify-content: center;
