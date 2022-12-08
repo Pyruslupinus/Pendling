@@ -13,7 +13,7 @@ function flipBurger() {
   //and 2 - it no longer auto-hides <1260px when the media query is removed
   //The reason for both of these is that it technically doesn't have a style set at the start,
   //it only has style applied to it from the css, but the html.style is just "" (or unset, or null, i'm not sure :D)
-  //This means the first time we try to check if the style currently is "block", we won't find it and set it to be block, causing problem #2
+  //This means the first time we try to check if the style currently is "block", we won't find it and set it to be "block" again, causing problem #1
   //And because style set directly on a piece of html overrides the css we get problem #2 with the media query being overwritten
 
   // if (x.style.display === "block") {
@@ -23,7 +23,7 @@ function flipBurger() {
   // }
 
   //The solution to this is to toggle show / hide-classes on it instead, and give it one of them to start with so we
-  //(This is often done with a single hidden class that is toggled instead)
+  //(This is often done with a single hidden class that is toggled instead but I prefer being a bit more obvious with it)
   if (x.classList.contains("hidden")) {
     x.classList.remove("hidden");
     x.classList.add("show");
