@@ -29,7 +29,8 @@
   /* Small fix to avoid some issues on the create / display trip pages */
   z-index: 1;
 
-  background-color: transparent;
+  background-color: var(--medium-dark);
+  padding: 4px 0px;
 }
 
 .ul-navtop,
