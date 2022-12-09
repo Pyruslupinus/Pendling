@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700;800;900&display=swap");
 
-
-
 *,
 *::before,
 *::after {
@@ -9,7 +7,15 @@
 }
 
 body {
-  background-image: repeating-linear-gradient(40deg,var(--dark),var(--medium-dark), var(--lighter), var(--medium-dark), var(--medium-dark), var(--bright));
+  background-image: repeating-linear-gradient(
+    40deg,
+    var(--dark),
+    var(--medium-dark),
+    var(--lighter),
+    var(--medium-dark),
+    var(--medium-dark),
+    var(--bright)
+  );
   background-attachment: fixed;
   margin: 0;
 }
@@ -21,12 +27,15 @@ main {
   align-items: center;
   padding: 1rem 0 3rem 0;
   margin: 0 auto;
+  margin-top: 1.5rem;
   min-height: 110vh;
   text-align: left;
   background: rgba(255, 255, 255, 0.8);
   font-family: "Cambo", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);
+  border-radius: 8px;
+  border: 2px solid #38a3a5;
 }
 
 /* Meta-classes */
@@ -42,16 +51,16 @@ main {
   color: #3b3939;
 }
 
-.title{
+.title {
   font-size: 1.4rem;
 }
 
-.subtitle{
+.subtitle {
   font-size: 1.1rem;
 }
 
 /* MAIN LAYOUT */
-#display-trips-root{
+#display-trips-root {
   width: 95%;
 }
 
@@ -64,6 +73,31 @@ main {
 }
 
 /* TITLE */
+.header {
+  text-align: center;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 8px auto;
+  padding: 10px;
+  background-color: #22577a;
+  color: white;
+}
+
+.header h1 {
+  margin: 0px;
+  font-family: "Cambo";
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 2px #38a3a5;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0px;
+  font-family: "Abel";
+  font-size: 22px;
+  letter-spacing: 1px;
+}
 
 .display-title {
   font-size: clamp(1.4rem, 2.2rem + 1vw, 3rem);
@@ -100,7 +134,7 @@ main {
   gap: 0.5rem;
 }
 
-.filter-section-title{
+.filter-section-title {
   font-size: 1.4rem;
 }
 
@@ -109,7 +143,7 @@ main {
   margin: 0.2rem 1rem;
 }
 
-.passenger-slider{
+.passenger-slider {
   display: grid;
   grid-template-columns: 10% 1fr;
   gap: 1rem;
@@ -183,7 +217,6 @@ main {
   border: 1px solid black;
 }
 
-
 /* PENDLING / RESA */
 
 #travel-type-text {
@@ -201,20 +234,17 @@ main {
   font-size: 1.4rem;
   font-weight: 600;
   margin-top: 2rem;
-
 }
 
 /* PASSENGERS */
 
-
-.passenger-icon-display{
+.passenger-icon-display {
   display: grid;
   grid-template-columns: auto 1fr 1fr;
   gap: 1rem;
   align-items: center;
   padding: 2rem 0 1rem 0;
 }
-
 
 .passenger-row {
   display: grid;
@@ -230,25 +260,23 @@ main {
   line-height: 1;
 }
 
-.passenger-row .fa-solid{
+.passenger-row .fa-solid {
   height: 20px;
 }
 
-.fa-ellipsis{
+.fa-ellipsis {
   transform: translateY(0.7rem);
 }
 
 /* LUGGAGE */
 
-
-.luggage-icon-display{
+.luggage-icon-display {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 1rem;
   align-items: center;
   padding: 2rem 0 1rem 0;
 }
-
 
 .luggage-row {
   display: flex;
@@ -264,14 +292,14 @@ main {
 
 /* MEDIA QUERIES */
 
-@media only screen and (max-width: 800px){
- .passenger-icon-display,
- .luggage-icon-display{
-  grid-template-columns: 1fr;
-  justify-items: left;
-  padding: 1rem 0;
-  gap: 2rem;
- }
+@media only screen and (max-width: 800px) {
+  .passenger-icon-display,
+  .luggage-icon-display {
+    grid-template-columns: 1fr;
+    justify-items: left;
+    padding: 1rem 0;
+    gap: 2rem;
+  }
 }
 
 @media only screen and (max-width: 650px) {
@@ -279,7 +307,7 @@ main {
     grid-column: span 2;
   }
 
-  main{
+  main {
     overflow-x: hidden;
     margin: 0;
     padding: 1rem 2vw 3rem;
@@ -287,43 +315,38 @@ main {
     min-width: unset;
     max-width: unset;
   }
-  
-#display-trips-root{
-  width: 100%;
-}
 
+  #display-trips-root {
+    width: 100%;
+  }
 
-.trip-card:hover {
-  transform: unset;
-}
+  .trip-card:hover {
+    transform: unset;
+  }
 
-.display-title{
-  padding: 1rem 0.5rem;
-  text-align: center;
-}
+  .display-title {
+    padding: 1rem 0.5rem;
+    text-align: center;
+  }
 
+  #display-divider {
+    width: 100%;
+  }
 
-#display-divider {
-  width: 100%;
-}
+  #filter-title {
+    justify-content: center;
+  }
 
-
-#filter-title{
-  justify-content: center;
-}
-
-#main-container{
-  padding: 1rem 0.5rem;
-}
+  #main-container {
+    padding: 1rem 0.5rem;
+  }
 
   .trip-display {
     grid-column: span 2;
   }
-
 }
 
 /* Misc */
-
 
 /* Tooltip text */
 .tooltip .tooltiptext {
@@ -343,14 +366,14 @@ main {
   visibility: visible;
 }
 
-.always-show{
+.always-show {
   /* Anti-pattern but kind of had to due to specificty conflicts */
-  visibility: visible!important;
+  visibility: visible !important;
 }
 
 /* Modal for when the cards have been clicked */
 /* using the w3schools modal as a baseline (including the modal / modalcontent trick for onclick) */
-.trip-modal{
+.trip-modal {
   position: fixed;
   z-index: 2;
   left: 0;
@@ -359,11 +382,11 @@ main {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-.trip-modal-content{
+.trip-modal-content {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -382,21 +405,21 @@ main {
   border: 4px solid black;
 }
 
-.trip-modal-content .modal-title{
+.trip-modal-content .modal-title {
   font-size: 2rem;
   text-align: center;
   font-weight: 600;
 }
-.trip-modal-content .section-title{
+.trip-modal-content .section-title {
   font-size: 1.5rem;
 }
 
-.trip-modal-content .section-text{
+.trip-modal-content .section-text {
   font-size: 1.2rem;
   margin-top: 10px;
 }
 
-.trip-modal-content .tooltip .tooltiptext{
+.trip-modal-content .tooltip .tooltiptext {
   background: unset;
   color: black;
   font-size: 1.3rem;
@@ -404,7 +427,7 @@ main {
   border: 2px solid black;
 }
 
-.modal-contact{
+.modal-contact {
   min-width: min(250px, 25vw);
   align-self: center;
   padding: 10px;
