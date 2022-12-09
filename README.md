@@ -13,7 +13,7 @@ Syed, Isak, Björn
 
   
 ## Köra sidan
-Sidan innehåller react-element (via script-inkludering hellre än helt ramverk) på ett par av undersidorna. Kräver på grund av det att man kör den som localhost. Enklast är att starta index via vscode med Live Server-pluginen.
+Sidan innehåller react-element (via script-inkludering hellre än helt ramverk) på ett par av undersidorna. Kräver på grund av det att man kör den som localhost. Enklast är att starta index via vscode med Live Server-pluginen. Sidan kan också köras här: https://pyruslupinus.github.io/Pendling/
 
 ## Extra info
 Kan vara värt att nämna att en del som gjorts gemensamt i skolan pushades från min dator så kan se lite överrepresenterad ut i commitsen sista veckan / Björn  
