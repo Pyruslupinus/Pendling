@@ -1,8 +1,9 @@
+//The left / top filtering element on the display page
 const TripFilters = (props) => {
 
-  //First off, get our filters if we're coming from the search-trip.html
   const [firstLoad, setFirstLoad] = React.useState(true);
 
+  //First off, get our filters if we're coming from the search-trip.html
   //Gonna give the filters a chance for a first render before doing this
   React.useEffect(() => {
       if(firstLoad == true){
@@ -12,14 +13,13 @@ const TripFilters = (props) => {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString)
 
-        console.log(urlParams)
         let copy = activeFilters;
         //Slightly brute forcing it, but essentially check and set each value based on their key
         //Also doing some ugly translating due to current mismatch between labels used
         for(const entries of urlParams.entries()){
 
-          //Entries are saved as key : value, but when we do this for
-          //we instead get an array, so reassigning them in a more readable form
+          //Entries are saved as key : value if we were to access them directly, but when we do this for-loop
+          //we instead get an array of entries[0-1], so reassigning them in a more readable form
           const label = entries[0];
           let value = entries[1];
 
@@ -36,23 +36,18 @@ const TripFilters = (props) => {
           switch(label){
             case "FromBox":
               copy.from = value;
-              stateSetters.from(value);
               break;
             case "ToBox":
               copy.to = value;
-              stateSetters.to(value);
               break;
             case "restyp":
               copy.traveltype = value.toLowerCase();
-              stateSetters.traveltype(value.toLowerCase());
               break;
             case "erbjudersöker":
               copy.type = value.toLowerCase();
-              stateSetters.type(value.toLowerCase());
               break;
             case "PassCSS":
               copy.passengersMin = value;
-              stateSetters.passengersMin(value);
               break;
           }
         }
@@ -65,10 +60,10 @@ const TripFilters = (props) => {
   })
 
 
-  //So this component got a bit silly
-  //These 3 makes a bit more sense when you look at the filtersChanged method (maybe)
-  //The first one is a bit unnecessary (since this means saving the data in two places) but it shortens the 
-  //onChange-handling for the filters by a ton
+  //Rather than keeping a series of tracked variables via useState we can track all of our 
+  //filters in a general object
+  //I'm guessing this has implications for re-rendering though, as each input probably notices that
+  //"their" data has changed whenever any
   const [activeFilters, setActiveFilters] = React.useState({
     traveltype: "alla",
     type: "alla",
@@ -78,43 +73,24 @@ const TripFilters = (props) => {
     to: "",
   });
 
-  const [passengerCountMin, setPassengerCountMin] = React.useState(1);
-  const [passengerCountMax, setPassengerCountMax] = React.useState(props.passengersMax);
-  const [fromField, setFromField] = React.useState("");
-  const [toField, setToField] = React.useState("");
-  const [typeField, setTypeField] = React.useState("alla");
-  const [travelTypeField, setTravelTypeField] = React.useState("alla");
-  
-  const stateSetters = {
-      traveltype: setTravelTypeField,
-      type: setTypeField,
-      passengersMin: setPassengerCountMin,
-      passengersMax: setPassengerCountMax,
-      from: setFromField,
-      to: setToField
-  }
-
   const filtersChanged = (event) => {
     
-
-
-    //Fun js thing - we can access variables on an object via both .-syntax (.type etc) and []-syntax ([type])
+    //Fun js thing - we can access variables on an object via both dot-syntax (.type etc) and []-syntax ([type])
+    //[] takes a string to find the variable with that name which opens up some optimisation opportunities
     const change = {
       type: event.target.name,
       value: event.target.value,
     };
 
     //We can also use variables in the []-syntax, allowing us to link things together a bit more dynamically
+    //In this case, we have set the names of all of our filters to match the data object
     let copy = activeFilters;
-    copy[change.type] = change.value; //for example, this could translate to copy["passengers"] because we use our element name variables
+    copy[change.type] = change.value; //for example, this could translate to copy["passengersMin"] because we use our element name variables
     setActiveFilters(copy);
 
-    //Then we can do hard mode and also remember that an object (or array) can contain methods allowing us to link every single filter in here for their
-    //react update methods
-    stateSetters[change.type](change.value); //could translate to stateSetters["passengers"](3) which in turn would be setPassengerCount(3)
-    //This ends up saving us having to create a handleChange method for each filter, which is actually really nice 
-    //(see the first time set for filters above for how this would have to be done otherwise)
-    
+    //Originally I did this one step sillier, by keeping the local state in here in a series of variables
+    //and then their setters in an object, meaning we accessed it like
+    //stateSetters[change.type](change.value)
 
     //I also pass in a method through props, allowing us to send the new filter values to the parent component
     props.onFilterChanged(copy);
@@ -128,12 +104,12 @@ const TripFilters = (props) => {
         <div className="filter-section">
           <label htmlFor="travel-from" className="filter-section subtitle">
             Från
-            <input id="travel-from" name="from" type="text" value={fromField} onChange={filtersChanged}></input>
+            <input id="travel-from" name="from" type="text" value={activeFilters.from} onChange={filtersChanged}></input>
           </label>
 
           <label htmlFor="travel-to" className="filter-section subtitle">
             Till
-            <input id="travel-to" name="to" type="text" value={toField} onChange={filtersChanged}></input>
+            <input id="travel-to" name="to" type="text" value={activeFilters.to} onChange={filtersChanged}></input>
           </label>
         </div>
       </article>
@@ -143,7 +119,7 @@ const TripFilters = (props) => {
           <div className="filter-section">
             <label htmlFor="travel-type" className="filter-section subtitle">
               Restyp
-              <select id="travel-type" name="traveltype" value={travelTypeField} onChange={filtersChanged}>
+              <select id="travel-type" name="traveltype" value={activeFilters.traveltype} onChange={filtersChanged}>
                 <option value="alla">Visa Alla</option>
                 <option value="resa">Resa</option>
                 <option value="pendling">Pendling</option>
@@ -151,7 +127,7 @@ const TripFilters = (props) => {
             </label>
             <label htmlFor="passenger-type" className="filter-section subtitle">
               Erbjuder / Söker
-              <select id="passenger-type" name="type" value={typeField} onChange={filtersChanged}>
+              <select id="passenger-type" name="type" value={activeFilters.type} onChange={filtersChanged}>
                 <option value="alla">Visa Alla</option>
                 <option value="ägare">Erbjuder</option>
                 <option value="passagerare">Söker</option>
@@ -167,15 +143,15 @@ const TripFilters = (props) => {
           <label htmlFor="passenger-count-min" className="subtitle filter-section">
             Minimum
             <div className="passenger-slider">
-              <span>{passengerCountMin}</span>
-              <input id="passenger-count-min" name="passengersMin"  onChange={filtersChanged} type="range" min={1} max={passengerCountMax} value={passengerCountMin}></input> 
+              <span>{activeFilters.passengersMin}</span>
+              <input id="passenger-count-min" name="passengersMin"  onChange={filtersChanged} type="range" min={1} max={activeFilters.passengersMax} value={activeFilters.passengersMin}></input> 
             </div>
             </label>
           <label htmlFor="passenger-count-max" className="subtitle filter-section">
             Maximum
             <div className="passenger-slider">
-              <span>{passengerCountMax}</span>
-              <input id="passenger-count-max" name="passengersMax"  onChange={filtersChanged} type="range" min={passengerCountMin} max={props.passengersMax} value={passengerCountMax}></input> 
+              <span>{activeFilters.passengersMax}</span>
+              <input id="passenger-count-max" name="passengersMax"  onChange={filtersChanged} type="range" min={activeFilters.passengersMin} max={props.passengersMax} value={activeFilters.passengersMax}></input> 
             </div>
           </label>
         </div>

@@ -98,6 +98,12 @@ const FormTrip = () => {
       alert("Fyll i en giltig destination.");
       return;
     }
+
+    const loginStatus = sessionStorage.getItem("LoggedIn") == "true";
+    if(!loginStatus){
+      alert("Du måste vara inloggad för att kunna skapa en resa.")
+      window.location.href = "../../registrering/login.html";
+    }
     
 
     // For now use local storage

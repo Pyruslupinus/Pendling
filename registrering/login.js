@@ -6,14 +6,12 @@ const userpassword = document.getElementById('userpassword');
 
 window.onload = () =>
 {
-    //console.log(sessionStorage.getItem("LoggedIn"));
-
+    if(document.getElementById("inlogg") === null){
+        return;
+    }
+    
     if(sessionStorage.getItem("LoggedIn") == "true")
     {
-        //för att se om personen är inloggade: bara inloggade användare kan skapa resa, se skapa resa knappen.
-        //när man trycker på skapa resa eller sök resa ska den referera till logga in sidan.
-        //ingen användare->registrera sidan
-
         document.getElementById("inlogg").innerText="Logga Ut"
     }
     else{
@@ -45,17 +43,13 @@ function okLogin() {
         if (UserName == registered_users[user].username && UserPassword == registered_users[user].password) {
             
          
-           GoToHomepage()
-           
            InLoggad()
-         
-        }
-        else
-        {
-            //Det finns inget konto med det angivna användarnamnet eller lösenordet.
-            alert("Det finns inget konto med det angivna användarnamnet eller lösenordet.")
+           GoToHomepage()
+           return;
         }
     }
+    //Det finns inget konto med det angivna användarnamnet eller lösenordet.
+    alert("Det finns inget konto med det angivna användarnamnet eller lösenordet.")
 }
 
 

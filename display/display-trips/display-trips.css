@@ -27,12 +27,15 @@ main {
   align-items: center;
   padding: 1rem 0 3rem 0;
   margin: 0 auto;
+  margin-top: 1.5rem;
   min-height: 110vh;
   text-align: left;
   background: rgba(255, 255, 255, 0.8);
   font-family: "Cambo", sans-serif;
   min-width: min(50rem, 90vw);
   max-width: min(60rem, 90vw);
+  border-radius: 8px;
+  border: 2px solid #38a3a5;
 }
 
 /* Meta-classes */
@@ -70,6 +73,31 @@ main {
 }
 
 /* TITLE */
+.header {
+  text-align: center;
+  max-width: 800px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 8px auto;
+  padding: 10px;
+  background-color: #22577a;
+  color: white;
+}
+
+.header h1 {
+  margin: 0px;
+  font-family: "Cambo";
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 2px #38a3a5;
+  text-transform: uppercase;
+}
+
+.header h2 {
+  margin: 0px;
+  font-family: "Abel";
+  font-size: 22px;
+  letter-spacing: 1px;
+}
 
 .display-title {
   font-size: clamp(1.4rem, 2.2rem + 1vw, 3rem);
@@ -99,6 +127,7 @@ main {
   font-weight: 300;
   line-height: 1;
   margin-bottom: -1rem;
+  margin-top: 0;
 }
 
 .filter-section {
@@ -151,6 +180,10 @@ main {
 
 .trip-card:hover {
   transform: scale(102%);
+}
+
+.trip-card h3{
+  margin-top: 0;
 }
 
 /* TRIP CARD COMPONENTS */
@@ -209,7 +242,6 @@ main {
   font-size: 1.4rem;
   font-weight: 600;
   margin-top: 2rem;
-  margin-bottom: -0.5rem; /*För att ta bort margin tillagd av att ändra object till h2 //Tau*/
 }
 
 /* PASSENGERS */
