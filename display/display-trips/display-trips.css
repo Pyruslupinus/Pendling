@@ -101,6 +101,7 @@ main {
 
 .display-title {
   font-size: clamp(1.4rem, 2.2rem + 1vw, 3rem);
+  font-weight: 100; /*För att få tillbaka orginal-utseende efter ändring till typ h1 //Tau */
   padding: 0.5rem 2rem;
   grid-column: span 2;
   line-height: 1;
@@ -125,6 +126,7 @@ main {
   font-size: 2rem;
   font-weight: 300;
   line-height: 1;
+  margin-bottom: -1rem;
 }
 
 .filter-section {
@@ -193,6 +195,7 @@ main {
 
 .section-title {
   margin-left: -0.4rem;
+  margin-bottom: 0; /*För att ta bort margin tillgad av h3 //Tau*/
 }
 
 .capitalize {

@@ -28,10 +28,11 @@ const TripCard = (props) => {
       <i
         id="type-logo"
         className={`fa-solid ${variableInfo.typeLogo} fa-lg`}
+        aria-hidden="true"
       ></i>
-      <span id="trip-destination" className="capitalize">
+      <h2 id="trip-destination" className="capitalize">
         {cardInfo.from} - {cardInfo.to}
-      </span>
+      </h2>
       <span id="travel-type-text">{variableInfo.traveltypeText}</span>
       <CardTimeInfo dateInfo={travelDate} timeInfo={cardInfo.time} />
       <CardPassengerInfo passagerarInfo={cardInfo.passagerarInfo} />
@@ -86,7 +87,7 @@ const TripModal = (props) => {
 const CardTimeInfo = (props) => {
   return (
     <div className={"flex-column card-section"}>
-      <span className={"section-title subtitle"}>Tid</span>
+      <h3 className={"section-title subtitle"}>Tid</h3>
       <div className="section-text">
         <span>{props.dateInfo}</span>
         <br />
@@ -164,9 +165,9 @@ const CardPassengerInfo = (props) => {
   let id = 0;
   return (
     <article className={"flex-column card-section tooltip"}>
-      <div className={"section-title subtitle"}>Antal Passagerare</div>
+      <h3 className={"section-title subtitle"}>Antal Passagerare</h3>
       <div className="passenger-icon-display">
-        <span className="passenger-text">{totalPassengers}</span>
+        <span className="passenger-text">{totalPassengers}<span className="screen-reader"> {passengerText}</span></span>
         <div className="passenger-row">
           {/* Map out adult / children to icons */}
           {passengerIcons.map((passenger) => {
@@ -180,7 +181,7 @@ const CardPassengerInfo = (props) => {
               icons = "fa-solid fa-ellipsis fa-lg";
             }
             id++;
-            return <i key={id} className={icons} />;
+            return <i key={id} className={icons} aria-hidden="true"/>;
           })}
         </div>
 
@@ -202,13 +203,13 @@ const CardLuggageInfo = (props) => {
   let id = 0;
   return (
     <div className={"flex-column card-section"}>
-      <span className={"section-title subtitle"}>Baggage</span>
+      <h3 className={"section-title subtitle"}>Baggage</h3>
       <div className="luggage-icon-display">
         <span className="luggage-text">{props.luggageInfo}</span>
         <div className="luggage-row">
           {luggageIcons.map((luggage) => {
             id++;
-            return <i key={id} className="fa-solid fa-suitcase-rolling fa-lg"/>
+            return <i key={id} className="fa-solid fa-suitcase-rolling fa-lg" aria-hidden="true"/>
           })}
         </div>
       </div>
@@ -224,7 +225,7 @@ const CardLuggageInfo = (props) => {
 const CardPersonalInfo = (props) => {
   return (
     <div className={"flex-column card-section"}>
-      <span className={"section-title subtitle"}>Upplagd av</span>
+      <h3 className={"section-title subtitle"}>Upplagd av</h3>
       <div className="section-text">
         <span>{props.personInfo}</span>
       </div>
@@ -240,7 +241,7 @@ const CardExtraInfo = (props) => {
 
   return (
     <div className={"flex-column card-section"}>
-      <span className={"section-title subtitle"}>Extra Info</span>
+      <h3 className={"section-title subtitle"}>Extra Info</h3>
       <div className="section-text">
         <span>{extraInfo}</span>
       </div>
