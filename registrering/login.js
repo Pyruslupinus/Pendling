@@ -48,17 +48,13 @@ function okLogin() {
         if (UserName == registered_users[user].username && UserPassword == registered_users[user].password) {
             
          
-           GoToHomepage()
-           
            InLoggad()
-         
-        }
-        else
-        {
-            //Det finns inget konto med det angivna användarnamnet eller lösenordet.
-            alert("Det finns inget konto med det angivna användarnamnet eller lösenordet.")
+           GoToHomepage()
+           return;
         }
     }
+    //Det finns inget konto med det angivna användarnamnet eller lösenordet.
+    alert("Det finns inget konto med det angivna användarnamnet eller lösenordet.")
 }
 
 
