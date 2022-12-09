@@ -8,7 +8,7 @@ const ContentShowOrHide = (props) => {
     const ShowOrHideAnswer = () => {
         if (answer ===""){
             setCurrentAnswer(props.answer);
-            setCurrentArrow(<i class="fa-solid fa-chevron-up"><span className="screen-reader">Pil upp</span></i>);
+            setCurrentArrow(<i className="fa-solid fa-chevron-up"><span className="screen-reader">Pil upp</span></i>);
         } else {
             setCurrentAnswer("");
             setCurrentArrow(<i className="fa-solid fa-chevron-down"><span className="screen-reader">Pil ner</span></i>)

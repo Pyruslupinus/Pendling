@@ -127,6 +127,7 @@ main {
   font-weight: 300;
   line-height: 1;
   margin-bottom: -1rem;
+  margin-top: 0;
 }
 
 .filter-section {
@@ -179,6 +180,10 @@ main {
 
 .trip-card:hover {
   transform: scale(102%);
+}
+
+.trip-card h3{
+  margin-top: 0;
 }
 
 /* TRIP CARD COMPONENTS */
