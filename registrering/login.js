@@ -6,6 +6,9 @@ const userpassword = document.getElementById('userpassword');
 
 window.onload = () =>
 {
+    if(document.getElementById("inlogg") === null){
+        return;
+    }
     //console.log(sessionStorage.getItem("LoggedIn"));
 
     if(sessionStorage.getItem("LoggedIn") == "true")

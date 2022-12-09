@@ -28,13 +28,11 @@ const DisplayList = () => {
 
   //If our filters change, we need a reload method, this is passed and called by the tripFilters during their onChange
   const reloadTrips = (filters) => {
-    console.log(filters);
     //Next step - actually filter based on what we get here
     let newTrips = trips.filter(filterType);
     newTrips = newTrips.filter(filterTravelType);
     newTrips = newTrips.filter(filterDestination);
     newTrips = newTrips.filter(filterPassengers);
-    console.log(newTrips);
     setFilteredTrips(newTrips);
 
     //To make things a bit clearer we declare a series of local functions

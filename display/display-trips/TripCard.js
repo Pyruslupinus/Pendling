@@ -56,9 +56,8 @@ const TripModal = (props) => {
 
   //This should maybe be done by the parent but - check if we're logged in and tell our contact button to disable if we're not
   const loginStatus = sessionStorage.getItem("LoggedIn") == "true";
-  console.log(loginStatus);
 
-  //Essentially just a card, but with some extra info added
+  //Essentially just a card, but with some extra info & a contact button added
   return (
     <section id="cardModal" className="trip-modal">
       <article className="trip-modal-content" style={borderStyle}>
@@ -101,7 +100,6 @@ const CardTimeInfo = (props) => {
 const CardPassengerInfo = (props) => {
   const passengerIcons = [];
 
-  //TODO Add some validation here
   const adultCount = parseInt(props.passagerarInfo.vuxna);
   const childCount = parseInt(props.passagerarInfo.barn);
   const total = adultCount + childCount;
@@ -111,10 +109,6 @@ const CardPassengerInfo = (props) => {
 
   //useEffect = Do this after everything has loaded & rendered
   //(technically, do this after every render)
-  //Need to do this since we can't directly set things in this method
-  //because that would call for a re-render which would then call this method
-  //and cause a loop
-
   React.useEffect(() => {
     //Slightly silly use of the ? conditional check and string interpolation
     //Depending on how many adults we have we want to display either vuxen / vuxna, and
@@ -123,12 +117,19 @@ const CardPassengerInfo = (props) => {
       childCount > 0 ? `, ${childCount} barn` : ""
     }`;
     setPassengerText(passengerText);
-
-    //This solves a really silly bug that is kind of hard to explain
-    //If I didn't do this in here (which doesn't cause a re-render btw since it's already set to this value?)
-    //then I'd have run an issue where when I'm filtering by passenger, the
-    //total would remain the total from the card that was in the slot before
     setTotalPassengers(total);
+
+    //We could set both of these outside of useEffect but doing it like this
+    // solves a really silly bug that is kind of hard to explain.
+
+    //If I didn't do this in here (forcing an additional re-render somehow) then
+    //the passenger text / total would not update on filtering.
+    //The reason for this is most likely that the map-method uses index-based keys instead
+    //of unique id. 
+
+    //Because of that the map gets a different array when filters update,
+    // but sees that the element on position 0 still has key 0
+    //The effect of this meant that the cards ended up with the wrong passenger icons
   });
 
   //To be able to map the adult / children to icons we need to put them in an array
@@ -157,7 +158,6 @@ const CardPassengerInfo = (props) => {
   let toolTipClasslist = "tooltiptext capitalize";
   //Check if we've told this to always show our tooltip
   if ("toolTipStyle" in props) {
-    console.log("got here");
     toolTipClasslist = "tooltiptext capitalize always-show";
   }
 
@@ -192,6 +192,8 @@ const CardPassengerInfo = (props) => {
   );
 };
 
+//Same as the passenger icons but the simpler version
+//Just draw luggages based on the passed in number
 const CardLuggageInfo = (props) => {
   const luggageIcons = [];
   for (let index = 0; index < parseInt(props.luggageInfo); index++) {
@@ -216,6 +218,9 @@ const CardLuggageInfo = (props) => {
   );
 };
 
+//These are split into their own components both because they need to be re-used for the modal
+//but also because it's a lot easier to visualise layout on a "top-level" component in react
+//if you split the sections into their own components
 const CardPersonalInfo = (props) => {
   return (
     <div className={"flex-column card-section"}>
